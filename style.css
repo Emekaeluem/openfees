@@ -1,7 +1,7 @@
 
-/* ==========================================
-   OPENFEES WEBSITE — GLOBAL STYLES
-========================================== */
+/* =========================================
+   OPENFEES — GLOBAL STYLES
+========================================= */
 
 :root {
   --navy: #032464;
@@ -33,18 +33,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
+h1, h2, h3, h4, p {
   margin-top: 0;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
   font-family: "Manrope", Arial, sans-serif;
   letter-spacing: -.045em;
 }
@@ -88,9 +81,9 @@ img {
   top: 12px;
 }
 
-/* ==========================================
-   HEADER — ORIGINAL TRANSPARENT STYLE
-========================================== */
+/* =========================================
+   HEADER
+========================================= */
 
 .site-header {
   position: absolute;
@@ -132,7 +125,7 @@ img {
 .nav-list {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 2vw, 34px);
+  gap: clamp(16px,2vw,34px);
   margin: 0 auto 0 0;
   padding: 0;
   list-style: none;
@@ -142,8 +135,8 @@ img {
   display: inline-block;
   padding: 12px 0;
   color: white;
-  font-weight: 600;
   font-size: 14px;
+  font-weight: 600;
   transition: color .25s;
 }
 
@@ -160,13 +153,11 @@ img {
   flex-shrink: 0;
   padding: 16px 28px;
   border-radius: 50px;
-  color: white;
   background: var(--blue);
+  color: white;
   font-size: 14px;
   font-weight: 700;
-  transition:
-    background .25s,
-    transform .25s;
+  transition: background .25s, transform .25s;
 }
 
 .nav-cta:hover {
@@ -196,9 +187,9 @@ img {
   stroke-linecap: round;
 }
 
-/* ==========================================
+/* =========================================
    SECTION 1 — VIDEO HERO
-========================================== */
+========================================= */
 
 .hero {
   position: relative;
@@ -252,7 +243,7 @@ img {
 .hero h1 {
   margin: 0 auto 38px;
   color: white;
-  font-size: clamp(41px, 5.6vw, 83px);
+  font-size: clamp(41px,5.6vw,83px);
   line-height: 1.13;
   font-weight: 800;
   letter-spacing: -.055em;
@@ -280,8 +271,8 @@ img {
   padding: 16px 27px;
   border: 0;
   border-radius: 50px;
-  font-weight: 700;
   font-size: 14px;
+  font-weight: 700;
   transition:
     transform .25s,
     background .25s,
@@ -349,15 +340,15 @@ img {
   font-weight: 600;
 }
 
-/* ==========================================
-   SECTION 2 — WELCOME TO OPENFEES
-========================================== */
+/* =========================================
+   SECTION 2 — WELCOME
+========================================= */
 
 .welcome-section {
   position: relative;
   width: 100%;
   min-height: 100svh;
-  background: #FFFFFF;
+  background: white;
   overflow: hidden;
   isolation: isolate;
 }
@@ -369,13 +360,11 @@ img {
   min-height: 100svh;
 }
 
-/* LEFT HALF */
-
 .welcome-content {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(45px, 6vw, 100px);
+  padding: clamp(45px,6vw,100px);
   padding-left: max(
     6vw,
     calc((100vw - 1320px)/2 + 50px)
@@ -386,7 +375,7 @@ img {
       rgba(0,174,238,.045),
       transparent 45%
     ),
-    #FFFFFF;
+    white;
 }
 
 .welcome-content-inner {
@@ -399,10 +388,10 @@ img {
   align-items: center;
   gap: 13px;
   margin-bottom: 27px;
+  color: var(--blue-dark);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .21em;
-  color: #008FC7;
 }
 
 .welcome-eyebrow-line {
@@ -415,7 +404,7 @@ img {
   max-width: 580px;
   margin-bottom: 25px;
   color: var(--navy);
-  font-size: clamp(43px, 4.9vw, 75px);
+  font-size: clamp(43px,4.9vw,75px);
   line-height: 1.09;
   font-weight: 800;
   letter-spacing: -.065em;
@@ -446,7 +435,7 @@ img {
   max-width: 470px;
   margin-bottom: 17px;
   color: #253E59;
-  font-size: clamp(16px, 1.5vw, 19px);
+  font-size: clamp(16px,1.5vw,19px);
   font-weight: 600;
   line-height: 1.7;
 }
@@ -473,14 +462,14 @@ img {
   min-height: 59px;
   padding: 9px 10px 9px 27px;
   background: var(--navy);
-  color: #FFFFFF;
+  color: white;
   border-radius: 50px;
   font-size: 14px;
   font-weight: 700;
   transition:
-    transform .25s ease,
-    background .25s ease,
-    box-shadow .25s ease;
+    transform .25s,
+    background .25s,
+    box-shadow .25s;
 }
 
 .welcome-button:hover {
@@ -498,7 +487,6 @@ img {
   background: var(--blue);
   color: white;
   font-size: 21px;
-  font-weight: 400;
 }
 
 .welcome-signature {
@@ -518,8 +506,6 @@ img {
   background: var(--blue);
   border-radius: 50%;
 }
-
-/* RIGHT HALF */
 
 .welcome-visual {
   position: relative;
@@ -562,7 +548,6 @@ img {
     rgba(0,174,238,.1) 52%,
     transparent 72%
   );
-  pointer-events: none;
 }
 
 .visual-ring {
@@ -588,11 +573,11 @@ img {
 
 .visual-accent {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
+  z-index: 4;
   width: 6px;
   height: 100%;
-  z-index: 4;
   background: linear-gradient(
     to bottom,
     #00AEEE,
@@ -622,7 +607,6 @@ img {
     drop-shadow(0 20px 35px rgba(0,15,45,.12));
 }
 
-/* Slight brand tint over students image */
 .welcome-image-wrap::after {
   content: "";
   position: absolute;
@@ -665,16 +649,379 @@ img {
   background: rgba(255,255,255,.8);
 }
 
-/* ==========================================
-   SECTION 3 — GET INVOLVED
-========================================== */
+/* =========================================
+   SECTION 3 — OUR COMMITMENT
+========================================= */
+
+.commitment-section {
+  position: relative;
+  background: #F8FAFC;
+  padding: 58px 0 55px;
+  overflow: hidden;
+}
+
+.commitment-container {
+  width: min(1240px,90%);
+  margin-inline: auto;
+}
+
+/* Heading */
+
+.commitment-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.commitment-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--blue-dark);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+
+.commitment-intro h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(31px,3.8vw,49px);
+  line-height: 1.14;
+  font-weight: 800;
+}
+
+.commitment-intro h2 span {
+  color: var(--blue-dark);
+}
+
+.commitment-intro > p {
+  max-width: 365px;
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Grid */
+
+.commitment-grid {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr;
+  grid-template-rows: repeat(2,minmax(0,1fr));
+  gap: 17px;
+  min-height: 590px;
+  height: min(64vh,620px);
+}
+
+.impact-tile {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+/* Like reference: large photo / small text
+   then small text / large photo */
+
+.impact-photo-one {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.impact-access {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.impact-leaders {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.impact-photo-two {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+/* Keep photo in top-left, and alternate
+   bottom row like a premium bento grid */
+
+.impact-photo {
+  background: var(--navy);
+  color: white;
+}
+
+.impact-photo > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .6s ease;
+}
+
+.impact-photo:hover > img {
+  transform: scale(1.045);
+}
+
+.impact-photo-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(2,20,52,.83) 0%,
+    rgba(3,36,100,.5) 44%,
+    rgba(3,36,100,.09) 100%
+  );
+}
+
+.impact-photo-two {
+  background: linear-gradient(
+    130deg,
+    #064B91,
+    #032464
+  );
+}
+
+.impact-photo-two .impact-photo-shade {
+  background: linear-gradient(
+    90deg,
+    rgba(2,20,52,.9) 0%,
+    rgba(3,36,100,.55) 53%,
+    rgba(3,36,100,.05) 100%
+  );
+}
+
+.impact-photo-content {
+  position: absolute;
+  z-index: 3;
+  left: clamp(24px,3vw,42px);
+  right: 30%;
+  bottom: clamp(22px,3vw,38px);
+}
+
+.impact-photo-kicker {
+  display: block;
+  margin-bottom: 9px;
+  color: #A5EAFF;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.impact-photo-content h3 {
+  max-width: 430px;
+  margin-bottom: 0;
+  font-size: clamp(24px,2.5vw,34px);
+  line-height: 1.18;
+  letter-spacing: -.05em;
+}
+
+.impact-photo-content p {
+  max-width: 350px;
+  margin: 9px 0 0;
+  color: #E2F3FB;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.impact-corner-mark {
+  position: absolute;
+  top: 23px;
+  right: 23px;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 50%;
+  color: white;
+  font-size: 22px;
+}
+
+/* Third student photo layered over main photo */
+
+.impact-inset-photo {
+  position: absolute;
+  z-index: 2;
+  top: 23px;
+  right: 24px;
+  width: 26%;
+  height: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255,255,255,.86);
+  border-radius: 17px;
+  box-shadow: 0 12px 35px rgba(1,19,50,.22);
+}
+
+.impact-inset-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text cards */
+
+.impact-text-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(23px,2.6vw,37px);
+}
+
+.impact-access {
+  background: #E8F5FC;
+  color: var(--navy);
+}
+
+.impact-leaders {
+  background: #032464;
+  color: white;
+}
+
+.impact-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.impact-number {
+  font-family: "Manrope",sans-serif;
+  font-size: 29px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -.06em;
+}
+
+.impact-access .impact-number {
+  color: var(--blue-dark);
+}
+
+.impact-leaders .impact-number {
+  color: #82DEFF;
+}
+
+.impact-mini-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+.impact-access .impact-mini-label {
+  color: #4B8EAF;
+}
+
+.impact-leaders .impact-mini-label {
+  color: #9ADCF8;
+}
+
+.impact-icon {
+  width: 41px;
+  height: 41px;
+  margin-bottom: 13px;
+}
+
+.impact-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.impact-access .impact-icon {
+  color: #008FC7;
+}
+
+.impact-leaders .impact-icon {
+  color: #88DFFF;
+}
+
+.impact-text-body h3 {
+  max-width: 300px;
+  margin-bottom: 9px;
+  font-size: clamp(19px,2vw,26px);
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.impact-text-body p {
+  max-width: 320px;
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.impact-access .impact-text-body p {
+  color: #5B7386;
+}
+
+.impact-leaders .impact-text-body p {
+  color: #C9E4F2;
+}
+
+/* Bottom CTA */
+
+.commitment-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 23px;
+}
+
+.commitment-bottom-copy {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #52677E;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.commitment-bottom-line {
+  width: 35px;
+  height: 2px;
+  background: var(--blue);
+}
+
+.commitment-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 50px;
+  background: var(--blue);
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+  transition:
+    background .25s,
+    transform .25s;
+}
+
+.commitment-cta:hover {
+  background: var(--blue-dark);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   EXISTING GET INVOLVED SECTION
+========================================= */
 
 .section {
   padding: 100px 0;
 }
 
 .cta-section {
-  background: #FFFFFF;
+  background: white;
 }
 
 .cta-band {
@@ -706,7 +1053,7 @@ img {
 .cta-band h2 {
   max-width: 690px;
   color: white;
-  font-size: clamp(29px, 3.4vw, 44px);
+  font-size: clamp(29px,3.4vw,44px);
   line-height: 1.2;
   margin-bottom: 16px;
 }
@@ -722,9 +1069,9 @@ img {
   flex-shrink: 0;
 }
 
-/* ==========================================
+/* =========================================
    OTHER PAGES — SHARED STYLES
-========================================== */
+========================================= */
 
 .page-hero {
   padding: 190px 0 95px;
@@ -758,7 +1105,7 @@ img {
 .page-hero h1 {
   max-width: 850px;
   margin-bottom: 20px;
-  font-size: clamp(39px, 5vw, 69px);
+  font-size: clamp(39px,5vw,69px);
   line-height: 1.17;
 }
 
@@ -782,7 +1129,7 @@ img {
 .section h2 {
   max-width: 820px;
   margin-bottom: 20px;
-  font-size: clamp(31px, 4vw, 50px);
+  font-size: clamp(31px,4vw,50px);
   line-height: 1.2;
 }
 
@@ -876,9 +1223,9 @@ img {
   margin-top: 12px;
 }
 
-/* ==========================================
+/* =========================================
    FOOTER
-========================================== */
+========================================= */
 
 .site-footer {
   padding: 65px 0 25px;
@@ -944,9 +1291,9 @@ img {
   font-size: 12px;
 }
 
-/* ==========================================
-   REVEAL ANIMATIONS
-========================================== */
+/* =========================================
+   SCROLL REVEAL
+========================================= */
 
 [data-reveal] {
   opacity: 1;
@@ -966,9 +1313,9 @@ img {
   transform: translateY(0);
 }
 
-/* ==========================================
+/* =========================================
    TABLET
-========================================== */
+========================================= */
 
 @media (max-width: 1024px) {
 
@@ -997,12 +1344,20 @@ img {
   }
 
   .welcome-content h2 {
-    font-size: clamp(42px, 5vw, 60px);
+    font-size: clamp(42px,5vw,60px);
   }
 
   .welcome-description {
     font-size: 14px;
     line-height: 1.75;
+  }
+
+  .commitment-grid {
+    grid-template-columns: 1.35fr 1fr;
+  }
+
+  .impact-text-tile {
+    padding: 24px;
   }
 
   .split-section {
@@ -1014,9 +1369,9 @@ img {
   }
 }
 
-/* ==========================================
-   MOBILE / SMALL TABLET
-========================================== */
+/* =========================================
+   MOBILE AND SMALL TABLET
+========================================= */
 
 @media (max-width: 850px) {
 
@@ -1057,7 +1412,7 @@ img {
     margin: 0;
     padding: 12px 22px;
     border-radius: 16px;
-    background: #FFFFFF;
+    background: white;
     box-shadow: var(--shadow);
   }
 
@@ -1083,21 +1438,21 @@ img {
   }
 
   .hero h1 {
-    font-size: clamp(40px, 6.8vw, 60px);
+    font-size: clamp(40px,6.8vw,60px);
   }
 
   .hero-shade {
     background: rgba(2,20,48,.57);
   }
 
-  /* Welcome section becomes a clean stack */
+  /* Welcome section */
+  .welcome-section,
   .welcome-layout {
-    grid-template-columns: 1fr;
     min-height: auto;
   }
 
-  .welcome-section {
-    min-height: auto;
+  .welcome-layout {
+    grid-template-columns: 1fr;
   }
 
   .welcome-content {
@@ -1109,19 +1464,60 @@ img {
   }
 
   .welcome-content h2 {
-    font-size: clamp(43px, 7vw, 65px);
+    font-size: clamp(43px,7vw,65px);
   }
 
   .welcome-visual {
     min-height: 560px;
   }
 
-  .welcome-image-wrap {
-    inset: 0;
+  /* Commitment section */
+  .commitment-section {
+    padding: 75px 0 65px;
   }
 
-  .welcome-students {
-    object-fit: contain;
+  .commitment-intro {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .commitment-grid {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2,300px);
+    gap: 12px;
+  }
+
+  .impact-photo-content {
+    right: 12%;
+    left: 22px;
+    bottom: 24px;
+  }
+
+  .impact-photo-content h3 {
+    font-size: 23px;
+  }
+
+  .impact-text-tile {
+    padding: 20px;
+  }
+
+  .impact-text-body h3 {
+    font-size: 18px;
+  }
+
+  .impact-text-body p {
+    font-size: 11px;
+  }
+
+  .impact-inset-photo {
+    width: 31%;
+    height: 37%;
+    right: 13px;
+    top: 13px;
+    border-width: 3px;
   }
 
   .cta-band {
@@ -1148,7 +1544,11 @@ img {
   }
 }
 
-@media (max-width: 500px) {
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 600px) {
 
   .brand img {
     width: 115px;
@@ -1165,7 +1565,7 @@ img {
   }
 
   .hero h1 {
-    font-size: clamp(36px, 9vw, 46px);
+    font-size: clamp(36px,9vw,46px);
     line-height: 1.16;
   }
 
@@ -1206,8 +1606,7 @@ img {
   }
 
   .welcome-content h2 {
-    font-size: clamp(41px, 11vw, 53px);
-    line-height: 1.12;
+    font-size: clamp(41px,11vw,53px);
   }
 
   .welcome-lead {
@@ -1237,6 +1636,66 @@ img {
     bottom: 22px;
   }
 
+  /* Commitment grid stacks neatly */
+  .commitment-section {
+    padding: 60px 0;
+  }
+
+  .commitment-intro h2 {
+    font-size: 35px;
+  }
+
+  .commitment-container {
+    width: 90%;
+  }
+
+  .commitment-grid {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 14px;
+  }
+
+  .impact-tile {
+    border-radius: 22px;
+  }
+
+  .impact-photo {
+    min-height: 310px;
+  }
+
+  .impact-text-tile {
+    min-height: 290px;
+    padding: 28px;
+  }
+
+  .impact-text-body h3 {
+    font-size: 23px;
+  }
+
+  .impact-text-body p {
+    font-size: 13px;
+  }
+
+  .impact-photo-content h3 {
+    font-size: 27px;
+  }
+
+  .impact-inset-photo {
+    width: 32%;
+    height: 42%;
+  }
+
+  .commitment-bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .commitment-cta {
+    align-self: flex-start;
+  }
+
   .section {
     padding: 70px 0;
   }
@@ -1252,12 +1711,15 @@ img {
   .info-panel {
     padding: 27px;
   }
+
+  .footer-bottom {
+    margin-top: 40px;
+  }
 }
 
-/* ==========================================
+/* =========================================
    SHORT DESKTOP SCREENS
-   Keep welcome content neatly within view
-========================================== */
+========================================= */
 
 @media (min-width: 851px) and (max-height: 760px) {
 
@@ -1271,7 +1733,7 @@ img {
   }
 
   .welcome-content h2 {
-    font-size: clamp(38px, 4vw, 57px);
+    font-size: clamp(38px,4vw,57px);
     margin-bottom: 17px;
   }
 
@@ -1293,11 +1755,50 @@ img {
   .welcome-signature {
     margin-top: 22px;
   }
+
+  .commitment-section {
+    padding: 35px 0;
+  }
+
+  .commitment-intro {
+    margin-bottom: 16px;
+  }
+
+  .commitment-intro h2 {
+    font-size: 35px;
+  }
+
+  .commitment-grid {
+    height: min(65vh,525px);
+    min-height: 450px;
+  }
+
+  .impact-text-tile {
+    padding: 22px;
+  }
+
+  .impact-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 8px;
+  }
+
+  .impact-text-body h3 {
+    font-size: 20px;
+  }
+
+  .impact-text-body p {
+    font-size: 11px;
+  }
+
+  .commitment-bottom {
+    margin-top: 16px;
+  }
 }
 
-/* ==========================================
-   ACCESSIBILITY
-========================================== */
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
