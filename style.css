@@ -15,7 +15,9 @@
   --shadow: 0 18px 55px rgba(3,36,100,.10);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -358,7 +360,11 @@ img {
   padding: clamp(45px,6vw,100px);
   padding-left: max(6vw,calc((100vw - 1320px)/2 + 50px));
   background:
-    radial-gradient(circle at 0% 100%,rgba(0,174,238,.045),transparent 45%),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(0,174,238,.045),
+      transparent 45%
+    ),
     white;
 }
 
@@ -493,7 +499,13 @@ img {
   min-width: 0;
   min-height: 100%;
   overflow: hidden;
-  background: linear-gradient(145deg,#0A63AB,#035397 28%,#032F72 64%,#032464);
+  background: linear-gradient(
+    145deg,
+    #0A63AB,
+    #035397 28%,
+    #032F72 64%,
+    #032464
+  );
 }
 
 .welcome-visual::before {
@@ -501,7 +513,11 @@ img {
   position: absolute;
   z-index: 1;
   inset: 0;
-  background: linear-gradient(0deg,rgba(3,36,100,.25),rgba(0,174,238,.11));
+  background: linear-gradient(
+    0deg,
+    rgba(3,36,100,.25),
+    rgba(0,174,238,.11)
+  );
   pointer-events: none;
 }
 
@@ -512,7 +528,12 @@ img {
   width: 105%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle,rgba(95,207,255,.4),rgba(0,174,238,.1) 52%,transparent 72%);
+  background: radial-gradient(
+    circle,
+    rgba(95,207,255,.4),
+    rgba(0,174,238,.1) 52%,
+    transparent 72%
+  );
 }
 
 .visual-ring {
@@ -543,7 +564,12 @@ img {
   left: 0;
   width: 6px;
   height: 100%;
-  background: linear-gradient(to bottom,#00AEEE,#79DAF7,#032464);
+  background: linear-gradient(
+    to bottom,
+    #00AEEE,
+    #79DAF7,
+    #032464
+  );
 }
 
 .welcome-image-wrap {
@@ -617,7 +643,11 @@ img {
   padding: clamp(48px,6vh,85px) 0;
   color: white;
   background:
-    radial-gradient(circle at 85% 0%,rgba(0,174,238,.12),transparent 38%),
+    radial-gradient(
+      circle at 85% 0%,
+      rgba(0,174,238,.12),
+      transparent 38%
+    ),
     linear-gradient(160deg,#032464,#052A62);
   overflow: hidden;
 }
@@ -957,7 +987,11 @@ img {
   width: 610px;
   height: 610px;
   border-radius: 50%;
-  background: radial-gradient(circle,rgba(0,174,238,.055),transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(0,174,238,.055),
+    transparent 70%
+  );
   pointer-events: none;
 }
 
@@ -1139,6 +1173,7 @@ img {
 
 /* =====================================
    SECTION 5 — IMPACT IN NUMBERS
+   UPDATED FULL-HEIGHT IMAGE
 ===================================== */
 
 .impact-section {
@@ -1159,7 +1194,7 @@ img {
   min-height: 100svh;
 }
 
-/* LEFT TEXT AREA */
+/* LEFT CONTENT — UNCHANGED */
 
 .impact-left {
   display: flex;
@@ -1241,7 +1276,7 @@ img {
   margin-bottom: 0;
 }
 
-/* STATISTICS */
+/* IMPACT STATISTICS */
 
 .impact-statistics {
   display: flex;
@@ -1333,24 +1368,24 @@ img {
   background: #EAF6FC;
 }
 
-/* RIGHT IMAGE AREA */
+/* =====================================
+   CORRECTED RIGHT IMAGE AREA
+
+   The photograph fills the entire
+   right half, from top to bottom.
+===================================== */
 
 .impact-visual {
   position: relative;
   isolation: isolate;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   min-width: 0;
   min-height: 100%;
   overflow: hidden;
-  background: linear-gradient(
-    145deg,
-    #EBF7FE 0%,
-    #D5EDF9 55%,
-    #B7DCF0 100%
-  );
+  background: #D5EDF9;
 }
+
+/* Keep behind the image */
 
 .impact-visual-glow {
   position: absolute;
@@ -1368,24 +1403,34 @@ img {
   );
 }
 
+/* Make image container fill the half */
+
 .impact-visual-frame {
   position: absolute;
   inset: 0;
   z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
-/* Entire uploaded image remains visible */
+/* IMPORTANT FIX:
+   cover fills the full container
+   instead of leaving empty space. */
 
 .impact-student-image {
+  position: absolute;
+  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
-  filter: saturate(.92) contrast(1.03);
+  max-width: none;
+
+  object-fit: cover;
+  object-position: center center;
+
+  filter: none;
+
   transition: transform .6s ease;
 }
 
@@ -1393,46 +1438,36 @@ img {
   transform: scale(1.025);
 }
 
-.impact-visual-small-circle {
-  position: absolute;
-  z-index: 3;
-  top: 20%;
-  left: 8%;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--blue);
-  pointer-events: none;
+/* Hide original decorative circles
+   so they don't cover the photograph. */
+
+.impact-visual-small-circle,
+.impact-visual-large-circle {
+  display: none;
 }
 
-.impact-visual-large-circle {
-  position: absolute;
-  z-index: 0;
-  right: -18%;
-  bottom: -38%;
-  width: 85%;
-  aspect-ratio: 1;
-  border: 1px solid rgba(3,36,100,.12);
-  border-radius: 50%;
-  pointer-events: none;
-}
+/* Small photo label with contrast */
 
 .impact-visual-caption {
   position: absolute;
   z-index: 3;
-  left: 9%;
+  left: 6%;
   bottom: 34px;
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--navy);
+  padding: 11px 15px;
+  border-radius: 30px;
+  background: rgba(3,36,100,.72);
+  color: white;
   font-size: 10px;
   font-weight: 800;
-  letter-spacing: .16em;
+  letter-spacing: .13em;
+  backdrop-filter: blur(5px);
 }
 
 .impact-visual-caption span {
-  width: 30px;
+  width: 25px;
   height: 2px;
   background: var(--blue);
 }
@@ -1458,7 +1493,11 @@ img {
   border-radius: 24px;
   color: white;
   background:
-    radial-gradient(circle at top right,rgba(0,174,238,.2),transparent 48%),
+    radial-gradient(
+      circle at top right,
+      rgba(0,174,238,.2),
+      transparent 48%
+    ),
     var(--navy);
 }
 
@@ -1949,7 +1988,7 @@ img {
     height: 470px;
   }
 
-  /* EDUCATION IS A RIGHT */
+  /* EDUCATION RIGHT */
 
   .education-right-section {
     min-height: auto;
@@ -2016,6 +2055,17 @@ img {
 
   .impact-visual {
     min-height: 530px;
+  }
+
+  .impact-visual-frame {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .impact-student-image {
+    object-fit: cover;
+    object-position: center center;
   }
 
   .cta-band {
@@ -2178,7 +2228,7 @@ img {
     margin-left: 0;
   }
 
-  /* EDUCATION IS A RIGHT */
+  /* EDUCATION RIGHT */
 
   .education-right-section {
     padding: 75px 0 30px;
@@ -2269,8 +2319,15 @@ img {
     font-size: 11px;
   }
 
+  /* Mobile image is full width */
+
   .impact-visual {
-    min-height: 400px;
+    min-height: 420px;
+  }
+
+  .impact-student-image {
+    object-fit: cover;
+    object-position: center center;
   }
 
   .impact-visual-caption {
