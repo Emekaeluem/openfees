@@ -3,8 +3,28 @@
 // OPENFEES — MAIN JAVASCRIPT
 // ======================================
 
+
 // --------------------------------------
-// MOBILE NAVIGATION
+// 1. WHITE LOGO ON DARK BACKGROUNDS
+// --------------------------------------
+
+// Update the shared header and footer logos
+// on every page, including About, Our Work,
+// Stories, Donations and Contact.
+
+document.querySelectorAll(
+  ".brand img, .footer-brand img"
+).forEach(logo => {
+
+  logo.src = "media/Openfees-white.png";
+
+  logo.alt = "OpenFees Logo";
+
+});
+
+
+// --------------------------------------
+// 2. MOBILE NAVIGATION
 // --------------------------------------
 
 const menuButton = document.querySelector(
@@ -18,6 +38,7 @@ const menuList = document.querySelector(
 if (menuButton && menuList) {
 
   const closeMenu = () => {
+
     menuList.classList.remove("is-open");
 
     menuButton.setAttribute(
@@ -29,6 +50,7 @@ if (menuButton && menuList) {
       "aria-label",
       "Open navigation menu"
     );
+
   };
 
   menuButton.addEventListener("click", () => {
@@ -56,24 +78,29 @@ if (menuButton && menuList) {
   });
 
   document.addEventListener("keydown", event => {
+
     if (event.key === "Escape") {
       closeMenu();
     }
+
   });
 
   document.addEventListener("click", event => {
+
     if (
       !menuButton.contains(event.target) &&
       !menuList.contains(event.target)
     ) {
       closeMenu();
     }
+
   });
+
 }
 
 
 // --------------------------------------
-// VIDEO BACKGROUND
+// 3. HERO BACKGROUND VIDEO
 // --------------------------------------
 
 const heroVideo = document.getElementById(
@@ -92,53 +119,60 @@ const soundIcon = document.getElementById(
   "soundIcon"
 );
 
-// Browser autoplay policies generally
-// require a video to begin muted.
+const reducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+);
 
 if (heroVideo) {
 
+  // Start muted for reliable browser autoplay.
   heroVideo.muted = true;
   heroVideo.loop = true;
   heroVideo.playsInline = true;
 
-  // Continue playing while the page scrolls.
-  // No scroll listener pauses the video.
-
-  const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  );
-
   const startVideo = async () => {
-    if (reducedMotion.matches) return;
+
+    if (reducedMotion.matches) {
+      return;
+    }
 
     try {
+
       await heroVideo.play();
+
     } catch (error) {
-      // Some browsers block autoplay.
-      // The visitor can use their browser's
-      // media controls or interact with the page.
+
       console.info(
         "Video autoplay was blocked by the browser."
       );
+
     }
+
   };
 
-  startVideo();
-
-  // Update sound button appearance
   const updateSoundButton = () => {
 
-    if (!soundToggle) return;
+    if (!soundToggle) {
+      return;
+    }
 
     const soundIsOn = !heroVideo.muted;
 
-    soundLabel.textContent = soundIsOn
-      ? "Mute Video"
-      : "Turn Sound On";
+    if (soundLabel) {
 
-    soundIcon.textContent = soundIsOn
-      ? "\u266A"
-      : "\u266B";
+      soundLabel.textContent = soundIsOn
+        ? "Mute Video"
+        : "Turn Sound On";
+
+    }
+
+    if (soundIcon) {
+
+      soundIcon.textContent = soundIsOn
+        ? "\u266A"
+        : "\u266B";
+
+    }
 
     soundToggle.setAttribute(
       "aria-pressed",
@@ -151,29 +185,37 @@ if (heroVideo) {
         ? "Mute video sound"
         : "Turn video sound on"
     );
+
   };
 
-  // Sound requires a visitor interaction
+  // Turn sound on or off when clicked.
   if (soundToggle) {
 
     soundToggle.addEventListener(
       "click",
       async () => {
 
-        heroVideo.muted = !heroVideo.muted;
+        const previousMuted = heroVideo.muted;
+
+        heroVideo.muted = !previousMuted;
 
         try {
+
           if (heroVideo.paused) {
             await heroVideo.play();
           }
+
         } catch (error) {
-          heroVideo.muted = true;
+
+          heroVideo.muted = previousMuted;
+
         }
 
         updateSoundButton();
 
       }
     );
+
   }
 
   heroVideo.addEventListener(
@@ -181,29 +223,36 @@ if (heroVideo) {
     updateSoundButton
   );
 
-  // The video intentionally keeps playing
-  // after the visitor scrolls past the hero.
-  // No intersection observer pauses it.
+  // Start playback automatically.
+  startVideo();
+
+  // Keep playing while scrolling.
+  // We do not pause the video on scroll.
 
   reducedMotion.addEventListener?.(
     "change",
     event => {
 
       if (event.matches) {
+
         heroVideo.pause();
+
       } else {
+
         startVideo();
+
       }
 
     }
   );
 
   updateSoundButton();
+
 }
 
 
 // --------------------------------------
-// CURRENT YEAR
+// 4. AUTOMATIC COPYRIGHT YEAR
 // --------------------------------------
 
 document.querySelectorAll(
@@ -217,21 +266,17 @@ document.querySelectorAll(
 
 
 // --------------------------------------
-// SCROLL REVEAL ANIMATION
+// 5. SCROLL REVEAL ANIMATIONS
 // --------------------------------------
 
 const revealItems = document.querySelectorAll(
   "[data-reveal]"
 );
 
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
-
 if (
   revealItems.length &&
   "IntersectionObserver" in window &&
-  !prefersReducedMotion
+  !reducedMotion.matches
 ) {
 
   document.documentElement.classList.add(
@@ -263,6 +308,29 @@ if (
   );
 
   revealItems.forEach(item => {
+
     observer.observe(item);
+
   });
+
 }
+
+// Reveal hidden sections if a user
+// switches to reduced-motion mode.
+
+reducedMotion.addEventListener?.(
+  "change",
+  event => {
+
+    if (event.matches) {
+
+      revealItems.forEach(item => {
+
+        item.classList.add("is-visible");
+
+      });
+
+    }
+
+  }
+);
