@@ -11,8 +11,11 @@
 document.querySelectorAll(
   ".brand img, .footer-brand img"
 ).forEach(logo => {
+
   logo.src = "media/Openfees-white.png";
-  logo.alt = "OpenFees Logo";
+
+  logo.alt = "OpenFees";
+
 });
 
 
@@ -43,6 +46,7 @@ if (menuButton && menuList) {
       "aria-label",
       "Open navigation menu"
     );
+
   }
 
   menuButton.addEventListener("click", () => {
@@ -62,16 +66,21 @@ if (menuButton && menuList) {
         ? "Close navigation menu"
         : "Open navigation menu"
     );
+
   });
 
   menuList.querySelectorAll("a").forEach(link => {
+
     link.addEventListener("click", closeMenu);
+
   });
 
   document.addEventListener("keydown", event => {
+
     if (event.key === "Escape") {
       closeMenu();
     }
+
   });
 
   document.addEventListener("click", event => {
@@ -82,12 +91,14 @@ if (menuButton && menuList) {
     ) {
       closeMenu();
     }
+
   });
+
 }
 
 
 // -------------------------------------------
-// 3. VIDEO AUTOPLAY AND AUDIO CONTROL
+// 3. HERO VIDEO AND SOUND CONTROL
 // -------------------------------------------
 
 const heroVideo = document.getElementById(
@@ -120,18 +131,23 @@ if (heroVideo) {
     if (!soundToggle) return;
 
     const soundIsOn =
-      !heroVideo.muted && heroVideo.volume > 0;
+      !heroVideo.muted &&
+      heroVideo.volume > 0;
 
     if (soundLabel) {
+
       soundLabel.textContent = soundIsOn
         ? "Turn Off Sound"
         : "Turn On Sound";
+
     }
 
     if (soundIcon) {
+
       soundIcon.textContent = soundIsOn
         ? "\u266B"
         : "\u266A";
+
     }
 
     soundToggle.setAttribute(
@@ -145,6 +161,7 @@ if (heroVideo) {
         ? "Turn off video sound"
         : "Turn on video sound"
     );
+
   }
 
   async function startVideo() {
@@ -156,7 +173,7 @@ if (heroVideo) {
 
     try {
 
-      // Try immediate sound playback.
+      // Attempt to start with sound.
       heroVideo.muted = false;
       heroVideo.volume = 1;
 
@@ -164,21 +181,27 @@ if (heroVideo) {
 
     } catch (error) {
 
-      // Fallback for browsers that block
-      // unmuted autoplay.
+      // Browser autoplay restrictions
+      // commonly require muted playback.
+
       heroVideo.muted = true;
 
       try {
+
         await heroVideo.play();
+
       } catch (playbackError) {
+
         console.info(
-          "Browser blocked automatic video playback."
+          "Video autoplay was blocked."
         );
+
       }
 
     }
 
     updateSoundButton();
+
   }
 
   if (soundToggle) {
@@ -192,16 +215,22 @@ if (heroVideo) {
         heroVideo.muted = !previousMuted;
 
         try {
+
           if (heroVideo.paused) {
             await heroVideo.play();
           }
+
         } catch (error) {
+
           heroVideo.muted = previousMuted;
+
         }
 
         updateSoundButton();
+
       }
     );
+
   }
 
   heroVideo.addEventListener(
@@ -209,41 +238,152 @@ if (heroVideo) {
     updateSoundButton
   );
 
+  // We do not pause the video when
+  // the visitor scrolls away from the hero.
+
   reducedMotion.addEventListener?.(
     "change",
     event => {
 
       if (event.matches) {
+
         heroVideo.pause();
+
       } else if (heroVideo.paused) {
+
         heroVideo.play().catch(() => {
+
           heroVideo.muted = true;
+
           heroVideo.play().catch(() => {});
+
         });
+
       }
+
     }
   );
 
-  // Video is not intentionally paused
-  // as visitors scroll the page.
   startVideo();
+
 }
 
 
 // -------------------------------------------
-// 4. AUTOMATIC COPYRIGHT YEAR
+// 4. COMMITMENT CARD INTERACTIONS
+// -------------------------------------------
+
+const commitmentCards = document.querySelectorAll(
+  "[data-commitment-card]"
+);
+
+const touchDevice = window.matchMedia(
+  "(hover: none)"
+);
+
+commitmentCards.forEach(card => {
+
+  // Press Enter or Space to expand.
+  card.addEventListener("keydown", event => {
+
+    if (
+      event.key === "Enter" ||
+      event.key === " "
+    ) {
+
+      if (event.target !== card) return;
+
+      event.preventDefault();
+
+      const isExpanded = card.classList.contains(
+        "is-expanded"
+      );
+
+      commitmentCards.forEach(otherCard => {
+
+        otherCard.classList.remove("is-expanded");
+
+      });
+
+      card.classList.toggle(
+        "is-expanded",
+        !isExpanded
+      );
+
+    }
+
+    if (event.key === "Escape") {
+
+      card.classList.remove("is-expanded");
+
+    }
+
+  });
+
+  // On touch devices, tapping the card
+  // reveals the expanded photo and text.
+  card.addEventListener("click", event => {
+
+    // Don't interfere with Learn More links.
+    if (event.target.closest("a")) {
+      return;
+    }
+
+    if (!touchDevice.matches) {
+      return;
+    }
+
+    const isExpanded = card.classList.contains(
+      "is-expanded"
+    );
+
+    commitmentCards.forEach(otherCard => {
+
+      otherCard.classList.remove("is-expanded");
+
+    });
+
+    card.classList.toggle(
+      "is-expanded",
+      !isExpanded
+    );
+
+  });
+
+});
+
+// Close expanded touch cards when a
+// visitor taps outside the section cards.
+
+document.addEventListener("click", event => {
+
+  if (event.target.closest("[data-commitment-card]")) {
+    return;
+  }
+
+  commitmentCards.forEach(card => {
+    card.classList.remove("is-expanded");
+  });
+
+});
+
+
+// -------------------------------------------
+// 5. COPYRIGHT YEAR
 // -------------------------------------------
 
 document.querySelectorAll(
   "[data-current-year]"
 ).forEach(element => {
+
   element.textContent =
     new Date().getFullYear();
+
 });
 
 
 // -------------------------------------------
-// 5. SCROLL REVEAL ANIMATIONS
+// 6. SCROLL REVEAL ANIMATIONS
 // -------------------------------------------
 
 const revealItems = document.querySelectorAll(
@@ -266,6 +406,7 @@ if (
       entries.forEach(entry => {
 
         if (entry.isIntersecting) {
+
           entry.target.classList.add(
             "is-visible"
           );
@@ -273,8 +414,11 @@ if (
           revealObserver.unobserve(
             entry.target
           );
+
         }
+
       });
+
     },
     {
       threshold: 0.08,
@@ -283,13 +427,16 @@ if (
   );
 
   revealItems.forEach(item => {
+
     revealObserver.observe(item);
+
   });
+
 }
 
 
 // -------------------------------------------
-// 6. REDUCED MOTION
+// 7. REDUCED MOTION ACCESSIBILITY
 // -------------------------------------------
 
 reducedMotion.addEventListener?.(
@@ -297,9 +444,14 @@ reducedMotion.addEventListener?.(
   event => {
 
     if (event.matches) {
+
       revealItems.forEach(item => {
+
         item.classList.add("is-visible");
+
       });
+
     }
+
   }
 );
