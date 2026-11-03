@@ -1,7 +1,7 @@
 
-/* ==========================================
-   OPENFEES — COMPLETE STYLESHEET
-========================================== */
+/* =====================================
+   OPENFEES — COMPLETE STYLE.CSS
+===================================== */
 
 :root {
   --navy: #032464;
@@ -15,9 +15,7 @@
   --shadow: 0 18px 55px rgba(3,36,100,.10);
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -27,8 +25,8 @@ html {
 
 body {
   margin: 0;
-  color: var(--ink);
   background: var(--white);
+  color: var(--ink);
   font-family: "DM Sans", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -62,7 +60,7 @@ img {
 }
 
 .container {
-  width: min(1180px, 90%);
+  width: min(1180px,90%);
   margin-inline: auto;
 }
 
@@ -72,18 +70,18 @@ img {
   left: 12px;
   z-index: 1000;
   padding: 12px 16px;
-  border-radius: 9px;
-  color: var(--navy);
   background: white;
+  color: var(--navy);
+  border-radius: 9px;
 }
 
 .skip-link:focus {
   top: 12px;
 }
 
-/* ==========================================
+/* =====================================
    HEADER
-========================================== */
+===================================== */
 
 .site-header {
   position: absolute;
@@ -95,7 +93,7 @@ img {
 }
 
 .navbar {
-  width: min(1380px, 92%);
+  width: min(1380px,92%);
   min-height: 76px;
   margin-inline: auto;
   display: flex;
@@ -116,16 +114,12 @@ img {
   max-height: 65px;
   height: auto;
   object-fit: contain;
-  background: transparent;
-  padding: 0;
-  border: 0;
-  box-shadow: none;
 }
 
 .nav-list {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 2vw, 34px);
+  gap: clamp(16px,2vw,34px);
   margin: 0 auto 0 0;
   padding: 0;
   list-style: none;
@@ -147,14 +141,14 @@ img {
 
 .nav-cta {
   display: inline-flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   flex-shrink: 0;
   padding: 16px 28px;
   border-radius: 50px;
-  color: white;
   background: var(--blue);
+  color: white;
   font-size: 14px;
   font-weight: 700;
   transition: background .25s, transform .25s;
@@ -187,16 +181,16 @@ img {
   stroke-linecap: round;
 }
 
-/* ==========================================
+/* =====================================
    SECTION 1 — VIDEO HERO
-========================================== */
+===================================== */
 
 .hero {
   position: relative;
   isolation: isolate;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 100%;
   min-height: 760px;
   min-height: 100svh;
@@ -220,16 +214,16 @@ img {
   z-index: -1;
   background: linear-gradient(
     180deg,
-    rgba(2,15,37,.36) 0%,
+    rgba(2,15,37,.36),
     rgba(1,16,40,.44) 48%,
-    rgba(1,15,38,.60) 100%
+    rgba(1,15,38,.60)
   );
 }
 
 .hero-inner {
   position: relative;
   z-index: 2;
-  width: min(1300px, 92%);
+  width: min(1300px,92%);
   margin: auto;
   padding: 160px 0 140px;
   text-align: center;
@@ -243,7 +237,7 @@ img {
 .hero h1 {
   margin: 0 auto 38px;
   color: white;
-  font-size: clamp(41px, 5.6vw, 83px);
+  font-size: clamp(41px,5.6vw,83px);
   line-height: 1.13;
   font-weight: 800;
   letter-spacing: -.055em;
@@ -256,16 +250,16 @@ img {
 
 .actions {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 15px;
 }
 
 .button {
   display: inline-flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 14px;
   min-height: 56px;
   padding: 16px 27px;
@@ -273,10 +267,7 @@ img {
   border-radius: 50px;
   font-size: 14px;
   font-weight: 700;
-  transition:
-    transform .25s,
-    background .25s,
-    color .25s;
+  transition: transform .25s, background .25s, color .25s;
 }
 
 .button:hover {
@@ -284,8 +275,8 @@ img {
 }
 
 .button-primary {
-  color: white;
   background: var(--blue);
+  color: white;
 }
 
 .button-primary:hover {
@@ -293,28 +284,28 @@ img {
 }
 
 .button-outline {
+  border: 1px solid rgba(255,255,255,.75);
   color: white;
   background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.75);
   backdrop-filter: blur(6px);
 }
 
 .button-outline:hover {
-  color: var(--navy);
   background: white;
+  color: var(--navy);
 }
 
 .sound-toggle {
   position: absolute;
-  bottom: 31px;
-  right: 5%;
   z-index: 5;
+  right: 5%;
+  bottom: 31px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 12px 18px;
-  border-radius: 40px;
   border: 1px solid rgba(255,255,255,.5);
+  border-radius: 40px;
   background: rgba(2,22,51,.7);
   color: white;
   font-size: 12px;
@@ -329,9 +320,9 @@ img {
 
 .scroll-indicator {
   position: absolute;
+  z-index: 4;
   bottom: 35px;
   left: 5%;
-  z-index: 4;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -340,17 +331,17 @@ img {
   font-weight: 600;
 }
 
-/* ==========================================
-   SECTION 2 — WELCOME TO OPENFEES
-========================================== */
+/* =====================================
+   SECTION 2 — WELCOME
+===================================== */
 
 .welcome-section {
   position: relative;
   width: 100%;
   min-height: 100svh;
-  background: white;
   overflow: hidden;
   isolation: isolate;
+  background: white;
 }
 
 .welcome-layout {
@@ -365,16 +356,9 @@ img {
   align-items: center;
   justify-content: center;
   padding: clamp(45px,6vw,100px);
-  padding-left: max(
-    6vw,
-    calc((100vw - 1320px)/2 + 50px)
-  );
+  padding-left: max(6vw,calc((100vw - 1320px)/2 + 50px));
   background:
-    radial-gradient(
-      circle at 0% 100%,
-      rgba(0,174,238,.045),
-      transparent 45%
-    ),
+    radial-gradient(circle at 0% 100%,rgba(0,174,238,.045),transparent 45%),
     white;
 }
 
@@ -419,8 +403,8 @@ img {
   width: 90px;
   height: 4px;
   margin-bottom: 29px;
-  background: #E4F4FC;
   border-radius: 10px;
+  background: #E4F4FC;
 }
 
 .welcome-accent-line span {
@@ -461,15 +445,12 @@ img {
   gap: 35px;
   min-height: 59px;
   padding: 9px 10px 9px 27px;
+  border-radius: 50px;
   background: var(--navy);
   color: white;
-  border-radius: 50px;
   font-size: 14px;
   font-weight: 700;
-  transition:
-    transform .25s,
-    background .25s,
-    box-shadow .25s;
+  transition: transform .25s, background .25s, box-shadow .25s;
 }
 
 .welcome-button:hover {
@@ -503,8 +484,8 @@ img {
 .signature-dot {
   width: 7px;
   height: 7px;
-  background: var(--blue);
   border-radius: 50%;
+  background: var(--blue);
 }
 
 .welcome-visual {
@@ -512,42 +493,26 @@ img {
   min-width: 0;
   min-height: 100%;
   overflow: hidden;
-  background: linear-gradient(
-    145deg,
-    #0A63AB 0%,
-    #035397 28%,
-    #032F72 64%,
-    #032464 100%
-  );
+  background: linear-gradient(145deg,#0A63AB,#035397 28%,#032F72 64%,#032464);
 }
 
 .welcome-visual::before {
   content: "";
   position: absolute;
-  inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    0deg,
-    rgba(3,36,100,.25),
-    rgba(0,174,238,.11)
-  );
+  inset: 0;
+  background: linear-gradient(0deg,rgba(3,36,100,.25),rgba(0,174,238,.11));
   pointer-events: none;
 }
 
 .visual-glow {
   position: absolute;
-  z-index: 0;
   top: 1%;
   right: -30%;
   width: 105%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(95,207,255,.4),
-    rgba(0,174,238,.1) 52%,
-    transparent 72%
-  );
+  background: radial-gradient(circle,rgba(95,207,255,.4),rgba(0,174,238,.1) 52%,transparent 72%);
 }
 
 .visual-ring {
@@ -573,23 +538,18 @@ img {
 
 .visual-accent {
   position: absolute;
+  z-index: 4;
   top: 0;
   left: 0;
-  z-index: 4;
   width: 6px;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    #00AEEE,
-    #79DAF7,
-    #032464
-  );
+  background: linear-gradient(to bottom,#00AEEE,#79DAF7,#032464);
 }
 
 .welcome-image-wrap {
   position: absolute;
-  inset: 0;
   z-index: 2;
+  inset: 0;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -623,10 +583,10 @@ img {
   right: 25px;
   transform: translateY(-50%);
   writing-mode: vertical-rl;
-  letter-spacing: .26em;
   color: rgba(255,255,255,.62);
   font-size: 10px;
   font-weight: 700;
+  letter-spacing: .26em;
 }
 
 .visual-bottom-detail {
@@ -649,20 +609,16 @@ img {
   background: rgba(255,255,255,.8);
 }
 
-/* ==========================================
-   SECTION 3 — COMMITMENT HOVER CARDS
-========================================== */
+/* =====================================
+   SECTION 3 — OUR COMMITMENT
+===================================== */
 
 .commitment-showcase {
   padding: clamp(48px,6vh,85px) 0;
-  background:
-    radial-gradient(
-      circle at 85% 0%,
-      rgba(0,174,238,.12),
-      transparent 38%
-    ),
-    linear-gradient(160deg,#032464,#052A62);
   color: white;
+  background:
+    radial-gradient(circle at 85% 0%,rgba(0,174,238,.12),transparent 38%),
+    linear-gradient(160deg,#032464,#052A62);
   overflow: hidden;
 }
 
@@ -673,8 +629,8 @@ img {
 
 .commitment-head {
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
+  justify-content: space-between;
   gap: 32px;
   margin-bottom: 31px;
 }
@@ -743,20 +699,15 @@ img {
   transform: translateY(-2px);
 }
 
-/* THREE CARD GRID */
-
 .commitment-grid-new {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 20px;
 }
 
-/* DEFAULT — FULL PHOTO */
-
 .commitment-card-new {
   --expanded-bg: #E6F5FC;
   --expanded-text: #032464;
-
   position: relative;
   height: 475px;
   min-width: 0;
@@ -790,8 +741,8 @@ img {
 
 .commitment-card-inner {
   position: relative;
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 
 .commitment-media {
@@ -815,28 +766,23 @@ img {
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  transition:
-    transform .6s ease,
-    object-position .5s ease;
+  transition: transform .6s ease, object-position .5s ease;
 }
 
 .commitment-overlay {
   position: absolute;
-  inset: 0;
   z-index: 1;
+  inset: 0;
   background: linear-gradient(
     to top,
-    rgba(1,12,38,.98) 0%,
+    rgba(1,12,38,.98),
     rgba(2,21,55,.85) 24%,
     rgba(3,36,100,.28) 62%,
-    rgba(3,36,100,.08) 100%
+    rgba(3,36,100,.08)
   );
-  opacity: 1;
   pointer-events: none;
   transition: opacity .4s ease;
 }
-
-/* TEXT OVER PHOTO */
 
 .commitment-content {
   position: absolute;
@@ -893,11 +839,9 @@ img {
 
 .commitment-link {
   display: inline-flex;
-  align-items: center;
   color: #93E1FF;
   font-size: 13px;
   font-weight: 800;
-  transition: color .25s;
 }
 
 .commitment-link:hover {
@@ -906,7 +850,7 @@ img {
   text-underline-offset: 4px;
 }
 
-/* HOVER: TEXT ABOVE, FRAMED PHOTO BELOW */
+/* REVERSED HOVER EFFECT */
 
 .commitment-card-new:hover .commitment-media,
 .commitment-card-new:focus-within .commitment-media,
@@ -989,25 +933,21 @@ img {
   font-weight: 800;
 }
 
-
-/* ==========================================
+/* =====================================
    SECTION 4 — EDUCATION IS A RIGHT
-   NEW AFRICAN MAP SECTION
-========================================== */
+===================================== */
 
 .education-right-section {
   position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100svh;
   padding: 75px 0 34px;
   overflow: hidden;
-  background: #FFFFFF;
-  isolation: isolate;
+  background: white;
 }
-
-/* Soft faint accents like the reference */
 
 .education-right-section::before {
   content: "";
@@ -1017,11 +957,7 @@ img {
   width: 610px;
   height: 610px;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(0,174,238,.055),
-    rgba(0,174,238,0) 70%
-  );
+  background: radial-gradient(circle,rgba(0,174,238,.055),transparent 70%);
   pointer-events: none;
 }
 
@@ -1036,8 +972,6 @@ img {
   min-height: 620px;
   margin-inline: auto;
 }
-
-/* LEFT COLUMN */
 
 .education-right-content {
   position: relative;
@@ -1108,10 +1042,7 @@ img {
   color: white;
   font-size: 13px;
   font-weight: 800;
-  transition:
-    transform .25s ease,
-    background .25s ease,
-    box-shadow .25s ease;
+  transition: transform .25s, background .25s, box-shadow .25s;
 }
 
 .education-right-button:hover {
@@ -1119,8 +1050,6 @@ img {
   transform: translateY(-3px);
   box-shadow: 0 15px 35px rgba(3,36,100,.16);
 }
-
-/* RIGHT COLUMN — MAP ARTWORK */
 
 .education-right-visual {
   position: relative;
@@ -1132,33 +1061,24 @@ img {
   min-height: 520px;
 }
 
-/* The original map image is preserved.
-   Contain prevents any artwork cropping. */
-
 .education-map-image {
   position: relative;
   z-index: 2;
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
-  filter: none;
-  transition: transform .65s ease;
+  transition: transform .65s;
 }
 
 .education-right-visual:hover .education-map-image {
   transform: scale(1.025);
 }
 
-/* Small floating circles */
-
 .education-map-dot {
   position: absolute;
   z-index: 3;
   display: block;
-  width: 12px;
-  height: 12px;
   border-radius: 50%;
   pointer-events: none;
 }
@@ -1166,25 +1086,25 @@ img {
 .dot-one {
   top: 18%;
   left: 1%;
-  background: var(--blue);
   width: 15px;
   height: 15px;
+  background: var(--blue);
 }
 
 .dot-two {
   top: 67%;
   right: 1%;
-  background: #032464;
   width: 10px;
   height: 10px;
+  background: var(--navy);
 }
 
 .dot-three {
   bottom: 10%;
   left: 25%;
-  background: #55C9EF;
   width: 9px;
   height: 9px;
+  background: #55C9EF;
 }
 
 .education-map-orbit {
@@ -1196,8 +1116,6 @@ img {
   border-radius: 50%;
   pointer-events: none;
 }
-
-/* BOTTOM SECTION DETAIL */
 
 .education-right-bottom {
   position: relative;
@@ -1219,10 +1137,309 @@ img {
   background: var(--blue);
 }
 
+/* =====================================
+   SECTION 5 — IMPACT IN NUMBERS
+===================================== */
 
-/* ==========================================
-   SECTION 5 — GET INVOLVED
-========================================== */
+.impact-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #FCFDFE;
+  isolation: isolate;
+}
+
+.impact-layout {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  align-items: stretch;
+  width: 100%;
+  min-height: 100svh;
+}
+
+/* LEFT TEXT AREA */
+
+.impact-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 75px clamp(30px,5vw,90px);
+  padding-left: max(
+    6vw,
+    calc((100vw - 1320px)/2 + 50px)
+  );
+}
+
+.impact-inner {
+  width: 100%;
+  max-width: 580px;
+}
+
+.impact-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  color: #008FC7;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+
+.impact-eyebrow-dot {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 7px 0 0 #032464;
+  margin-right: 8px;
+}
+
+.impact-eyebrow-line {
+  width: 30px;
+  height: 1px;
+  background: #C2DFEE;
+}
+
+.impact-inner h2 {
+  max-width: 550px;
+  margin-bottom: 26px;
+  color: var(--navy);
+  font-family: "Manrope",sans-serif;
+  font-size: clamp(51px,5.4vw,83px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.07em;
+}
+
+.impact-title-blue {
+  display: block;
+  color: #009CD7;
+}
+
+.impact-lead {
+  max-width: 495px;
+  margin-bottom: 17px;
+  color: #213D5A;
+  font-size: clamp(17px,1.5vw,20px);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.impact-description {
+  max-width: 530px;
+  margin-bottom: 14px;
+  color: #657A8F;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.impact-description-last {
+  margin-bottom: 0;
+}
+
+/* STATISTICS */
+
+.impact-statistics {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(18px,2vw,35px);
+  margin-top: 33px;
+  margin-bottom: 30px;
+  padding: 25px 0;
+  border-top: 1px solid #DBE7F0;
+  border-bottom: 1px solid #DBE7F0;
+}
+
+.impact-stat {
+  flex: 1;
+  min-width: 0;
+}
+
+.impact-stat-number {
+  color: var(--navy);
+  font-family: "Manrope",sans-serif;
+  font-size: clamp(27px,3vw,45px);
+  font-weight: 800;
+  letter-spacing: -.06em;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.impact-stat:first-child .impact-stat-number {
+  color: #009CD7;
+}
+
+.impact-stat-label {
+  margin-top: 8px;
+  color: #536C84;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+}
+
+.impact-stats-divider {
+  flex: 0 0 1px;
+  background: #DBE7F0;
+}
+
+/* CTA BUTTONS */
+
+.impact-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.impact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 19px;
+  min-height: 54px;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  transition: transform .25s, background .25s, box-shadow .25s;
+}
+
+.impact-btn:hover {
+  transform: translateY(-3px);
+}
+
+.impact-btn-primary {
+  color: white;
+  background: var(--navy);
+}
+
+.impact-btn-primary:hover {
+  background: #06549D;
+  box-shadow: 0 14px 28px rgba(3,36,100,.15);
+}
+
+.impact-btn-outline {
+  border: 1px solid #BBCFDE;
+  color: var(--navy);
+  background: transparent;
+}
+
+.impact-btn-outline:hover {
+  background: #EAF6FC;
+}
+
+/* RIGHT IMAGE AREA */
+
+.impact-visual {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 100%;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    #EBF7FE 0%,
+    #D5EDF9 55%,
+    #B7DCF0 100%
+  );
+}
+
+.impact-visual-glow {
+  position: absolute;
+  z-index: -1;
+  top: -10%;
+  right: -15%;
+  width: 105%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,.95),
+    rgba(0,174,238,.08) 60%,
+    transparent 75%
+  );
+}
+
+.impact-visual-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Entire uploaded image remains visible */
+
+.impact-student-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: saturate(.92) contrast(1.03);
+  transition: transform .6s ease;
+}
+
+.impact-visual:hover .impact-student-image {
+  transform: scale(1.025);
+}
+
+.impact-visual-small-circle {
+  position: absolute;
+  z-index: 3;
+  top: 20%;
+  left: 8%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--blue);
+  pointer-events: none;
+}
+
+.impact-visual-large-circle {
+  position: absolute;
+  z-index: 0;
+  right: -18%;
+  bottom: -38%;
+  width: 85%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(3,36,100,.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.impact-visual-caption {
+  position: absolute;
+  z-index: 3;
+  left: 9%;
+  bottom: 34px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.impact-visual-caption span {
+  width: 30px;
+  height: 2px;
+  background: var(--blue);
+}
+
+/* =====================================
+   SECTION 6 — GET INVOLVED
+===================================== */
 
 .section {
   padding: 100px 0;
@@ -1241,11 +1458,7 @@ img {
   border-radius: 24px;
   color: white;
   background:
-    radial-gradient(
-      circle at top right,
-      rgba(0,174,238,.2),
-      transparent 48%
-    ),
+    radial-gradient(circle at top right,rgba(0,174,238,.2),transparent 48%),
     var(--navy);
 }
 
@@ -1277,19 +1490,14 @@ img {
   flex-shrink: 0;
 }
 
-
-/* ==========================================
-   OTHER PAGE SHARED STYLES
-========================================== */
+/* =====================================
+   SHARED STYLES FOR OTHER PAGES
+===================================== */
 
 .page-hero {
   padding: 190px 0 95px;
   color: white;
-  background: linear-gradient(
-    130deg,
-    #032464,
-    #07579B
-  );
+  background: linear-gradient(130deg,#032464,#07579B);
 }
 
 .eyebrow {
@@ -1432,9 +1640,9 @@ img {
   margin-top: 12px;
 }
 
-/* ==========================================
+/* =====================================
    FOOTER
-========================================== */
+===================================== */
 
 .site-footer {
   padding: 65px 0 25px;
@@ -1452,10 +1660,6 @@ img {
   width: 180px;
   height: auto;
   object-fit: contain;
-  background: transparent;
-  border: 0;
-  padding: 0;
-  box-shadow: none;
 }
 
 .footer-brand p {
@@ -1500,9 +1704,9 @@ img {
   font-size: 12px;
 }
 
-/* ==========================================
-   SCROLL REVEAL
-========================================== */
+/* =====================================
+   REVEAL ANIMATIONS
+===================================== */
 
 [data-reveal] {
   opacity: 1;
@@ -1512,9 +1716,7 @@ img {
 .js-ready [data-reveal] {
   opacity: 0;
   transform: translateY(18px);
-  transition:
-    opacity .65s ease,
-    transform .65s ease;
+  transition: opacity .65s ease, transform .65s ease;
 }
 
 .js-ready [data-reveal].is-visible {
@@ -1522,9 +1724,9 @@ img {
   transform: translateY(0);
 }
 
-/* ==========================================
+/* =====================================
    TABLET
-========================================== */
+===================================== */
 
 @media (max-width: 1024px) {
 
@@ -1581,8 +1783,6 @@ img {
     font-size: 11px;
   }
 
-  /* NEW SECTION */
-
   .education-right-container {
     width: 92%;
     gap: 20px;
@@ -1596,6 +1796,23 @@ img {
     min-height: 440px;
   }
 
+  .impact-left {
+    padding: 55px 5%;
+  }
+
+  .impact-inner h2 {
+    font-size: clamp(44px,5vw,65px);
+  }
+
+  .impact-description {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .impact-stat-number {
+    font-size: clamp(25px,2.8vw,34px);
+  }
+
   .split-section {
     gap: 40px;
   }
@@ -1605,9 +1822,9 @@ img {
   }
 }
 
-/* ==========================================
-   MOBILE AND SMALL TABLET
-========================================== */
+/* =====================================
+   MOBILE / SMALL TABLET
+===================================== */
 
 @media (max-width: 850px) {
 
@@ -1732,7 +1949,7 @@ img {
     height: 470px;
   }
 
-  /* EDUCATION RIGHT */
+  /* EDUCATION IS A RIGHT */
 
   .education-right-section {
     min-height: auto;
@@ -1752,18 +1969,53 @@ img {
   }
 
   .education-right-content h2 {
-    max-width: 650px;
     font-size: clamp(44px,7vw,67px);
   }
 
   .education-right-visual {
+    width: 100%;
     height: 510px;
     min-height: 0;
-    width: 100%;
   }
 
   .education-right-bottom {
     margin-top: 12px;
+  }
+
+  /* IMPACT IN NUMBERS */
+
+  .impact-section,
+  .impact-layout {
+    min-height: auto;
+  }
+
+  .impact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-left {
+    justify-content: center;
+    padding: 85px 7% 65px;
+  }
+
+  .impact-inner {
+    max-width: 670px;
+  }
+
+  .impact-inner h2 {
+    font-size: clamp(48px,7.5vw,72px);
+  }
+
+  .impact-description {
+    font-size: 15px;
+  }
+
+  .impact-stat-number {
+    font-size: clamp(31px,5vw,44px);
+  }
+
+  .impact-visual {
+    min-height: 530px;
   }
 
   .cta-band {
@@ -1790,9 +2042,9 @@ img {
   }
 }
 
-/* ==========================================
+/* =====================================
    SMALL MOBILE
-========================================== */
+===================================== */
 
 @media (max-width: 600px) {
 
@@ -1846,6 +2098,8 @@ img {
   .scroll-indicator span {
     font-size: 19px;
   }
+
+  /* WELCOME */
 
   .welcome-content {
     padding: 70px 7% 55px;
@@ -1924,7 +2178,7 @@ img {
     margin-left: 0;
   }
 
-  /* EDUCATION RIGHT */
+  /* EDUCATION IS A RIGHT */
 
   .education-right-section {
     padding: 75px 0 30px;
@@ -1967,6 +2221,64 @@ img {
     letter-spacing: .12em;
   }
 
+  /* IMPACT IN NUMBERS */
+
+  .impact-left {
+    padding: 70px 7% 55px;
+  }
+
+  .impact-eyebrow {
+    margin-bottom: 20px;
+  }
+
+  .impact-inner h2 {
+    font-size: clamp(47px,11vw,62px);
+    margin-bottom: 22px;
+  }
+
+  .impact-lead {
+    font-size: 17px;
+  }
+
+  .impact-description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .impact-statistics {
+    gap: 14px;
+    margin-top: 28px;
+    padding: 22px 0;
+  }
+
+  .impact-stat-number {
+    font-size: clamp(23px,6vw,34px);
+  }
+
+  .impact-stat-label {
+    font-size: 11px;
+  }
+
+  .impact-actions {
+    gap: 11px;
+  }
+
+  .impact-btn {
+    min-height: 49px;
+    padding: 13px 18px;
+    font-size: 11px;
+  }
+
+  .impact-visual {
+    min-height: 400px;
+  }
+
+  .impact-visual-caption {
+    left: 7%;
+    bottom: 20px;
+    font-size: 9px;
+  }
+
   .section {
     padding: 70px 0;
   }
@@ -1984,9 +2296,9 @@ img {
   }
 }
 
-/* ==========================================
+/* =====================================
    SHORT DESKTOP SCREENS
-========================================== */
+===================================== */
 
 @media (min-width: 851px) and (max-height: 760px) {
 
@@ -2074,8 +2386,6 @@ img {
     height: 40%;
   }
 
-  /* NEW SECTION FITS SHORT SCREENS */
-
   .education-right-section {
     padding: 35px 0 20px;
   }
@@ -2108,11 +2418,53 @@ img {
     height: min(76vh,600px);
     min-height: 0;
   }
+
+  /* COMPACT IMPACT SECTION */
+
+  .impact-left {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .impact-eyebrow {
+    margin-bottom: 13px;
+  }
+
+  .impact-inner h2 {
+    font-size: clamp(43px,4.2vw,62px);
+    margin-bottom: 15px;
+  }
+
+  .impact-lead {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .impact-description {
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 9px;
+  }
+
+  .impact-statistics {
+    margin-top: 19px;
+    margin-bottom: 19px;
+    padding: 17px 0;
+  }
+
+  .impact-stat-number {
+    font-size: clamp(25px,2.5vw,34px);
+  }
+
+  .impact-btn {
+    min-height: 47px;
+    padding: 12px 19px;
+  }
 }
 
-/* ==========================================
+/* =====================================
    ACCESSIBILITY
-========================================== */
+===================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -2137,6 +2489,7 @@ img {
     transform: none;
   }
 
+  .impact-visual:hover .impact-student-image,
   .education-right-visual:hover .education-map-image {
     transform: none;
   }
