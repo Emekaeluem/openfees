@@ -35,13 +35,16 @@
 ==================================== -->
 
 <header class="site-header">
+
   <nav class="navbar" aria-label="Main navigation">
 
     <a href="index.html"
        class="brand"
        aria-label="OpenFees homepage">
+
       <img src="media/Openfees-white.png"
            alt="OpenFees Logo">
+
     </a>
 
     <ul class="nav-list"
@@ -77,19 +80,22 @@
       <span aria-hidden="true">&nearr;</span>
     </a>
 
-    <button class="menu-button"
-            type="button"
-            data-menu-button
-            aria-label="Open navigation menu"
-            aria-controls="site-menu"
-            aria-expanded="false">
+    <button
+      class="menu-button"
+      type="button"
+      data-menu-button
+      aria-label="Open navigation menu"
+      aria-controls="site-menu"
+      aria-expanded="false">
 
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M4 7h16M4 12h16M4 17h16"/>
       </svg>
 
     </button>
+
   </nav>
+
 </header>
 
 <main id="main">
@@ -101,23 +107,29 @@
   <section class="hero"
            aria-labelledby="hero-title">
 
-    <video id="heroVideo"
-           class="hero-video"
-           autoplay
-           muted
-           loop
-           playsinline
-           preload="auto"
-           aria-hidden="true">
+    <video
+      id="heroVideo"
+      class="hero-video"
+      autoplay
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true">
 
-      <source src="media/header_video.mp4"
-              type="video/mp4">
+      <source
+        src="media/header_video.mp4"
+        type="video/mp4">
+
+      Your browser does not support video.
 
     </video>
 
+    <!-- Video overlay -->
     <div class="hero-shade"></div>
 
+    <!-- Main heading -->
     <div class="hero-inner">
+
       <div class="hero-content">
 
         <h1 id="hero-title">
@@ -136,39 +148,52 @@
 
           <a href="donate.html"
              class="button button-primary">
+
             Support a Child
             <span aria-hidden="true">&nearr;</span>
+
           </a>
 
           <a href="our-work.html"
              class="button button-outline">
+
             Explore Our Work
             <span aria-hidden="true">&rarr;</span>
+
           </a>
 
         </div>
 
       </div>
+
     </div>
 
-    <a href="#who-we-are"
+    <!-- Scroll to next section -->
+    <a href="#get-involved"
        class="scroll-indicator">
+
       Discover More
-      <span aria-hidden="true">&darr;</span>
+
+      <span aria-hidden="true">
+        &darr;
+      </span>
+
     </a>
 
-    <button id="soundToggle"
-            class="sound-toggle"
-            type="button"
-            aria-label="Turn video sound on"
-            aria-pressed="false">
+    <!-- Video audio control -->
+    <button
+      id="soundToggle"
+      class="sound-toggle"
+      type="button"
+      aria-label="Turn off video sound"
+      aria-pressed="true">
 
       <span id="soundIcon" aria-hidden="true">
-        ♪
+        &#9835;
       </span>
 
       <span id="soundLabel">
-        Turn Sound On
+        Turn Off Sound
       </span>
 
     </button>
@@ -177,431 +202,13 @@
 
 
   <!-- ====================================
-       SECTION 2 — WHO WE ARE
-       AND OUR COMMITMENT
+       SECTION 2 — GET INVOLVED
+       (FORMERLY SECTION 4)
   ==================================== -->
 
-  <section id="who-we-are"
-           class="about-showcase"
-           aria-labelledby="about-heading">
-
-    <div class="container">
-
-      <div class="about-layout">
-
-        <!-- LEFT COLUMN -->
-        <div class="about-left" data-reveal>
-
-          <div class="section-label">
-            WHO WE ARE
-          </div>
-
-          <h2 id="about-heading">
-            Opening Doors to
-            <span>Education and Opportunity.</span>
-          </h2>
-
-          <p class="about-description">
-            OpenFees promotes financing for basic
-            education through fundraising, community
-            partnerships, social and behavioural
-            change communication (SBCC), data analysis,
-            policy advocacy, innovation, and
-            retail initiatives.
-          </p>
-
-          <!-- OUTLINED GRADUATE ILLUSTRATION -->
-          <!-- Editable vector, no extra image needed -->
-
-          <div class="graduate-art"
-               aria-hidden="true">
-
-            <svg viewBox="0 0 500 480"
-                 fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-
-              <defs>
-                <linearGradient id="gradStroke"
-                                x1="80" y1="40"
-                                x2="430" y2="440"
-                                gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#032464"/>
-                  <stop offset=".55" stop-color="#00AEEE"/>
-                  <stop offset="1" stop-color="#78D4F2"/>
-                </linearGradient>
-              </defs>
-
-              <!-- Small background halo -->
-              <circle cx="250" cy="250"
-                      r="175"
-                      fill="#EAF7FD"/>
-
-              <circle cx="250" cy="250"
-                      r="205"
-                      stroke="#CBEAF7"
-                      stroke-width="1.5"
-                      stroke-dasharray="4 12"/>
-
-              <g stroke="url(#gradStroke)"
-                 stroke-width="5"
-                 stroke-linejoin="round"
-                 stroke-linecap="round">
-
-                <!-- Graduation cap -->
-                <path d="M74 125L250 48L426 125L250 204Z"/>
-
-                <!-- Graduation cap band -->
-                <path d="M148 162V226
-                         C184 256 222 268 250 268
-                         C278 268 316 256 352 226
-                         V162"/>
-
-                <!-- Cap top detail -->
-                <path d="M160 167L250 205L340 167"/>
-
-                <!-- Tassel -->
-                <path d="M426 125V228"/>
-                <path d="M426 228L414 255L426 246L438 255Z"/>
-
-                <!-- Student head -->
-                <path d="M205 261V293
-                         C205 322 226 347 250 347
-                         C274 347 295 322 295 293
-                         V261"/>
-
-                <!-- Student shoulders and gown -->
-                <path d="M205 327
-                         C177 336 144 353 124 381
-                         L108 440
-                         H392
-                         L376 381
-                         C356 353 323 336 295 327"/>
-
-                <!-- Gown neckline -->
-                <path d="M205 327L250 386L295 327"/>
-
-                <!-- Front of gown -->
-                <path d="M250 386V440"/>
-
-                <!-- Stole -->
-                <path d="M206 330L250 386L221 417L184 342"/>
-                <path d="M294 330L250 386L279 417L316 342"/>
-
-                <!-- Arm folds -->
-                <path d="M141 382L176 400"/>
-                <path d="M359 382L324 400"/>
-
-              </g>
-
-              <!-- Little sparkle decorations -->
-              <g fill="#00AEEE" opacity=".75">
-                <circle cx="93" cy="285" r="5"/>
-                <circle cx="406" cy="317" r="4"/>
-                <circle cx="375" cy="70" r="4"/>
-              </g>
-
-              <g stroke="#00AEEE"
-                 stroke-width="2"
-                 stroke-linecap="round"
-                 opacity=".6">
-
-                <path d="M94 78V100M83 89H105"/>
-                <path d="M397 365V389M385 377H409"/>
-
-              </g>
-            </svg>
-          </div>
-
-          <div class="about-art-caption">
-            <span class="caption-dot"></span>
-            Every child deserves a chance to succeed.
-          </div>
-
-        </div>
-
-
-        <!-- RIGHT COLUMN -->
-        <div class="about-right">
-
-          <div class="commitment-heading"
-               data-reveal>
-
-            <span class="section-label">
-              OUR COMMITMENT
-            </span>
-
-            <h3>
-              What drives us forward
-            </h3>
-
-          </div>
-
-
-          <!-- COMMITMENT CARD 01 -->
-          <article class="commitment-card"
-                   data-reveal>
-
-            <div class="commitment-icon"
-                 aria-hidden="true">
-
-              <svg viewBox="0 0 48 48" fill="none">
-
-                <path d="M5 17L24 8L43 17L24 26L5 17Z"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linejoin="round"/>
-
-                <path d="M13 21V31
-                         C20 37 28 37 35 31
-                         V21"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linejoin="round"/>
-
-                <path d="M43 17V34"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linecap="round"/>
-
-                <path d="M39 39L43 34L47 39"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"/>
-
-              </svg>
-
-            </div>
-
-            <div class="commitment-text">
-
-              <span class="commitment-number">
-                01 / ACCESS
-              </span>
-
-              <h4>
-                Ensuring Access to Basic Education
-              </h4>
-
-              <p>
-                Making primary and secondary education
-                accessible to children from low-income
-                households and underserved communities
-                in Sub-Saharan Africa by reducing
-                school-related financial barriers.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <!-- COMMITMENT CARD 02 -->
-          <article class="commitment-card"
-                   data-reveal>
-
-            <div class="commitment-icon"
-                 aria-hidden="true">
-
-              <svg viewBox="0 0 48 48" fill="none">
-
-                <circle cx="24" cy="12" r="7"
-                        stroke="currentColor"
-                        stroke-width="2.2"/>
-
-                <path d="M9 39V34
-                         C9 25 15 22 24 22
-                         C33 22 39 25 39 34V39"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linecap="round"/>
-
-                <path d="M17 33L24 39L31 33"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linecap="round"/>
-
-              </svg>
-
-            </div>
-
-            <div class="commitment-text">
-
-              <span class="commitment-number">
-                02 / EMPOWERMENT
-              </span>
-
-              <h4>
-                Empowering the Next Generation
-                of Leaders
-              </h4>
-
-              <p>
-                Through OpenHub, mentorship,
-                emotional intelligence development,
-                and empathy-focused learning,
-                we help young people become
-                responsible and future-ready.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <!-- COMMITMENT CARD 03 -->
-          <article class="commitment-card"
-                   data-reveal>
-
-            <div class="commitment-icon"
-                 aria-hidden="true">
-
-              <svg viewBox="0 0 48 48" fill="none">
-
-                <path d="M17 30
-                         C13 26 12 22 12 18
-                         C12 11 17 6 24 6
-                         C31 6 36 11 36 18
-                         C36 22 35 26 31 30
-                         L29 34H19L17 30Z"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linejoin="round"/>
-
-                <path d="M19 39H29M21 44H27"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linecap="round"/>
-
-                <path d="M21 34V24L24 27L27 24V34"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"/>
-
-              </svg>
-
-            </div>
-
-            <div class="commitment-text">
-
-              <span class="commitment-number">
-                03 / INNOVATION
-              </span>
-
-              <h4>
-                Innovation for Sustainable Financing
-              </h4>
-
-              <p>
-                Exploring technology, partnerships,
-                community collaboration, alternative
-                funding approaches, and retail
-                initiatives to support sustainable
-                access to education.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <!-- SECTION CTA -->
-          <a href="our-work.html"
-             class="commitment-link">
-
-            Discover Our Work
-
-            <span aria-hidden="true">
-              &nearr;
-            </span>
-
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- BOTTOM VALUE STRIP -->
-      <div class="values-strip"
-           aria-label="Our three focus areas">
-
-        <div class="value-item">
-          <span class="value-index">01</span>
-          <span class="value-title">
-            Access to Education
-          </span>
-        </div>
-
-        <div class="value-divider"></div>
-
-        <div class="value-item">
-          <span class="value-index">02</span>
-          <span class="value-title">
-            Youth Empowerment
-          </span>
-        </div>
-
-        <div class="value-divider"></div>
-
-        <div class="value-item">
-          <span class="value-index">03</span>
-          <span class="value-title">
-            Sustainable Financing
-          </span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ====================================
-       SECTION 3 — MISSION
-  ==================================== -->
-
-  <section class="section">
-
-    <div class="container split-section">
-
-      <div data-reveal>
-        <div class="section-label">
-          OUR MISSION
-        </div>
-
-        <h2>
-          Every child deserves
-          a brighter future.
-        </h2>
-      </div>
-
-      <div data-reveal>
-        <p class="lead">
-          Through educational funding, school
-          fee support, mentorship, community
-          engagement and strategic partnerships,
-          OpenFees helps remove financial
-          barriers to basic education.
-        </p>
-
-        <a href="about.html" class="text-link">
-          Discover Our Mission &nearr;
-        </a>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ====================================
-       SECTION 4 — CALL TO ACTION
-  ==================================== -->
-
-  <section class="section cta-section">
+  <section
+    class="section cta-section"
+    id="get-involved">
 
     <div class="container">
 
@@ -627,7 +234,10 @@
 
         <a href="donate.html"
            class="button button-primary">
-          Get Involved &nearr;
+
+          Get Involved
+          <span aria-hidden="true">&nearr;</span>
+
         </a>
 
       </div>
@@ -652,8 +262,11 @@
       <div class="footer-brand">
 
         <a href="index.html">
-          <img src="media/Openfees-white.png"
-               alt="OpenFees Logo">
+
+          <img
+            src="media/Openfees-white.png"
+            alt="OpenFees Logo">
+
         </a>
 
         <p>
@@ -667,6 +280,7 @@
       <div class="footer-links">
 
         <h3>Explore</h3>
+
         <a href="about.html">About Us</a>
         <a href="our-work.html">Our Work</a>
         <a href="blog.html">Stories</a>
@@ -676,8 +290,10 @@
       <div class="footer-links">
 
         <h3>Get Involved</h3>
+
         <a href="donate.html">Donate</a>
         <a href="contact.html">Contact</a>
+
         <a href="mailto:hello@openfees.org">
           Email Us
         </a>
@@ -689,7 +305,8 @@
     <div class="footer-bottom">
 
       <span>
-        &copy; <span data-current-year>2026</span>
+        &copy;
+        <span data-current-year>2026</span>
         OpenFees. All rights reserved.
       </span>
 
