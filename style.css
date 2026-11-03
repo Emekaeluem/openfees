@@ -1,6 +1,7 @@
 
 /* =====================================
-   OPENFEES — GLOBAL DESIGN SYSTEM
+   OPENFEES WEBSITE
+   GLOBAL DESIGN SYSTEM
 ===================================== */
 
 :root {
@@ -15,7 +16,11 @@
   --shadow: 0 18px 55px rgba(3,36,100,.1);
 }
 
-*, *::before, *::after {
+/* RESET */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -68,9 +73,9 @@ img {
   top: -100px;
   left: 12px;
   z-index: 1000;
-  background: white;
-  color: var(--navy);
   padding: 12px;
+  color: var(--navy);
+  background: white;
 }
 
 .skip-link:focus {
@@ -78,7 +83,7 @@ img {
 }
 
 /* =====================================
-   TRANSPARENT NAVIGATION
+   TRANSPARENT HEADER
 ===================================== */
 
 .site-header {
@@ -101,6 +106,8 @@ img {
   background: transparent;
 }
 
+/* WHITE LOGO — NO BACKGROUND */
+
 .brand {
   flex-shrink: 0;
   display: inline-flex;
@@ -109,13 +116,19 @@ img {
 
 .brand img {
   display: block;
-  width: 155px;
-  max-height: 60px;
+  width: 175px;
+  height: auto;
+  max-height: 65px;
   object-fit: contain;
-  background: rgba(255,255,255,.97);
-  border-radius: 10px;
-  padding: 8px;
+  background: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  filter: none;
 }
+
+/* NAVIGATION LINKS */
 
 .nav-list {
   display: flex;
@@ -140,6 +153,8 @@ img {
   color: #9BE5FF;
 }
 
+/* DONATION BUTTON */
+
 .nav-cta {
   flex-shrink: 0;
   display: inline-flex;
@@ -149,16 +164,18 @@ img {
   border-radius: 50px;
   padding: 16px 28px;
   background: var(--blue);
-  color: #FFFFFF;
+  color: white;
   font-size: 14px;
   font-weight: 700;
   transition: transform .25s, background .25s;
 }
 
 .nav-cta:hover {
-  background: #008FC7;
+  background: var(--blue-dark);
   transform: translateY(-2px);
 }
+
+/* MOBILE MENU BUTTON */
 
 .menu-button {
   display: none;
@@ -183,7 +200,7 @@ img {
 }
 
 /* =====================================
-   FULL SCREEN VIDEO HERO
+   VIDEO HERO
 ===================================== */
 
 .hero {
@@ -213,16 +230,15 @@ img {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(2,15,37,.35) 0%,
-      rgba(1,16,40,.43) 45%,
-      rgba(1,15,38,.58) 100%
-    );
+  background: linear-gradient(
+    180deg,
+    rgba(2,15,37,.35) 0%,
+    rgba(1,16,40,.43) 45%,
+    rgba(1,15,38,.58) 100%
+  );
 }
 
-/* Centered content */
+/* CENTERED HERO CONTENT */
 
 .hero-inner {
   width: min(1300px, 92%);
@@ -241,18 +257,18 @@ img {
 .hero h1 {
   margin: 0 auto 38px;
   color: white;
-  font-family: "Manrope", sans-serif;
   font-size: clamp(41px, 5.6vw, 83px);
   font-weight: 800;
   line-height: 1.13;
   letter-spacing: -.055em;
   text-wrap: balance;
-  text-shadow: 0 3px 20px rgba(0,0,0,.13);
 }
 
 .headline-line {
   display: block;
 }
+
+/* BUTTONS */
 
 .actions {
   display: flex;
@@ -300,11 +316,11 @@ img {
 }
 
 .button-outline:hover {
-  background: white;
   color: var(--navy);
+  background: white;
 }
 
-/* Video sound control */
+/* VIDEO SOUND BUTTON */
 
 .sound-toggle {
   position: absolute;
@@ -323,7 +339,6 @@ img {
   font-weight: 700;
   cursor: pointer;
   backdrop-filter: blur(10px);
-  transition: background .25s;
 }
 
 .sound-toggle:hover {
@@ -334,7 +349,7 @@ img {
   font-size: 18px;
 }
 
-/* Scroll hint */
+/* SCROLL INDICATOR */
 
 .scroll-indicator {
   position: absolute;
@@ -354,7 +369,7 @@ img {
 }
 
 /* =====================================
-   OTHER PAGE HERO
+   OTHER PAGES HERO
 ===================================== */
 
 .page-hero {
@@ -402,7 +417,7 @@ img {
 }
 
 /* =====================================
-   GENERAL SECTIONS
+   GENERAL CONTENT SECTIONS
 ===================================== */
 
 .section {
@@ -438,6 +453,8 @@ img {
   line-height: 1.85;
   color: var(--muted);
 }
+
+/* FEATURE CARDS */
 
 .feature-grid {
   display: grid;
@@ -486,6 +503,8 @@ img {
   margin-bottom: 0;
 }
 
+/* SPLIT SECTIONS */
+
 .split-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -506,6 +525,8 @@ img {
 .text-link:hover {
   color: var(--blue-dark);
 }
+
+/* CALL TO ACTION */
 
 .cta-section {
   padding-top: 45px;
@@ -553,6 +574,8 @@ img {
   flex-shrink: 0;
 }
 
+/* INFORMATION PANEL */
+
 .info-panel {
   padding: 38px;
   margin-top: 32px;
@@ -576,7 +599,7 @@ img {
 }
 
 /* =====================================
-   FOOTER
+   FOOTER — WHITE LOGO
 ===================================== */
 
 .site-footer {
@@ -592,11 +615,16 @@ img {
 }
 
 .footer-brand img {
-  width: 170px;
   display: block;
-  padding: 9px;
-  background: white;
-  border-radius: 8px;
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  filter: none;
 }
 
 .footer-brand p {
@@ -664,7 +692,7 @@ img {
 }
 
 /* =====================================
-   TABLET
+   TABLET RESPONSIVENESS
 ===================================== */
 
 @media (max-width: 1024px) {
@@ -673,7 +701,7 @@ img {
   }
 
   .brand img {
-    width: 135px;
+    width: 145px;
   }
 
   .nav-list {
@@ -698,7 +726,7 @@ img {
 }
 
 /* =====================================
-   MOBILE
+   MOBILE RESPONSIVENESS
 ===================================== */
 
 @media (max-width: 850px) {
@@ -714,7 +742,7 @@ img {
   }
 
   .brand img {
-    width: 125px;
+    width: 130px;
   }
 
   .menu-button {
@@ -738,7 +766,7 @@ img {
     gap: 0;
     margin: 0;
     padding: 12px 22px;
-    background: #FFFFFF;
+    background: white;
     border-radius: 16px;
     box-shadow: var(--shadow);
   }
@@ -798,7 +826,7 @@ img {
 
 @media (max-width: 500px) {
   .brand img {
-    width: 108px;
+    width: 115px;
   }
 
   .nav-cta {
@@ -814,7 +842,6 @@ img {
   .hero h1 {
     font-size: clamp(36px, 9vw, 46px);
     line-height: 1.16;
-    letter-spacing: -.045em;
   }
 
   .headline-line {
@@ -873,7 +900,9 @@ img {
     scroll-behavior: auto;
   }
 
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation: none !important;
     transition: none !important;
   }
