@@ -3,19 +3,15 @@
 // OPENFEES — MAIN JAVASCRIPT
 // ===========================================
 
-
 // -------------------------------------------
-// 1. WHITE LOGO ON DARK BACKGROUNDS
+// 1. WHITE LOGOS FOR DARK BACKGROUNDS
 // -------------------------------------------
 
 document.querySelectorAll(
   ".brand img, .footer-brand img"
 ).forEach(logo => {
-
   logo.src = "media/Openfees-white.png";
-
   logo.alt = "OpenFees";
-
 });
 
 
@@ -34,7 +30,6 @@ const menuList = document.querySelector(
 if (menuButton && menuList) {
 
   function closeMenu() {
-
     menuList.classList.remove("is-open");
 
     menuButton.setAttribute(
@@ -46,7 +41,6 @@ if (menuButton && menuList) {
       "aria-label",
       "Open navigation menu"
     );
-
   }
 
   menuButton.addEventListener("click", () => {
@@ -66,21 +60,16 @@ if (menuButton && menuList) {
         ? "Close navigation menu"
         : "Open navigation menu"
     );
-
   });
 
   menuList.querySelectorAll("a").forEach(link => {
-
     link.addEventListener("click", closeMenu);
-
   });
 
   document.addEventListener("keydown", event => {
-
     if (event.key === "Escape") {
       closeMenu();
     }
-
   });
 
   document.addEventListener("click", event => {
@@ -91,14 +80,12 @@ if (menuButton && menuList) {
     ) {
       closeMenu();
     }
-
   });
-
 }
 
 
 // -------------------------------------------
-// 3. HERO VIDEO AND SOUND CONTROL
+// 3. HERO VIDEO AND SOUND
 // -------------------------------------------
 
 const heroVideo = document.getElementById(
@@ -135,19 +122,15 @@ if (heroVideo) {
       heroVideo.volume > 0;
 
     if (soundLabel) {
-
       soundLabel.textContent = soundIsOn
         ? "Turn Off Sound"
         : "Turn On Sound";
-
     }
 
     if (soundIcon) {
-
       soundIcon.textContent = soundIsOn
         ? "\u266B"
         : "\u266A";
-
     }
 
     soundToggle.setAttribute(
@@ -161,7 +144,6 @@ if (heroVideo) {
         ? "Turn off video sound"
         : "Turn on video sound"
     );
-
   }
 
   async function startVideo() {
@@ -172,8 +154,7 @@ if (heroVideo) {
     }
 
     try {
-
-      // Attempt to start with sound.
+      // Try playback with sound first.
       heroVideo.muted = false;
       heroVideo.volume = 1;
 
@@ -181,27 +162,19 @@ if (heroVideo) {
 
     } catch (error) {
 
-      // Browser autoplay restrictions
-      // commonly require muted playback.
-
+      // Browser may require muted autoplay.
       heroVideo.muted = true;
 
       try {
-
         await heroVideo.play();
-
       } catch (playbackError) {
-
         console.info(
-          "Video autoplay was blocked."
+          "Automatic playback was blocked."
         );
-
       }
-
     }
 
     updateSoundButton();
-
   }
 
   if (soundToggle) {
@@ -210,27 +183,21 @@ if (heroVideo) {
       "click",
       async () => {
 
-        const previousMuted = heroVideo.muted;
+        const wasMuted = heroVideo.muted;
 
-        heroVideo.muted = !previousMuted;
+        heroVideo.muted = !wasMuted;
 
         try {
-
           if (heroVideo.paused) {
             await heroVideo.play();
           }
-
         } catch (error) {
-
-          heroVideo.muted = previousMuted;
-
+          heroVideo.muted = wasMuted;
         }
 
         updateSoundButton();
-
       }
     );
-
   }
 
   heroVideo.addEventListener(
@@ -238,34 +205,23 @@ if (heroVideo) {
     updateSoundButton
   );
 
-  // We do not pause the video when
-  // the visitor scrolls away from the hero.
-
   reducedMotion.addEventListener?.(
     "change",
     event => {
 
       if (event.matches) {
-
         heroVideo.pause();
-
       } else if (heroVideo.paused) {
-
         heroVideo.play().catch(() => {
-
           heroVideo.muted = true;
-
           heroVideo.play().catch(() => {});
-
         });
-
       }
-
     }
   );
 
+  // No scroll handler pauses the video.
   startVideo();
-
 }
 
 
@@ -281,95 +237,80 @@ const touchDevice = window.matchMedia(
   "(hover: none)"
 );
 
+function closeCommitmentCards() {
+
+  commitmentCards.forEach(card => {
+    card.classList.remove("is-expanded");
+  });
+
+}
+
+function toggleCommitmentCard(card) {
+
+  const wasExpanded = card.classList.contains(
+    "is-expanded"
+  );
+
+  closeCommitmentCards();
+
+  if (!wasExpanded) {
+    card.classList.add("is-expanded");
+  }
+}
+
 commitmentCards.forEach(card => {
 
-  // Press Enter or Space to expand.
+  // Keyboard accessibility.
   card.addEventListener("keydown", event => {
+
+    if (event.target !== card) return;
 
     if (
       event.key === "Enter" ||
       event.key === " "
     ) {
 
-      if (event.target !== card) return;
-
       event.preventDefault();
 
-      const isExpanded = card.classList.contains(
-        "is-expanded"
-      );
-
-      commitmentCards.forEach(otherCard => {
-
-        otherCard.classList.remove("is-expanded");
-
-      });
-
-      card.classList.toggle(
-        "is-expanded",
-        !isExpanded
-      );
-
+      toggleCommitmentCard(card);
     }
 
     if (event.key === "Escape") {
 
       card.classList.remove("is-expanded");
-
     }
-
   });
 
-  // On touch devices, tapping the card
-  // reveals the expanded photo and text.
+  // Touch: tap the photo card to switch
+  // from full-image to split layout.
   card.addEventListener("click", event => {
 
-    // Don't interfere with Learn More links.
     if (event.target.closest("a")) {
       return;
     }
 
-    if (!touchDevice.matches) {
-      return;
+    if (touchDevice.matches) {
+      toggleCommitmentCard(card);
     }
-
-    const isExpanded = card.classList.contains(
-      "is-expanded"
-    );
-
-    commitmentCards.forEach(otherCard => {
-
-      otherCard.classList.remove("is-expanded");
-
-    });
-
-    card.classList.toggle(
-      "is-expanded",
-      !isExpanded
-    );
-
   });
 
 });
 
-// Close expanded touch cards when a
-// visitor taps outside the section cards.
-
+// Tap outside to restore full-image cards.
 document.addEventListener("click", event => {
 
-  if (event.target.closest("[data-commitment-card]")) {
+  if (
+    event.target.closest("[data-commitment-card]")
+  ) {
     return;
   }
 
-  commitmentCards.forEach(card => {
-    card.classList.remove("is-expanded");
-  });
-
+  closeCommitmentCards();
 });
 
 
 // -------------------------------------------
-// 5. COPYRIGHT YEAR
+// 5. AUTOMATIC COPYRIGHT YEAR
 // -------------------------------------------
 
 document.querySelectorAll(
@@ -414,11 +355,8 @@ if (
           revealObserver.unobserve(
             entry.target
           );
-
         }
-
       });
-
     },
     {
       threshold: 0.08,
@@ -427,16 +365,13 @@ if (
   );
 
   revealItems.forEach(item => {
-
     revealObserver.observe(item);
-
   });
-
 }
 
 
 // -------------------------------------------
-// 7. REDUCED MOTION ACCESSIBILITY
+// 7. REDUCED MOTION
 // -------------------------------------------
 
 reducedMotion.addEventListener?.(
@@ -446,12 +381,9 @@ reducedMotion.addEventListener?.(
     if (event.matches) {
 
       revealItems.forEach(item => {
-
         item.classList.add("is-visible");
-
       });
 
     }
-
   }
 );
