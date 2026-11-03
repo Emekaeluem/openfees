@@ -1,26 +1,24 @@
 
-// ===========================================
-// OPENFEES — MAIN JAVASCRIPT
-// ===========================================
+// ==========================================
+// OPENFEES — COMPLETE MAIN.JS
+// ==========================================
 
 
-// -------------------------------------------
+// ------------------------------------------
 // 1. WHITE LOGOS ON DARK BACKGROUNDS
-// -------------------------------------------
+// ------------------------------------------
 
 document.querySelectorAll(
   ".brand img, .footer-brand img"
 ).forEach(logo => {
-
   logo.src = "media/Openfees-white.png";
   logo.alt = "OpenFees";
-
 });
 
 
-// -------------------------------------------
+// ------------------------------------------
 // 2. MOBILE NAVIGATION
-// -------------------------------------------
+// ------------------------------------------
 
 const menuButton = document.querySelector(
   "[data-menu-button]"
@@ -33,7 +31,6 @@ const menuList = document.querySelector(
 if (menuButton && menuList) {
 
   function closeMenu() {
-
     menuList.classList.remove("is-open");
 
     menuButton.setAttribute(
@@ -45,7 +42,6 @@ if (menuButton && menuList) {
       "aria-label",
       "Open navigation menu"
     );
-
   }
 
   menuButton.addEventListener("click", () => {
@@ -65,40 +61,32 @@ if (menuButton && menuList) {
         ? "Close navigation menu"
         : "Open navigation menu"
     );
-
   });
 
   menuList.querySelectorAll("a").forEach(link => {
-
     link.addEventListener("click", closeMenu);
-
   });
 
   document.addEventListener("keydown", event => {
-
     if (event.key === "Escape") {
       closeMenu();
     }
-
   });
 
   document.addEventListener("click", event => {
-
     if (
       !menuButton.contains(event.target) &&
       !menuList.contains(event.target)
     ) {
       closeMenu();
     }
-
   });
-
 }
 
 
-// -------------------------------------------
-// 3. HERO VIDEO AND SOUND
-// -------------------------------------------
+// ------------------------------------------
+// 3. HERO VIDEO AND SOUND BUTTON
+// ------------------------------------------
 
 const heroVideo = document.getElementById(
   "heroVideo"
@@ -134,19 +122,15 @@ if (heroVideo) {
       heroVideo.volume > 0;
 
     if (soundLabel) {
-
       soundLabel.textContent = soundIsOn
         ? "Turn Off Sound"
         : "Turn On Sound";
-
     }
 
     if (soundIcon) {
-
       soundIcon.textContent = soundIsOn
         ? "\u266B"
         : "\u266A";
-
     }
 
     soundToggle.setAttribute(
@@ -160,7 +144,6 @@ if (heroVideo) {
         ? "Turn off video sound"
         : "Turn on video sound"
     );
-
   }
 
   async function startVideo() {
@@ -172,7 +155,7 @@ if (heroVideo) {
 
     try {
 
-      // Try to play with audio immediately.
+      // Attempt immediate playback with sound.
       heroVideo.muted = false;
       heroVideo.volume = 1;
 
@@ -180,27 +163,19 @@ if (heroVideo) {
 
     } catch (error) {
 
-      // Most browsers block autoplay with
-      // audio until a visitor interacts.
-
+      // Browsers may block unmuted autoplay.
       heroVideo.muted = true;
 
       try {
-
         await heroVideo.play();
-
       } catch (playbackError) {
-
         console.info(
-          "Automatic playback was blocked."
+          "Automatic video playback was blocked."
         );
-
       }
-
     }
 
     updateSoundButton();
-
   }
 
   if (soundToggle) {
@@ -214,22 +189,16 @@ if (heroVideo) {
         heroVideo.muted = !wasMuted;
 
         try {
-
           if (heroVideo.paused) {
             await heroVideo.play();
           }
-
         } catch (error) {
-
           heroVideo.muted = wasMuted;
-
         }
 
         updateSoundButton();
-
       }
     );
-
   }
 
   heroVideo.addEventListener(
@@ -237,39 +206,31 @@ if (heroVideo) {
     updateSoundButton
   );
 
-  // The video is not paused by scrolling.
+  // Scrolling does not intentionally
+  // pause the video.
 
   reducedMotion.addEventListener?.(
     "change",
     event => {
 
       if (event.matches) {
-
         heroVideo.pause();
-
       } else if (heroVideo.paused) {
-
         heroVideo.play().catch(() => {
-
           heroVideo.muted = true;
-
           heroVideo.play().catch(() => {});
-
         });
-
       }
-
     }
   );
 
   startVideo();
-
 }
 
 
-// -------------------------------------------
+// ------------------------------------------
 // 4. COMMITMENT CARD INTERACTIONS
-// -------------------------------------------
+// ------------------------------------------
 
 const commitmentCards = document.querySelectorAll(
   "[data-commitment-card]"
@@ -282,11 +243,8 @@ const touchDevice = window.matchMedia(
 function closeCommitmentCards() {
 
   commitmentCards.forEach(card => {
-
     card.classList.remove("is-expanded");
-
   });
-
 }
 
 function toggleCommitmentCard(card) {
@@ -298,17 +256,13 @@ function toggleCommitmentCard(card) {
   closeCommitmentCards();
 
   if (!wasExpanded) {
-
     card.classList.add("is-expanded");
-
   }
-
 }
 
 commitmentCards.forEach(card => {
 
-  // Keyboard controls
-
+  // Keyboard activation
   card.addEventListener("keydown", event => {
 
     if (event.target !== card) return;
@@ -317,23 +271,16 @@ commitmentCards.forEach(card => {
       event.key === "Enter" ||
       event.key === " "
     ) {
-
       event.preventDefault();
-
       toggleCommitmentCard(card);
-
     }
 
     if (event.key === "Escape") {
-
       card.classList.remove("is-expanded");
-
     }
-
   });
 
-  // Tap to expand on phones/tablets
-
+  // Tap to expand on touchscreens
   card.addEventListener("click", event => {
 
     if (event.target.closest("a")) {
@@ -341,17 +288,10 @@ commitmentCards.forEach(card => {
     }
 
     if (touchDevice.matches) {
-
       toggleCommitmentCard(card);
-
     }
-
   });
-
 });
-
-
-// Close the cards when tapping elsewhere
 
 document.addEventListener("click", event => {
 
@@ -362,27 +302,23 @@ document.addEventListener("click", event => {
   }
 
   closeCommitmentCards();
-
 });
 
 
-// -------------------------------------------
+// ------------------------------------------
 // 5. COPYRIGHT YEAR
-// -------------------------------------------
+// ------------------------------------------
 
 document.querySelectorAll(
   "[data-current-year]"
 ).forEach(element => {
-
-  element.textContent =
-    new Date().getFullYear();
-
+  element.textContent = new Date().getFullYear();
 });
 
 
-// -------------------------------------------
+// ------------------------------------------
 // 6. SCROLL REVEAL ANIMATIONS
-// -------------------------------------------
+// ------------------------------------------
 
 const revealItems = document.querySelectorAll(
   "[data-reveal]"
@@ -404,7 +340,6 @@ if (
       entries.forEach(entry => {
 
         if (entry.isIntersecting) {
-
           entry.target.classList.add(
             "is-visible"
           );
@@ -412,11 +347,8 @@ if (
           revealObserver.unobserve(
             entry.target
           );
-
         }
-
       });
-
     },
     {
       threshold: 0.08,
@@ -425,17 +357,14 @@ if (
   );
 
   revealItems.forEach(item => {
-
     revealObserver.observe(item);
-
   });
-
 }
 
 
-// -------------------------------------------
-// 7. REDUCED MOTION
-// -------------------------------------------
+// ------------------------------------------
+// 7. REDUCED MOTION ACCESSIBILITY
+// ------------------------------------------
 
 reducedMotion.addEventListener?.(
   "change",
@@ -444,12 +373,8 @@ reducedMotion.addEventListener?.(
     if (event.matches) {
 
       revealItems.forEach(item => {
-
         item.classList.add("is-visible");
-
       });
-
     }
-
   }
 );
