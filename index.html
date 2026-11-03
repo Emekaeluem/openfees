@@ -6,15 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#032464">
 
-  <title>OpenFees | Every Child Deserves a Chance</title>
-  <meta name="description" content="OpenFees helps remove financial barriers to basic education through funding, school fee support and mentorship.">
+  <title>OpenFees | Education for Every Child</title>
+  <meta name="description" content="OpenFees helps remove financial barriers to basic education through school fee support, mentorship and community partnerships.">
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- JavaScript -->
   <script src="main.js" defer></script>
 </head>
 
@@ -22,46 +25,72 @@
 
 <a href="#main" class="skip-link">Skip to content</a>
 
-<!-- ==============================
-     TRANSPARENT HEADER
-============================== -->
+<!-- ==================================
+     HEADER / NAVIGATION
+================================== -->
 
 <header class="site-header">
 
   <nav class="navbar" aria-label="Main navigation">
 
-    <a href="index.html" class="brand"
-       aria-label="OpenFees homepage">
-      <img src="media/Openfees.png" alt="OpenFees">
+    <!-- WHITE LOGO -->
+    <a href="index.html"
+       class="brand"
+       aria-label="OpenFees Homepage">
+
+      <img
+        src="media/Openfees-white.png"
+        alt="OpenFees Logo"
+        width="175">
+
     </a>
 
+    <!-- Navigation Links -->
     <ul class="nav-list" id="site-menu" data-menu-list>
+
       <li>
-        <a href="index.html" aria-current="page">Home</a>
+        <a href="index.html" aria-current="page">
+          Home
+        </a>
       </li>
+
       <li>
-        <a href="about.html">About Us</a>
+        <a href="about.html">
+          About Us
+        </a>
       </li>
+
       <li>
-        <a href="our-work.html">Our Work</a>
+        <a href="our-work.html">
+          Our Work
+        </a>
       </li>
+
       <li>
-        <a href="blog.html">Stories</a>
+        <a href="blog.html">
+          Stories
+        </a>
       </li>
+
       <li>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html">
+          Contact
+        </a>
       </li>
+
     </ul>
 
+    <!-- Donation CTA -->
     <a href="donate.html" class="nav-cta">
       Donate Now
       <span aria-hidden="true">&nearr;</span>
     </a>
 
+    <!-- Mobile Menu -->
     <button
       class="menu-button"
-      data-menu-button
       type="button"
+      data-menu-button
       aria-label="Open navigation menu"
       aria-controls="site-menu"
       aria-expanded="false">
@@ -76,14 +105,19 @@
 
 </header>
 
+<!-- ==================================
+     MAIN CONTENT
+================================== -->
+
 <main id="main">
 
-  <!-- ==============================
-       CINEMATIC VIDEO HERO
-  ============================== -->
+  <!-- ==================================
+       VIDEO HERO
+  ================================== -->
 
   <section class="hero" aria-labelledby="hero-title">
 
+    <!-- Background Video -->
     <video
       id="heroVideo"
       class="hero-video"
@@ -101,10 +135,10 @@
 
     </video>
 
-    <!-- Dark overlay for readable text -->
+    <!-- Dark Overlay -->
     <div class="hero-shade"></div>
 
-    <!-- Main hero content -->
+    <!-- Hero Text -->
     <div class="hero-inner">
 
       <div class="hero-content">
@@ -119,18 +153,23 @@
           </span>
         </h1>
 
+        <!-- Hero Buttons -->
         <div class="actions">
 
           <a href="donate.html"
              class="button button-primary">
+
             Support a Child
             <span aria-hidden="true">&nearr;</span>
+
           </a>
 
           <a href="our-work.html"
              class="button button-outline">
+
             Explore Our Work
             <span aria-hidden="true">&rarr;</span>
+
           </a>
 
         </div>
@@ -139,7 +178,7 @@
 
     </div>
 
-    <!-- Video audio control -->
+    <!-- Audio Control -->
     <button
       id="soundToggle"
       class="sound-toggle"
@@ -151,13 +190,16 @@
         &#9835;
       </span>
 
-      <span id="soundLabel">Turn Sound On</span>
+      <span id="soundLabel">
+        Turn Sound On
+      </span>
 
     </button>
 
-    <!-- Scroll hint -->
+    <!-- Scroll Indicator -->
     <a href="#mission" class="scroll-indicator">
       <span>Discover More</span>
+
       <span class="scroll-arrow" aria-hidden="true">
         &darr;
       </span>
@@ -165,21 +207,22 @@
 
   </section>
 
-  <!-- ==============================
-       INTRODUCTION
-  ============================== -->
+  <!-- ==================================
+       WHO WE ARE
+  ================================== -->
 
   <section class="section section-soft" id="mission">
 
     <div class="container">
 
-      <div class="section-label">WHO WE ARE</div>
+      <div class="section-label">
+        WHO WE ARE
+      </div>
 
       <div class="section-intro" data-reveal>
 
         <h2>
-          Education should never
-          be a privilege.
+          Education should never be a privilege.
         </h2>
 
         <p class="lead">
@@ -195,7 +238,9 @@
 
         <article class="feature-card" data-reveal>
 
-          <div class="feature-number">01 / ACCESS</div>
+          <div class="feature-number">
+            01 / ACCESS
+          </div>
 
           <h3>School Fee Support</h3>
 
@@ -209,7 +254,9 @@
 
         <article class="feature-card" data-reveal>
 
-          <div class="feature-number">02 / GROWTH</div>
+          <div class="feature-number">
+            02 / GROWTH
+          </div>
 
           <h3>Mentorship</h3>
 
@@ -243,31 +290,34 @@
 
   </section>
 
-  <!-- ==============================
-       MISSION
-  ============================== -->
+  <!-- ==================================
+       OUR MISSION
+  ================================== -->
 
   <section class="section">
 
     <div class="container split-section">
 
       <div data-reveal>
-        <div class="section-label">OUR MISSION</div>
+
+        <div class="section-label">
+          OUR MISSION
+        </div>
 
         <h2>
-          Every child deserves
-          a brighter future.
+          Every child deserves a brighter future.
         </h2>
+
       </div>
 
       <div data-reveal>
 
         <p class="lead">
           Through educational funding,
-          mentorship, community engagement
-          and meaningful partnerships,
-          OpenFees works to remove financial
-          barriers to basic education.
+          school fee support, mentorship,
+          community engagement and strategic
+          partnerships, OpenFees helps remove
+          financial barriers to basic education.
         </p>
 
         <a href="about.html" class="text-link">
@@ -280,9 +330,9 @@
 
   </section>
 
-  <!-- ==============================
-       CALL TO ACTION
-  ============================== -->
+  <!-- ==================================
+       DONATION CALL TO ACTION
+  ================================== -->
 
   <section class="section cta-section">
 
@@ -291,24 +341,27 @@
       <div class="cta-band" data-reveal>
 
         <div>
+
           <span class="cta-kicker">
             TOGETHER, WE CAN MAKE A DIFFERENCE
           </span>
 
           <h2>
-            A brighter future begins
-            with an opportunity.
+            A brighter future begins with an opportunity.
           </h2>
 
           <p>
             Join us in helping children access
             the education they deserve.
           </p>
+
         </div>
 
         <a href="donate.html"
            class="button button-primary">
+
           Get Involved &nearr;
+
         </a>
 
       </div>
@@ -319,9 +372,9 @@
 
 </main>
 
-<!-- ==============================
+<!-- ==================================
      FOOTER
-============================== -->
+================================== -->
 
 <footer class="site-footer">
 
@@ -331,16 +384,20 @@
 
       <div class="footer-brand">
 
+        <!-- WHITE FOOTER LOGO -->
         <a href="index.html">
+
           <img
-            src="media/Openfees.png"
-            alt="OpenFees">
+            src="media/Openfees-white.png"
+            alt="OpenFees Logo"
+            width="180">
+
         </a>
 
         <p>
-          Removing financial barriers to basic
-          education and opening doors to
-          brighter futures.
+          Removing financial barriers to
+          basic education and opening doors
+          to brighter futures.
         </p>
 
       </div>
@@ -361,6 +418,7 @@
 
         <a href="donate.html">Donate</a>
         <a href="contact.html">Contact</a>
+
         <a href="mailto:hello@openfees.org">
           Email Us
         </a>
@@ -377,7 +435,9 @@
         OpenFees. All rights reserved.
       </span>
 
-      <span>Education for every child.</span>
+      <span>
+        Education for every child.
+      </span>
 
     </div>
 
