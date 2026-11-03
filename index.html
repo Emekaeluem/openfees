@@ -1,707 +1,257 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#032464">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OpenFees | Education for Every Child</title>
-
-  <meta name="description"
-        content="OpenFees works to remove financial barriers to basic education through fundraising, mentorship, advocacy, partnerships and innovation.">
-
-  <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-  <link rel="preconnect"
-        href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
+  <meta
+    name="description"
+    content="OpenFees is a nonprofit organization committed to making basic education accessible to children from financially disadvantaged backgrounds."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">
+        <img src="media/Openfees-white.png" alt="OpenFees Logo" />
+      </a>
 
-<a class="skip-link" href="#main">
-  Skip to content
-</a>
-
-<!-- ====================================
-     HEADER AND NAVIGATION
-==================================== -->
-
-<header class="site-header">
-  <nav class="navbar" aria-label="Main navigation">
-
-    <a href="index.html"
-       class="brand"
-       aria-label="OpenFees homepage">
-      <img src="media/Openfees-white.png"
-           alt="OpenFees Logo">
-    </a>
-
-    <ul class="nav-list"
-        id="site-menu"
-        data-menu-list>
-
-      <li>
-        <a href="index.html" aria-current="page">
-          Home
-        </a>
-      </li>
-
-      <li>
-        <a href="about.html">About Us</a>
-      </li>
-
-      <li>
+      <nav class="desktop-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
         <a href="our-work.html">Our Work</a>
-      </li>
-
-      <li>
-        <a href="blog.html">Stories</a>
-      </li>
-
-      <li>
         <a href="contact.html">Contact</a>
-      </li>
+        <a href="blog.html">Stories</a>
+      </nav>
 
-    </ul>
+      <a href="donate.html" class="nav-btn">Donate Now</a>
 
-    <a href="donate.html" class="nav-cta">
-      Donate Now
-      <span aria-hidden="true">&nearr;</span>
-    </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+        ☰
+      </button>
+    </div>
 
-    <button class="menu-button"
-            type="button"
-            data-menu-button
-            aria-label="Open navigation menu"
-            aria-controls="site-menu"
-            aria-expanded="false">
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="our-work.html">Our Work</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Stories</a>
+      <a href="donate.html">Donate Now</a>
+    </div>
+  </header>
 
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 7h16M4 12h16M4 17h16"/>
-      </svg>
-
-    </button>
-  </nav>
-</header>
-
-<main id="main">
-
-  <!-- ====================================
-       SECTION 1 — VIDEO HERO
-  ==================================== -->
-
-  <section class="hero"
-           aria-labelledby="hero-title">
-
-    <video id="heroVideo"
-           class="hero-video"
-           autoplay
-           muted
-           loop
-           playsinline
-           preload="auto"
-           aria-hidden="true">
-
-      <source src="media/header_video.mp4"
-              type="video/mp4">
-
+  <!-- HERO -->
+  <section class="hero">
+    <video
+      class="hero-video"
+      id="heroVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source src="media/header_video.mp4" type="video/mp4" />
     </video>
 
-    <div class="hero-shade"></div>
+    <div class="hero-overlay"></div>
 
-    <div class="hero-inner">
-      <div class="hero-content">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Every Child Deserves <br />A Chance To Learn</h1>
+        <p>
+          We help remove financial barriers so children from disadvantaged
+          backgrounds can stay in school and build a brighter future.
+        </p>
 
-        <h1 id="hero-title">
-
-          <span class="headline-line">
-            Every Child Deserves
-          </span>
-
-          <span class="headline-line">
-            a Chance to Learn.
-          </span>
-
-        </h1>
-
-        <div class="actions">
-
-          <a href="donate.html"
-             class="button button-primary">
-            Support a Child
-            <span aria-hidden="true">&nearr;</span>
-          </a>
-
-          <a href="our-work.html"
-             class="button button-outline">
-            Explore Our Work
-            <span aria-hidden="true">&rarr;</span>
-          </a>
-
+        <div class="hero-actions">
+          <a href="donate.html" class="primary-btn">Support A Child</a>
+          <a href="our-work.html" class="secondary-btn">Explore Our Work</a>
         </div>
-
       </div>
     </div>
-
-    <a href="#who-we-are"
-       class="scroll-indicator">
-      Discover More
-      <span aria-hidden="true">&darr;</span>
-    </a>
-
-    <button id="soundToggle"
-            class="sound-toggle"
-            type="button"
-            aria-label="Turn video sound on"
-            aria-pressed="false">
-
-      <span id="soundIcon" aria-hidden="true">
-        ♪
-      </span>
-
-      <span id="soundLabel">
-        Turn Sound On
-      </span>
-
-    </button>
-
   </section>
 
-
-  <!-- ====================================
-       SECTION 2 — WHO WE ARE
-       AND OUR COMMITMENT
-  ==================================== -->
-
-  <section id="who-we-are"
-           class="about-showcase"
-           aria-labelledby="about-heading">
-
-    <div class="container">
-
-      <div class="about-layout">
-
-        <!-- LEFT COLUMN -->
-        <div class="about-left" data-reveal>
-
-          <div class="section-label">
-            WHO WE ARE
-          </div>
-
-          <h2 id="about-heading">
-            Opening Doors to
-            <span>Education and Opportunity.</span>
-          </h2>
-
-          <p class="about-description">
-            OpenFees promotes financing for basic
-            education through fundraising, community
-            partnerships, social and behavioural
-            change communication (SBCC), data analysis,
-            policy advocacy, innovation, and
-            retail initiatives.
-          </p>
-
-          <!-- OUTLINED GRADUATE ILLUSTRATION -->
-          <!-- Editable vector, no extra image needed -->
-
-          <div class="graduate-art"
-               aria-hidden="true">
-
-            <svg viewBox="0 0 500 480"
-                 fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-
-              <defs>
-                <linearGradient id="gradStroke"
-                                x1="80" y1="40"
-                                x2="430" y2="440"
-                                gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#032464"/>
-                  <stop offset=".55" stop-color="#00AEEE"/>
-                  <stop offset="1" stop-color="#78D4F2"/>
-                </linearGradient>
-              </defs>
-
-              <!-- Small background halo -->
-              <circle cx="250" cy="250"
-                      r="175"
-                      fill="#EAF7FD"/>
-
-              <circle cx="250" cy="250"
-                      r="205"
-                      stroke="#CBEAF7"
-                      stroke-width="1.5"
-                      stroke-dasharray="4 12"/>
-
-              <g stroke="url(#gradStroke)"
-                 stroke-width="5"
-                 stroke-linejoin="round"
-                 stroke-linecap="round">
-
-                <!-- Graduation cap -->
-                <path d="M74 125L250 48L426 125L250 204Z"/>
-
-                <!-- Graduation cap band -->
-                <path d="M148 162V226
-                         C184 256 222 268 250 268
-                         C278 268 316 256 352 226
-                         V162"/>
-
-                <!-- Cap top detail -->
-                <path d="M160 167L250 205L340 167"/>
-
-                <!-- Tassel -->
-                <path d="M426 125V228"/>
-                <path d="M426 228L414 255L426 246L438 255Z"/>
-
-                <!-- Student head -->
-                <path d="M205 261V293
-                         C205 322 226 347 250 347
-                         C274 347 295 322 295 293
-                         V261"/>
-
-                <!-- Student shoulders and gown -->
-                <path d="M205 327
-                         C177 336 144 353 124 381
-                         L108 440
-                         H392
-                         L376 381
-                         C356 353 323 336 295 327"/>
-
-                <!-- Gown neckline -->
-                <path d="M205 327L250 386L295 327"/>
-
-                <!-- Front of gown -->
-                <path d="M250 386V440"/>
-
-                <!-- Stole -->
-                <path d="M206 330L250 386L221 417L184 342"/>
-                <path d="M294 330L250 386L279 417L316 342"/>
-
-                <!-- Arm folds -->
-                <path d="M141 382L176 400"/>
-                <path d="M359 382L324 400"/>
-
-              </g>
-
-              <!-- Little sparkle decorations -->
-              <g fill="#00AEEE" opacity=".75">
-                <circle cx="93" cy="285" r="5"/>
-                <circle cx="406" cy="317" r="4"/>
-                <circle cx="375" cy="70" r="4"/>
-              </g>
-
-              <g stroke="#00AEEE"
-                 stroke-width="2"
-                 stroke-linecap="round"
-                 opacity=".6">
-
-                <path d="M94 78V100M83 89H105"/>
-                <path d="M397 365V389M385 377H409"/>
-
-              </g>
-            </svg>
-          </div>
-
-          <div class="about-art-caption">
-            <span class="caption-dot"></span>
-            Every child deserves a chance to succeed.
-          </div>
-
-        </div>
-
-
-        <!-- RIGHT COLUMN -->
-        <div class="about-right">
-
-          <div class="commitment-heading"
-               data-reveal>
-
-            <span class="section-label">
-              OUR COMMITMENT
-            </span>
-
-            <h3>
-              What drives us forward
-            </h3>
-
-          </div>
-
-
-          <!-- COMMITMENT CARD 01 -->
-          <article class="commitment-card"
-                   data-reveal>
-
-            <div class="commitment-icon"
-                 aria-hidden="true">
-
-              <svg viewBox="0 0 48 48" fill="none">
-
-                <path d="M5 17L24 8L43 17L24 26L5 17Z"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linejoin="round"/>
-
-                <path d="M13 21V31
-                         C20 37 28 37 35 31
-                         V21"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linejoin="round"/>
-
-                <path d="M43 17V34"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linecap="round"/>
-
-                <path d="M39 39L43 34L47 39"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"/>
-
-              </svg>
-
-            </div>
-
-            <div class="commitment-text">
-
-              <span class="commitment-number">
-                01 / ACCESS
-              </span>
-
-              <h4>
-                Ensuring Access to Basic Education
-              </h4>
-
-              <p>
-                Making primary and secondary education
-                accessible to children from low-income
-                households and underserved communities
-                in Sub-Saharan Africa by reducing
-                school-related financial barriers.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <!-- COMMITMENT CARD 02 -->
-          <article class="commitment-card"
-                   data-reveal>
-
-            <div class="commitment-icon"
-                 aria-hidden="true">
-
-              <svg viewBox="0 0 48 48" fill="none">
-
-                <circle cx="24" cy="12" r="7"
-                        stroke="currentColor"
-                        stroke-width="2.2"/>
-
-                <path d="M9 39V34
-                         C9 25 15 22 24 22
-                         C33 22 39 25 39 34V39"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linecap="round"/>
-
-                <path d="M17 33L24 39L31 33"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linecap="round"/>
-
-              </svg>
-
-            </div>
-
-            <div class="commitment-text">
-
-              <span class="commitment-number">
-                02 / EMPOWERMENT
-              </span>
-
-              <h4>
-                Empowering the Next Generation
-                of Leaders
-              </h4>
-
-              <p>
-                Through OpenHub, mentorship,
-                emotional intelligence development,
-                and empathy-focused learning,
-                we help young people become
-                responsible and future-ready.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <!-- COMMITMENT CARD 03 -->
-          <article class="commitment-card"
-                   data-reveal>
-
-            <div class="commitment-icon"
-                 aria-hidden="true">
-
-              <svg viewBox="0 0 48 48" fill="none">
-
-                <path d="M17 30
-                         C13 26 12 22 12 18
-                         C12 11 17 6 24 6
-                         C31 6 36 11 36 18
-                         C36 22 35 26 31 30
-                         L29 34H19L17 30Z"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linejoin="round"/>
-
-                <path d="M19 39H29M21 44H27"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linecap="round"/>
-
-                <path d="M21 34V24L24 27L27 24V34"
-                      stroke="currentColor"
-                      stroke-width="2.2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"/>
-
-              </svg>
-
-            </div>
-
-            <div class="commitment-text">
-
-              <span class="commitment-number">
-                03 / INNOVATION
-              </span>
-
-              <h4>
-                Innovation for Sustainable Financing
-              </h4>
-
-              <p>
-                Exploring technology, partnerships,
-                community collaboration, alternative
-                funding approaches, and retail
-                initiatives to support sustainable
-                access to education.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <!-- SECTION CTA -->
-          <a href="our-work.html"
-             class="commitment-link">
-
-            Discover Our Work
-
-            <span aria-hidden="true">
-              &nearr;
-            </span>
-
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- BOTTOM VALUE STRIP -->
-      <div class="values-strip"
-           aria-label="Our three focus areas">
-
-        <div class="value-item">
-          <span class="value-index">01</span>
-          <span class="value-title">
-            Access to Education
-          </span>
-        </div>
-
-        <div class="value-divider"></div>
-
-        <div class="value-item">
-          <span class="value-index">02</span>
-          <span class="value-title">
-            Youth Empowerment
-          </span>
-        </div>
-
-        <div class="value-divider"></div>
-
-        <div class="value-item">
-          <span class="value-index">03</span>
-          <span class="value-title">
-            Sustainable Financing
-          </span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ====================================
-       SECTION 3 — MISSION
-  ==================================== -->
-
-  <section class="section">
-
-    <div class="container split-section">
-
-      <div data-reveal>
-        <div class="section-label">
-          OUR MISSION
-        </div>
+  <!-- SECOND SECTION -->
+  <section class="who-we-are-section">
+    <div class="container who-layout">
+      <!-- LEFT -->
+      <div class="who-left">
+        <span class="section-tag">WHO WE ARE</span>
 
         <h2>
-          Every child deserves
-          a brighter future.
+          Making Basic Education <br />
+          Accessible For Every Child
         </h2>
-      </div>
-
-      <div data-reveal>
-        <p class="lead">
-          Through educational funding, school
-          fee support, mentorship, community
-          engagement and strategic partnerships,
-          OpenFees helps remove financial
-          barriers to basic education.
-        </p>
-
-        <a href="about.html" class="text-link">
-          Discover Our Mission &nearr;
-        </a>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ====================================
-       SECTION 4 — CALL TO ACTION
-  ==================================== -->
-
-  <section class="section cta-section">
-
-    <div class="container">
-
-      <div class="cta-band" data-reveal>
-
-        <div>
-
-          <span class="cta-kicker">
-            TOGETHER, WE CAN MAKE A DIFFERENCE
-          </span>
-
-          <h2>
-            A brighter future begins
-            with an opportunity.
-          </h2>
-
-          <p>
-            Join us in helping children access
-            the education they deserve.
-          </p>
-
-        </div>
-
-        <a href="donate.html"
-           class="button button-primary">
-          Get Involved &nearr;
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</main>
-
-
-<!-- ====================================
-     FOOTER
-==================================== -->
-
-<footer class="site-footer">
-
-  <div class="container">
-
-    <div class="footer-top">
-
-      <div class="footer-brand">
-
-        <a href="index.html">
-          <img src="media/Openfees-white.png"
-               alt="OpenFees Logo">
-        </a>
 
         <p>
-          Removing financial barriers to basic
-          education and opening doors to
-          brighter futures.
+          OpenFees promotes financing for basic education through fundraising,
+          community partnerships, advocacy, innovation, and meaningful support
+          systems.
         </p>
 
+        <div class="who-illustration">
+          <svg viewBox="0 0 500 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- BOOKS -->
+            <g stroke="#00A7E1" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="172" y="55" width="70" height="90" rx="6"></rect>
+              <path d="M190 70H225"></path>
+              <path d="M190 88H225"></path>
+              <path d="M190 106H225"></path>
+
+              <rect x="245" y="45" width="72" height="100" rx="6"></rect>
+              <path d="M263 62H298"></path>
+              <path d="M263 80H298"></path>
+              <path d="M263 98H298"></path>
+
+              <rect x="320" y="58" width="68" height="88" rx="6"></rect>
+              <path d="M338 74H372"></path>
+              <path d="M338 92H372"></path>
+              <path d="M338 110H372"></path>
+            </g>
+
+            <!-- HANDS -->
+            <g stroke="#00A7E1" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M165 324C151 288 151 266 165 241C175 223 174 202 157 171C145 149 133 130 123 111C113 92 108 75 110 57C112 44 119 39 127 42C138 46 144 58 145 78L147 126"></path>
+              <path d="M147 126L150 90C151 76 159 71 167 73C177 75 182 84 181 98L178 140"></path>
+              <path d="M178 140L182 104C183 91 191 85 199 86C210 88 215 98 213 112L209 153"></path>
+              <path d="M209 153L212 122C213 111 219 105 228 106C239 107 245 117 244 129L240 178"></path>
+              <path d="M147 127C161 144 177 155 196 165C225 180 245 196 255 226C264 254 257 286 231 304C209 320 178 327 165 324Z"></path>
+
+              <path d="M335 324C349 288 349 266 335 241C325 223 326 202 343 171C355 149 367 130 377 111C387 92 392 75 390 57C388 44 381 39 373 42C362 46 356 58 355 78L353 126"></path>
+              <path d="M353 126L350 90C349 76 341 71 333 73C323 75 318 84 319 98L322 140"></path>
+              <path d="M322 140L318 104C317 91 309 85 301 86C290 88 285 98 287 112L291 153"></path>
+              <path d="M291 153L288 122C287 111 281 105 272 106C261 107 255 117 256 129L260 178"></path>
+              <path d="M353 127C339 144 323 155 304 165C275 180 255 196 245 226C236 254 243 286 269 304C291 320 322 327 335 324Z"></path>
+            </g>
+          </svg>
+        </div>
       </div>
 
-      <div class="footer-links">
+      <!-- RIGHT -->
+      <div class="who-right">
+        <div class="service-card top-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="14" y="16" width="22" height="28" rx="3" stroke="currentColor" stroke-width="2.8"/>
+              <path d="M20 24H30" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+              <path d="M20 30H30" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+              <path d="M20 36H27" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+              <rect x="30" y="20" width="20" height="26" rx="3" stroke="currentColor" stroke-width="2.8"/>
+              <path d="M36 27H44" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+              <path d="M36 33H44" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Education Funding</h3>
+            <p>
+              We provide school fee support and educational funding that helps
+              children stay in school.
+            </p>
+          </div>
+        </div>
 
-        <h3>Explore</h3>
-        <a href="about.html">About Us</a>
+        <div class="service-card middle-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="20" r="8" stroke="currentColor" stroke-width="2.8"/>
+              <path d="M18 49C18 40 24 34 32 34C40 34 46 40 46 49" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+              <path d="M14 29L22 33" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+              <path d="M50 29L42 33" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Mentorship &amp; Development</h3>
+            <p>
+              Through OpenHub, we support young people with mentorship, empathy,
+              and emotional intelligence.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-card bottom-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 32H48" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+              <path d="M32 16V48" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+              <circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="2.8"/>
+              <path d="M22 22L42 42" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Innovation &amp; Advocacy</h3>
+            <p>
+              We explore partnerships, policy advocacy, and innovation for
+              sustainable access to education.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container stats-row">
+      <div class="stat-item">
+        <h4>01</h4>
+        <p>EDUCATION<br />ACCESS</p>
+      </div>
+
+      <div class="stat-item">
+        <h4>02</h4>
+        <p>YOUTH<br />EMPOWERMENT</p>
+      </div>
+
+      <div class="stat-item">
+        <h4>03</h4>
+        <p>COMMUNITY<br />PARTNERSHIPS</p>
+      </div>
+
+      <div class="stat-item">
+        <h4>04</h4>
+        <p>INNOVATION<br />&amp; ADVOCACY</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>
+        <img src="media/Openfees-white.png" alt="OpenFees Logo" class="footer-logo" />
+        <p>
+          OpenFees is committed to helping children access quality basic
+          education regardless of financial circumstances.
+        </p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="about.html">About</a>
         <a href="our-work.html">Our Work</a>
-        <a href="blog.html">Stories</a>
-
-      </div>
-
-      <div class="footer-links">
-
-        <h3>Get Involved</h3>
-        <a href="donate.html">Donate</a>
         <a href="contact.html">Contact</a>
-        <a href="mailto:hello@openfees.org">
-          Email Us
-        </a>
-
       </div>
 
+      <div>
+        <h4>Get Involved</h4>
+        <a href="donate.html">Donate</a>
+        <a href="blog.html">Stories</a>
+        <a href="contact.html">Partner With Us</a>
+      </div>
     </div>
 
-    <div class="footer-bottom">
-
-      <span>
-        &copy; <span data-current-year>2026</span>
-        OpenFees. All rights reserved.
-      </span>
-
-      <span>
-        Education for every child.
-      </span>
-
+    <div class="container footer-bottom">
+      <p>&copy; 2026 OpenFees. All rights reserved.</p>
     </div>
+  </footer>
 
-  </div>
-
-</footer>
-
+  <script src="main.js"></script>
 </body>
 </html>
