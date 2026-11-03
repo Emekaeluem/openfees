@@ -1,18 +1,20 @@
 
 // ===========================================
-// OPENFEES — WEBSITE JAVASCRIPT
+// OPENFEES — MAIN JAVASCRIPT
 // ===========================================
 
 
 // -------------------------------------------
-// 1. WHITE LOGO FOR DARK BACKGROUNDS
+// 1. WHITE LOGO ON DARK BACKGROUNDS
 // -------------------------------------------
 
 document.querySelectorAll(
   ".brand img, .footer-brand img"
 ).forEach(logo => {
+
   logo.src = "media/Openfees-white.png";
   logo.alt = "OpenFees Logo";
+
 });
 
 
@@ -31,6 +33,7 @@ const menuList = document.querySelector(
 if (menuButton && menuList) {
 
   function closeMenu() {
+
     menuList.classList.remove("is-open");
 
     menuButton.setAttribute(
@@ -42,22 +45,23 @@ if (menuButton && menuList) {
       "aria-label",
       "Open navigation menu"
     );
+
   }
 
   menuButton.addEventListener("click", () => {
 
-    const open = menuList.classList.toggle(
+    const isOpen = menuList.classList.toggle(
       "is-open"
     );
 
     menuButton.setAttribute(
       "aria-expanded",
-      String(open)
+      String(isOpen)
     );
 
     menuButton.setAttribute(
       "aria-label",
-      open
+      isOpen
         ? "Close navigation menu"
         : "Open navigation menu"
     );
@@ -65,13 +69,17 @@ if (menuButton && menuList) {
   });
 
   menuList.querySelectorAll("a").forEach(link => {
+
     link.addEventListener("click", closeMenu);
+
   });
 
   document.addEventListener("keydown", event => {
+
     if (event.key === "Escape") {
       closeMenu();
     }
+
   });
 
   document.addEventListener("click", event => {
@@ -84,11 +92,12 @@ if (menuButton && menuList) {
     }
 
   });
+
 }
 
 
 // -------------------------------------------
-// 3. HERO VIDEO AND AUDIO
+// 3. VIDEO AUTOPLAY AND SOUND CONTROL
 // -------------------------------------------
 
 const heroVideo = document.getElementById(
@@ -116,6 +125,7 @@ if (heroVideo) {
   heroVideo.loop = true;
   heroVideo.playsInline = true;
 
+  // Display correct audio button state.
   function updateSoundButton() {
 
     if (!soundToggle) return;
@@ -123,15 +133,19 @@ if (heroVideo) {
     const soundIsOn = !heroVideo.muted;
 
     if (soundLabel) {
+
       soundLabel.textContent = soundIsOn
-        ? "Mute Video"
-        : "Turn Sound On";
+        ? "Turn Off Sound"
+        : "Turn On Sound";
+
     }
 
     if (soundIcon) {
+
       soundIcon.textContent = soundIsOn
-        ? "\u266A"
-        : "\u266B";
+        ? "\u266B"
+        : "\u266A";
+
     }
 
     soundToggle.setAttribute(
@@ -142,19 +156,26 @@ if (heroVideo) {
     soundToggle.setAttribute(
       "aria-label",
       soundIsOn
-        ? "Mute video sound"
-        : "Turn video sound on"
+        ? "Turn off video sound"
+        : "Turn on video sound"
     );
+
   }
 
-  // Try to start with sound.
-  // Browser restrictions may block it.
+
+  // Try to autoplay with sound immediately.
   async function startVideo() {
 
-    if (reducedMotion.matches) return;
+    if (reducedMotion.matches) {
+
+      heroVideo.pause();
+      return;
+
+    }
 
     try {
 
+      // Request sound on first playback.
       heroVideo.muted = false;
       heroVideo.volume = 1;
 
@@ -162,97 +183,120 @@ if (heroVideo) {
 
     } catch (error) {
 
-      // Fallback: play muted so visitors
-      // still see the video automatically.
+      // Most browsers block unmuted autoplay.
+      // Fall back to muted autoplay.
 
       heroVideo.muted = true;
 
       try {
+
         await heroVideo.play();
+
       } catch (playbackError) {
+
         console.info(
-          "Autoplay was blocked by the browser."
+          "Browser blocked automatic playback."
         );
+
       }
 
     }
 
     updateSoundButton();
+
   }
 
-  startVideo();
 
-  // Visitors can control the sound.
+  // Toggle sound on and off with one click.
   if (soundToggle) {
 
     soundToggle.addEventListener(
       "click",
       async () => {
 
-        const wasMuted = heroVideo.muted;
+        const previousMuted = heroVideo.muted;
 
-        heroVideo.muted = !wasMuted;
+        // If sound is on, this mutes it.
+        // If sound is off, this enables it.
+        heroVideo.muted = !previousMuted;
 
         try {
 
           if (heroVideo.paused) {
+
             await heroVideo.play();
+
           }
 
         } catch (error) {
 
-          heroVideo.muted = wasMuted;
+          // Restore state if playback fails.
+          heroVideo.muted = previousMuted;
 
         }
 
         updateSoundButton();
+
       }
     );
+
   }
 
+
+  // Keep button label synchronized.
   heroVideo.addEventListener(
     "volumechange",
     updateSoundButton
   );
 
-  // Do not pause on scroll.
-  // Playback remains active where
-  // permitted by the browser.
+
+  // Keep playing while visitors scroll.
+  // No scroll handler pauses this video.
 
   reducedMotion.addEventListener?.(
     "change",
     event => {
 
       if (event.matches) {
+
         heroVideo.pause();
+
       } else if (heroVideo.paused) {
-        heroVideo.muted = true;
-        heroVideo.play().catch(() => {});
+
+        heroVideo.play().catch(() => {
+
+          heroVideo.muted = true;
+          heroVideo.play().catch(() => {});
+
+        });
+
       }
 
     }
   );
 
-  updateSoundButton();
+
+  // Start video as soon as the script runs.
+  startVideo();
+
 }
 
 
 // -------------------------------------------
-// 4. DYNAMIC COPYRIGHT YEAR
+// 4. COPYRIGHT YEAR
 // -------------------------------------------
 
 document.querySelectorAll(
   "[data-current-year]"
 ).forEach(element => {
 
-  element.textContent =
-    new Date().getFullYear();
+  element.textContent = new Date().getFullYear();
 
 });
 
 
 // -------------------------------------------
-// 5. SCROLL REVEAL EFFECT
+// 5. SCROLL REVEAL ANIMATIONS
 // -------------------------------------------
 
 const revealItems = document.querySelectorAll(
@@ -296,14 +340,16 @@ if (
   );
 
   revealItems.forEach(item => {
+
     revealObserver.observe(item);
+
   });
 
 }
 
 
 // -------------------------------------------
-// 6. REDUCED MOTION ACCESSIBILITY
+// 6. REDUCED MOTION
 // -------------------------------------------
 
 reducedMotion.addEventListener?.(
@@ -313,7 +359,9 @@ reducedMotion.addEventListener?.(
     if (event.matches) {
 
       revealItems.forEach(item => {
+
         item.classList.add("is-visible");
+
       });
 
     }
