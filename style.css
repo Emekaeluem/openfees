@@ -1,7 +1,7 @@
 
-/* ======================================
+/* ==========================================
    OPENFEES — COMPLETE STYLESHEET
-====================================== */
+========================================== */
 
 :root {
   --navy: #032464;
@@ -12,7 +12,7 @@
   --muted: #68798D;
   --offwhite: #F7FAFC;
   --border: #E0ECF5;
-  --shadow: 0 18px 55px rgba(3,36,100,.10);
+  --shadow: 0 18px 55px rgba(3,36,100,.1);
 }
 
 *,
@@ -27,24 +27,17 @@ html {
 
 body {
   margin: 0;
-  color: var(--ink);
   background: var(--white);
+  color: var(--ink);
   font-family: "DM Sans", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
+h1, h2, h3, h4, p {
   margin-top: 0;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
   font-family: "Manrope", Arial, sans-serif;
   letter-spacing: -.045em;
 }
@@ -80,17 +73,17 @@ img {
   z-index: 1000;
   padding: 12px 16px;
   border-radius: 9px;
-  color: var(--navy);
   background: white;
+  color: var(--navy);
 }
 
 .skip-link:focus {
   top: 12px;
 }
 
-/* ======================================
+/* ==========================================
    HEADER
-====================================== */
+========================================== */
 
 .site-header {
   position: absolute;
@@ -194,9 +187,9 @@ img {
   stroke-linecap: round;
 }
 
-/* ======================================
+/* ==========================================
    SECTION 1 — VIDEO HERO
-====================================== */
+========================================== */
 
 .hero {
   position: relative;
@@ -347,9 +340,9 @@ img {
   font-weight: 600;
 }
 
-/* ======================================
-   SECTION 2 — WELCOME TO OPENFEES
-====================================== */
+/* ==========================================
+   SECTION 2 — WELCOME
+========================================== */
 
 .welcome-section {
   position: relative;
@@ -656,18 +649,17 @@ img {
   background: rgba(255,255,255,.8);
 }
 
-/* ======================================
-   SECTION 3 — OUR COMMITMENT
-   DARK BLUE HOVER EXPERIENCE
-====================================== */
+/* ==========================================
+   SECTION 3 — REVERSED COMMITMENT CARDS
+========================================== */
 
 .commitment-showcase {
-  padding: clamp(55px,7vh,95px) 0;
+  padding: clamp(48px,6vh,85px) 0;
   background:
     radial-gradient(
-      circle at 80% 0%,
+      circle at 85% 0%,
       rgba(0,174,238,.12),
-      transparent 36%
+      transparent 38%
     ),
     linear-gradient(160deg,#032464,#052A62);
   color: white;
@@ -679,14 +671,12 @@ img {
   margin-inline: auto;
 }
 
-/* HEADING */
-
 .commitment-head {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 32px;
-  margin-bottom: 35px;
+  margin-bottom: 31px;
 }
 
 .commitment-head-left {
@@ -707,10 +697,10 @@ img {
 .commitment-eyebrow-dot {
   width: 13px;
   height: 13px;
-  background: var(--blue);
-  border-radius: 50%;
-  box-shadow: 7px 0 0 rgba(255,255,255,.9);
   margin-right: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 7px 0 0 rgba(255,255,255,.9);
 }
 
 .commitment-head h2 {
@@ -719,7 +709,6 @@ img {
   font-size: clamp(34px,3.5vw,53px);
   line-height: 1.13;
   font-weight: 800;
-  letter-spacing: -.045em;
 }
 
 .commitment-head h2 span {
@@ -738,13 +727,12 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
   flex-shrink: 0;
   min-height: 53px;
-  padding: 13px 24px;
+  padding: 13px 27px;
   border-radius: 50px;
-  color: var(--navy);
   background: white;
+  color: var(--navy);
   font-size: 13px;
   font-weight: 800;
   transition: transform .25s, background .25s;
@@ -755,7 +743,7 @@ img {
   transform: translateY(-2px);
 }
 
-/* GRID */
+/* THREE-COLUMN LAYOUT */
 
 .commitment-grid-new {
   display: grid;
@@ -763,253 +751,244 @@ img {
   gap: 20px;
 }
 
-/* CARD */
+/* ALL CARDS DEFAULT TO FULL PHOTO */
 
 .commitment-card-new {
+  --expanded-bg: #E6F5FC;
+  --expanded-text: #032464;
+
   position: relative;
-  height: 495px;
+  height: 475px;
   min-width: 0;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.15);
   border-radius: 26px;
-  background: rgba(255,255,255,.075);
+  background: #123D75;
+  isolation: isolate;
+  cursor: pointer;
   transition:
-    transform .35s,
-    box-shadow .35s,
-    border-color .35s;
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease,
+    background .4s ease;
+}
+
+.commitment-card-featured {
+  --expanded-bg: #00AEEE;
+  --expanded-text: #032464;
 }
 
 .commitment-card-new:hover,
+.commitment-card-new:focus-within,
 .commitment-card-new:focus-visible,
 .commitment-card-new.is-expanded {
-  transform: translateY(-5px);
-  border-color: rgba(130,220,255,.45);
-  box-shadow: 0 22px 50px rgba(0,0,0,.18);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(0,0,0,.2);
+  border-color: rgba(146,221,255,.7);
+  background: var(--expanded-bg);
 }
 
 .commitment-card-inner {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
   height: 100%;
-  padding: 15px;
+  width: 100%;
 }
 
-/* IMAGE LAYER */
+/* IMAGE FILLS ENTIRE CARD INITIALLY */
 
 .commitment-media {
-  position: relative;
-  flex: 0 0 205px;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
   width: 100%;
+  height: 100%;
   overflow: hidden;
-  border-radius: 18px;
-  background: #DCECF5;
+  border-radius: inherit;
+  background: #DCEFFA;
   transition:
-    flex-basis .45s ease,
-    border-radius .45s ease,
-    margin .45s ease;
-}
-
-.commitment-media-bottom {
-  margin-top: auto;
+    inset .5s cubic-bezier(.2,.8,.2,1),
+    width .5s cubic-bezier(.2,.8,.2,1),
+    height .5s cubic-bezier(.2,.8,.2,1),
+    border-radius .5s ease;
 }
 
 .commitment-media img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center;
-  transition: transform .6s ease;
+  object-fit: cover;
+  object-position: center top;
+  transition:
+    transform .6s ease,
+    object-position .5s ease;
 }
+
+/* DARK GRADIENT IN THE NORMAL STATE */
 
 .commitment-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  opacity: 0;
   background: linear-gradient(
-    180deg,
-    rgba(3,36,100,.08) 0%,
-    rgba(3,36,100,.35) 35%,
-    rgba(2,20,55,.9) 75%,
-    rgba(2,20,55,.98) 100%
+    to top,
+    rgba(1,12,38,.98) 0%,
+    rgba(2,21,55,.85) 24%,
+    rgba(3,36,100,.28) 62%,
+    rgba(3,36,100,.08) 100%
   );
-  transition: opacity .4s ease;
+  opacity: 1;
   pointer-events: none;
+  transition: opacity .4s ease;
 }
 
-/* CONTENT */
+/* TEXT SITS ON TOP OF PHOTO INITIALLY */
 
 .commitment-content {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex: 1;
-  padding: 20px 8px 10px;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 25px 26px 27px;
+  color: white;
   transition:
-    padding .4s ease,
-    background .4s ease;
+    top .5s cubic-bezier(.2,.8,.2,1),
+    bottom .5s cubic-bezier(.2,.8,.2,1),
+    padding .5s ease,
+    color .4s ease;
 }
 
 .commitment-number-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  width: 100%;
-  margin-bottom: 12px;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 13px;
 }
 
 .commitment-number-new {
-  color: #75D8FF;
-  font-size: 26px;
+  color: #8FDEFF;
+  font-family: "Manrope",sans-serif;
+  font-size: 30px;
   line-height: 1;
   font-weight: 800;
 }
 
 .commitment-label {
-  color: #ADDFF6;
+  color: #B5E8FC;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: .13em;
 }
 
 .commitment-content h3 {
-  max-width: 340px;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
   color: white;
-  font-size: clamp(19px,1.65vw,24px);
-  line-height: 1.22;
+  font-size: clamp(20px,1.8vw,25px);
+  line-height: 1.2;
   font-weight: 800;
 }
 
 .commitment-content p {
-  max-width: 350px;
-  margin-bottom: 14px;
-  color: #D8EAF5;
+  margin-bottom: 16px;
+  color: #E5F2FD;
   font-size: 12px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .commitment-link {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  margin-top: auto;
-  color: #83DEFF;
+  color: #93E1FF;
   font-size: 13px;
   font-weight: 800;
-  transition: gap .25s, color .25s;
+  transition: color .25s;
 }
 
 .commitment-link:hover {
-  gap: 17px;
   color: white;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-/* BRIGHT BLUE MIDDLE CARD */
+/* ==========================================
+   HOVER: REVEAL TEXT AT TOP AND
+   REFRAME IMAGE AT BOTTOM
+========================================== */
 
-.commitment-card-featured {
-  background: var(--blue);
-  border-color: var(--blue);
+/* Keep the image INSIDE the same card.
+   No photo overlaps, no card reflow. */
+
+.commitment-card-new:hover .commitment-media,
+.commitment-card-new:focus-within .commitment-media,
+.commitment-card-new:focus-visible .commitment-media,
+.commitment-card-new.is-expanded .commitment-media {
+  inset: auto 15px 15px;
+  width: calc(100% - 30px);
+  height: 44%;
+  border-radius: 17px;
 }
 
-.commitment-card-featured .commitment-content {
-  padding-top: 15px;
-  padding-bottom: 18px;
+/* Contain entire image on hover to
+   preserve students' heads and faces. */
+
+.commitment-card-new:hover .commitment-media img,
+.commitment-card-new:focus-within .commitment-media img,
+.commitment-card-new:focus-visible .commitment-media img,
+.commitment-card-new.is-expanded .commitment-media img {
+  object-fit: contain;
+  object-position: center;
+  transform: scale(1);
 }
 
-.commitment-card-featured .commitment-number-new,
-.commitment-card-featured .commitment-label,
-.commitment-card-featured .commitment-content h3,
-.commitment-card-featured .commitment-link {
+/* Remove gradient after converting
+   to a framed photograph. */
+
+.commitment-card-new:hover .commitment-overlay,
+.commitment-card-new:focus-within .commitment-overlay,
+.commitment-card-new:focus-visible .commitment-overlay,
+.commitment-card-new.is-expanded .commitment-overlay {
+  opacity: 0;
+}
+
+/* Move content to the top. */
+
+.commitment-card-new:hover .commitment-content,
+.commitment-card-new:focus-within .commitment-content,
+.commitment-card-new:focus-visible .commitment-content,
+.commitment-card-new.is-expanded .commitment-content {
+  top: 0;
+  bottom: auto;
+  padding: 27px 25px 15px;
+  color: var(--expanded-text);
+}
+
+/* Change all content to dark navy */
+
+.commitment-card-new:hover .commitment-number-new,
+.commitment-card-new:hover .commitment-label,
+.commitment-card-new:hover .commitment-content h3,
+.commitment-card-new:hover .commitment-content p,
+.commitment-card-new:hover .commitment-link,
+.commitment-card-new:focus-within .commitment-number-new,
+.commitment-card-new:focus-within .commitment-label,
+.commitment-card-new:focus-within .commitment-content h3,
+.commitment-card-new:focus-within .commitment-content p,
+.commitment-card-new:focus-within .commitment-link,
+.commitment-card-new:focus-visible .commitment-number-new,
+.commitment-card-new:focus-visible .commitment-label,
+.commitment-card-new:focus-visible .commitment-content h3,
+.commitment-card-new:focus-visible .commitment-content p,
+.commitment-card-new:focus-visible .commitment-link,
+.commitment-card-new.is-expanded .commitment-number-new,
+.commitment-card-new.is-expanded .commitment-label,
+.commitment-card-new.is-expanded .commitment-content h3,
+.commitment-card-new.is-expanded .commitment-content p,
+.commitment-card-new.is-expanded .commitment-link {
   color: #032464;
 }
 
-.commitment-card-featured .commitment-content p {
-  color: rgba(3,36,100,.85);
-}
-
-/* EXPANDING IMAGE
-   The image fills the card on hover.
-   The text becomes an overlay.
-
-   All three images remain separate.
-*/
-
-.commitment-card-new:hover .commitment-media,
-.commitment-card-new:focus-visible .commitment-media,
-.commitment-card-new:focus-within .commitment-media,
-.commitment-card-new.is-expanded .commitment-media {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  border-radius: 0;
-}
-
-.commitment-card-new:hover .commitment-media img,
-.commitment-card-new:focus-visible .commitment-media img,
-.commitment-card-new:focus-within .commitment-media img,
-.commitment-card-new.is-expanded .commitment-media img {
-  transform: scale(1.065);
-}
-
-/* Keep entire image visible while expanding. */
-
-.commitment-card-new:hover .commitment-overlay,
-.commitment-card-new:focus-visible .commitment-overlay,
-.commitment-card-new:focus-within .commitment-overlay,
-.commitment-card-new.is-expanded .commitment-overlay {
-  opacity: 1;
-}
-
-/* Position hover content over image */
-
-.commitment-card-new:hover .commitment-content,
-.commitment-card-new:focus-visible .commitment-content,
-.commitment-card-new:focus-within .commitment-content,
-.commitment-card-new.is-expanded .commitment-content {
-  position: absolute;
-  z-index: 4;
-  inset: auto 0 0;
-  flex: initial;
-  width: 100%;
-  padding: 75px 27px 27px;
-  background: linear-gradient(
-    to top,
-    rgba(2,19,54,.97),
-    rgba(2,19,54,.83) 60%,
-    transparent
-  );
-}
-
-/* Reverse featured-card text to white on hover */
-
-.commitment-card-new:hover .commitment-content h3,
-.commitment-card-new:hover .commitment-content p,
-.commitment-card-new:hover .commitment-number-new,
-.commitment-card-new:hover .commitment-label,
-.commitment-card-new:hover .commitment-link,
-.commitment-card-new:focus-within .commitment-content h3,
-.commitment-card-new:focus-within .commitment-content p,
-.commitment-card-new:focus-within .commitment-number-new,
-.commitment-card-new:focus-within .commitment-label,
-.commitment-card-new:focus-within .commitment-link,
-.commitment-card-new.is-expanded .commitment-content h3,
-.commitment-card-new.is-expanded .commitment-content p,
-.commitment-card-new.is-expanded .commitment-number-new,
-.commitment-card-new.is-expanded .commitment-label,
-.commitment-card-new.is-expanded .commitment-link {
-  color: white;
-}
-
-/* BOTTOM NOTE */
+/* BOTTOM CAPTION */
 
 .commitment-footer-note {
   display: flex;
@@ -1033,9 +1012,9 @@ img {
   font-weight: 800;
 }
 
-/* ======================================
+/* ==========================================
    SECTION 4 — GET INVOLVED
-====================================== */
+========================================== */
 
 .section {
   padding: 100px 0;
@@ -1090,9 +1069,9 @@ img {
   flex-shrink: 0;
 }
 
-/* ======================================
-   SHARED STYLES FOR OTHER PAGES
-====================================== */
+/* ==========================================
+   OTHER PAGE SHARED STYLES
+========================================== */
 
 .page-hero {
   padding: 190px 0 95px;
@@ -1244,9 +1223,9 @@ img {
   margin-top: 12px;
 }
 
-/* ======================================
+/* ==========================================
    FOOTER
-====================================== */
+========================================== */
 
 .site-footer {
   padding: 65px 0 25px;
@@ -1312,9 +1291,9 @@ img {
   font-size: 12px;
 }
 
-/* ======================================
+/* ==========================================
    SCROLL REVEAL
-====================================== */
+========================================== */
 
 [data-reveal] {
   opacity: 1;
@@ -1334,9 +1313,9 @@ img {
   transform: translateY(0);
 }
 
-/* ======================================
+/* ==========================================
    TABLET
-====================================== */
+========================================== */
 
 @media (max-width: 1024px) {
   .navbar {
@@ -1377,7 +1356,11 @@ img {
   }
 
   .commitment-card-new {
-    height: 485px;
+    height: 465px;
+  }
+
+  .commitment-content {
+    padding: 20px;
   }
 
   .commitment-content h3 {
@@ -1385,7 +1368,13 @@ img {
   }
 
   .commitment-content p {
-    font-size: 11.5px;
+    font-size: 11px;
+  }
+
+  .commitment-card-new:hover .commitment-content,
+  .commitment-card-new:focus-within .commitment-content,
+  .commitment-card-new.is-expanded .commitment-content {
+    padding: 20px;
   }
 
   .split-section {
@@ -1397,9 +1386,9 @@ img {
   }
 }
 
-/* ======================================
-   MOBILE / SMALL TABLET
-====================================== */
+/* ==========================================
+   MOBILE AND SMALL TABLET
+========================================== */
 
 @media (max-width: 850px) {
   .site-header {
@@ -1472,7 +1461,7 @@ img {
     background: rgba(2,20,48,.57);
   }
 
-  /* Welcome section stacks */
+  /* Welcome becomes stacked */
 
   .welcome-section,
   .welcome-layout {
@@ -1499,7 +1488,7 @@ img {
     min-height: 560px;
   }
 
-  /* Commitment section */
+  /* Commitment: 2 cards per row */
 
   .commitment-showcase {
     padding: 75px 0;
@@ -1507,6 +1496,8 @@ img {
 
   .commitment-head {
     align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
   }
 
   .commitment-head h2 {
@@ -1517,16 +1508,8 @@ img {
     grid-template-columns: repeat(2,minmax(0,1fr));
   }
 
-  .commitment-card-featured {
-    grid-column: auto;
-  }
-
-  .commitment-content h3 {
-    font-size: 21px;
-  }
-
-  .commitment-content p {
-    font-size: 12px;
+  .commitment-card-new {
+    height: 470px;
   }
 
   .cta-band {
@@ -1553,9 +1536,9 @@ img {
   }
 }
 
-/* ======================================
-   SMALL MOBILE
-====================================== */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 600px) {
   .brand img {
@@ -1650,11 +1633,6 @@ img {
     padding: 60px 0;
   }
 
-  .commitment-head {
-    flex-direction: column;
-    gap: 22px;
-  }
-
   .commitment-head h2 {
     font-size: 34px;
   }
@@ -1665,19 +1643,22 @@ img {
   }
 
   .commitment-card-new {
-    height: 475px;
+    height: 470px;
   }
 
-  .commitment-media {
-    flex-basis: 205px;
+  .commitment-content,
+  .commitment-card-new:hover .commitment-content,
+  .commitment-card-new:focus-within .commitment-content,
+  .commitment-card-new.is-expanded .commitment-content {
+    padding: 22px;
   }
 
   .commitment-content h3 {
-    font-size: 23px;
+    font-size: 22px;
   }
 
   .commitment-content p {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .commitment-footer-note {
@@ -1705,9 +1686,9 @@ img {
   }
 }
 
-/* ======================================
+/* ==========================================
    SHORT DESKTOP SCREENS
-====================================== */
+========================================== */
 
 @media (min-width: 851px) and (max-height: 760px) {
   .welcome-content {
@@ -1744,8 +1725,7 @@ img {
   }
 
   .commitment-showcase {
-    padding-top: 35px;
-    padding-bottom: 35px;
+    padding: 32px 0;
   }
 
   .commitment-head {
@@ -1753,44 +1733,52 @@ img {
   }
 
   .commitment-head h2 {
-    font-size: 37px;
+    font-size: 36px;
   }
 
   .commitment-card-new {
-    height: 410px;
-  }
-
-  .commitment-media {
-    flex-basis: 155px;
+    height: 390px;
   }
 
   .commitment-content {
-    padding-top: 14px;
+    padding: 19px;
   }
 
   .commitment-number-row {
-    margin-bottom: 8px;
+    margin-bottom: 9px;
+  }
+
+  .commitment-number-new {
+    font-size: 24px;
   }
 
   .commitment-content h3 {
     font-size: 18px;
+    margin-bottom: 8px;
   }
 
   .commitment-content p {
-    font-size: 11px;
+    font-size: 10.5px;
     line-height: 1.55;
+    margin-bottom: 11px;
   }
 
   .commitment-card-new:hover .commitment-content,
   .commitment-card-new:focus-within .commitment-content,
   .commitment-card-new.is-expanded .commitment-content {
-    padding: 45px 21px 21px;
+    padding: 17px 19px;
+  }
+
+  .commitment-card-new:hover .commitment-media,
+  .commitment-card-new:focus-within .commitment-media,
+  .commitment-card-new.is-expanded .commitment-media {
+    height: 40%;
   }
 }
 
-/* ======================================
+/* ==========================================
    REDUCED MOTION
-====================================== */
+========================================== */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -1810,7 +1798,6 @@ img {
   }
 
   .commitment-card-new:hover,
-  .commitment-card-new:focus-visible,
   .commitment-card-new.is-expanded {
     transform: none;
   }
