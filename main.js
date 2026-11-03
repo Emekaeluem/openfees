@@ -5,7 +5,7 @@
 
 
 // -------------------------------------------
-// 1. WHITE LOGO FOR DARK BACKGROUNDS
+// 1. WHITE LOGO ON DARK BACKGROUNDS
 // -------------------------------------------
 
 document.querySelectorAll(
@@ -31,6 +31,7 @@ const menuList = document.querySelector(
 if (menuButton && menuList) {
 
   function closeMenu() {
+
     menuList.classList.remove("is-open");
 
     menuButton.setAttribute(
@@ -86,7 +87,7 @@ if (menuButton && menuList) {
 
 
 // -------------------------------------------
-// 3. VIDEO AUTOPLAY AND SOUND CONTROL
+// 3. VIDEO AUTOPLAY AND AUDIO CONTROL
 // -------------------------------------------
 
 const heroVideo = document.getElementById(
@@ -153,8 +154,9 @@ if (heroVideo) {
       return;
     }
 
-    // Request immediate playback with sound.
     try {
+
+      // Try immediate sound playback.
       heroVideo.muted = false;
       heroVideo.volume = 1;
 
@@ -162,8 +164,8 @@ if (heroVideo) {
 
     } catch (error) {
 
-      // Browsers often block sound autoplay.
-      // Fall back to muted automatic playback.
+      // Fallback for browsers that block
+      // unmuted autoplay.
       heroVideo.muted = true;
 
       try {
@@ -173,6 +175,7 @@ if (heroVideo) {
           "Browser blocked automatic video playback."
         );
       }
+
     }
 
     updateSoundButton();
@@ -206,9 +209,6 @@ if (heroVideo) {
     updateSoundButton
   );
 
-  // No scrolling listener pauses the video.
-  // Playback continues where allowed by the browser.
-
   reducedMotion.addEventListener?.(
     "change",
     event => {
@@ -224,12 +224,14 @@ if (heroVideo) {
     }
   );
 
+  // Video is not intentionally paused
+  // as visitors scroll the page.
   startVideo();
 }
 
 
 // -------------------------------------------
-// 4. COPYRIGHT YEAR
+// 4. AUTOMATIC COPYRIGHT YEAR
 // -------------------------------------------
 
 document.querySelectorAll(
@@ -241,7 +243,7 @@ document.querySelectorAll(
 
 
 // -------------------------------------------
-// 5. SCROLL REVEAL
+// 5. SCROLL REVEAL ANIMATIONS
 // -------------------------------------------
 
 const revealItems = document.querySelectorAll(
@@ -264,7 +266,6 @@ if (
       entries.forEach(entry => {
 
         if (entry.isIntersecting) {
-
           entry.target.classList.add(
             "is-visible"
           );
