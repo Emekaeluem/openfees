@@ -1,449 +1,187 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#032464">
-
-  <title>OpenFees | Education for Every Child</title>
-  <meta name="description" content="OpenFees helps remove financial barriers to basic education through school fee support, mentorship and community partnerships.">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- JavaScript -->
-  <script src="main.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenFees - Basic Education First</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
-<a href="#main" class="skip-link">Skip to content</a>
-
-<!-- ==================================
-     HEADER / NAVIGATION
-================================== -->
-
-<header class="site-header">
-
-  <nav class="navbar" aria-label="Main navigation">
-
-    <!-- WHITE LOGO -->
-    <a href="index.html"
-       class="brand"
-       aria-label="OpenFees Homepage">
-
-      <img
-        src="media/Openfees-white.png"
-        alt="OpenFees Logo"
-        width="175">
-
-    </a>
-
-    <!-- Navigation Links -->
-    <ul class="nav-list" id="site-menu" data-menu-list>
-
-      <li>
-        <a href="index.html" aria-current="page">
-          Home
-        </a>
-      </li>
-
-      <li>
-        <a href="about.html">
-          About Us
-        </a>
-      </li>
-
-      <li>
-        <a href="our-work.html">
-          Our Work
-        </a>
-      </li>
-
-      <li>
-        <a href="blog.html">
-          Stories
-        </a>
-      </li>
-
-      <li>
-        <a href="contact.html">
-          Contact
-        </a>
-      </li>
-
-    </ul>
-
-    <!-- Donation CTA -->
-    <a href="donate.html" class="nav-cta">
-      Donate Now
-      <span aria-hidden="true">&nearr;</span>
-    </a>
-
-    <!-- Mobile Menu -->
-    <button
-      class="menu-button"
-      type="button"
-      data-menu-button
-      aria-label="Open navigation menu"
-      aria-controls="site-menu"
-      aria-expanded="false">
-
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 7h16M4 12h16M4 17h16"/>
-      </svg>
-
-    </button>
-
-  </nav>
-
-</header>
-
-<!-- ==================================
-     MAIN CONTENT
-================================== -->
-
-<main id="main">
-
-  <!-- ==================================
-       VIDEO HERO
-  ================================== -->
-
-  <section class="hero" aria-labelledby="hero-title">
-
-    <!-- Background Video -->
+  <!-- HEADER / HERO VIDEO -->
+  <header class="hero">
     <video
       id="heroVideo"
       class="hero-video"
-      data-hero-video
       autoplay
-      muted
       loop
       playsinline
       preload="auto"
-      aria-hidden="true">
-
-      <source
-        src="media/header_video.mp4"
-        type="video/mp4">
-
+    >
+      <source src="openfees-hero.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
     </video>
 
-    <!-- Dark Overlay -->
-    <div class="hero-shade"></div>
+    <div class="hero-overlay"></div>
 
-    <!-- Hero Text -->
-    <div class="hero-inner">
-
-      <div class="hero-content">
-
-        <h1 id="hero-title">
-          <span class="headline-line">
-            Every Child Deserves
-          </span>
-
-          <span class="headline-line">
-            a Chance to Learn.
-          </span>
-        </h1>
-
-        <!-- Hero Buttons -->
-        <div class="actions">
-
-          <a href="donate.html"
-             class="button button-primary">
-
-            Support a Child
-            <span aria-hidden="true">&nearr;</span>
-
-          </a>
-
-          <a href="our-work.html"
-             class="button button-outline">
-
-            Explore Our Work
-            <span aria-hidden="true">&rarr;</span>
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- Audio Control -->
-    <button
-      id="soundToggle"
-      class="sound-toggle"
-      type="button"
-      aria-label="Turn video sound on"
-      aria-pressed="false">
-
-      <span id="soundIcon" aria-hidden="true">
-        &#9835;
-      </span>
-
-      <span id="soundLabel">
-        Turn Sound On
-      </span>
-
-    </button>
-
-    <!-- Scroll Indicator -->
-    <a href="#mission" class="scroll-indicator">
-      <span>Discover More</span>
-
-      <span class="scroll-arrow" aria-hidden="true">
-        &darr;
-      </span>
-    </a>
-
-  </section>
-
-  <!-- ==================================
-       WHO WE ARE
-  ================================== -->
-
-  <section class="section section-soft" id="mission">
-
-    <div class="container">
-
-      <div class="section-label">
-        WHO WE ARE
-      </div>
-
-      <div class="section-intro" data-reveal>
-
-        <h2>
-          Education should never be a privilege.
-        </h2>
-
-        <p class="lead">
-          OpenFees is a nonprofit organization
-          committed to making basic education
-          accessible to children from financially
-          disadvantaged backgrounds.
+    <div class="hero-content">
+      <div class="container">
+        <p class="hero-tag">WELCOME TO OPENFEES</p>
+        <h1>Basic Education First</h1>
+        <p class="hero-text">
+          OpenFees is committed to making basic education accessible by removing
+          financial barriers and creating opportunities for children to learn,
+          grow, and lead.
         </p>
 
-      </div>
-
-      <div class="feature-grid">
-
-        <article class="feature-card" data-reveal>
-
-          <div class="feature-number">
-            01 / ACCESS
-          </div>
-
-          <h3>School Fee Support</h3>
-
-          <p>
-            Helping reduce financial barriers
-            that prevent children from accessing
-            and completing school.
-          </p>
-
-        </article>
-
-        <article class="feature-card" data-reveal>
-
-          <div class="feature-number">
-            02 / GROWTH
-          </div>
-
-          <h3>Mentorship</h3>
-
-          <p>
-            Supporting young people in building
-            confidence, skills and leadership
-            beyond the classroom.
-          </p>
-
-        </article>
-
-        <article class="feature-card" data-reveal>
-
-          <div class="feature-number">
-            03 / COLLABORATION
-          </div>
-
-          <h3>Community Partnerships</h3>
-
-          <p>
-            Working with communities and
-            organizations to create sustainable
-            educational opportunities.
-          </p>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ==================================
-       OUR MISSION
-  ================================== -->
-
-  <section class="section">
-
-    <div class="container split-section">
-
-      <div data-reveal>
-
-        <div class="section-label">
-          OUR MISSION
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-primary">Donate Now</a>
+          <a href="#" class="btn btn-secondary">Learn More</a>
         </div>
 
-        <h2>
-          Every child deserves a brighter future.
-        </h2>
-
+        <button id="soundBtn" class="sound-btn" type="button">
+          Enable Sound
+        </button>
       </div>
-
-      <div data-reveal>
-
-        <p class="lead">
-          Through educational funding,
-          school fee support, mentorship,
-          community engagement and strategic
-          partnerships, OpenFees helps remove
-          financial barriers to basic education.
-        </p>
-
-        <a href="about.html" class="text-link">
-          Discover Our Mission &nearr;
-        </a>
-
-      </div>
-
     </div>
+  </header>
 
-  </section>
-
-  <!-- ==================================
-       DONATION CALL TO ACTION
-  ================================== -->
-
-  <section class="section cta-section">
-
+  <!-- SECOND SECTION -->
+  <section class="who-we-are-section">
     <div class="container">
-
-      <div class="cta-band" data-reveal>
-
-        <div>
-
-          <span class="cta-kicker">
-            TOGETHER, WE CAN MAKE A DIFFERENCE
-          </span>
-
-          <h2>
-            A brighter future begins with an opportunity.
+      <div class="who-we-are-grid">
+        <!-- LEFT CONTENT -->
+        <div class="who-left">
+          <p class="section-label">WHO WE ARE</p>
+          <h2 class="section-title">
+            Advancing Basic Education with Access, Opportunity and Purpose
           </h2>
-
-          <p>
-            Join us in helping children access
-            the education they deserve.
+          <p class="section-description">
+            OpenFees promotes financing for basic education through fundraising,
+            community partnerships, social and behavioural change communication
+            (SBCC), data analysis, policy advocacy, innovation, and retail
+            initiatives.
           </p>
 
+          <div class="student-illustration">
+            <svg viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <g stroke="#F08A69" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Graduation cap -->
+                <path d="M210 48L130 82L210 116L290 82L210 48Z"/>
+                <path d="M162 95V128C162 128 181 145 210 145C239 145 258 128 258 128V95"/>
+                <path d="M290 82V130"/>
+                <path d="M290 130C290 130 303 142 290 154C277 142 290 130 290 130Z"/>
+
+                <!-- Head -->
+                <circle cx="210" cy="184" r="36"/>
+
+                <!-- Neck -->
+                <path d="M196 216V234"/>
+                <path d="M224 216V234"/>
+
+                <!-- Gown / shoulders -->
+                <path d="M145 256C153 234 176 221 196 220H224C244 221 267 234 275 256"/>
+
+                <!-- Gown body -->
+                <path d="M168 234L146 305"/>
+                <path d="M252 234L274 305"/>
+                <path d="M168 234C168 234 187 252 210 252C233 252 252 234 252 234"/>
+                <path d="M188 252V305"/>
+                <path d="M232 252V305"/>
+
+                <!-- Hands / book-like simple pose -->
+                <path d="M168 240C150 246 136 258 128 274"/>
+                <path d="M252 240C270 246 284 258 292 274"/>
+
+                <!-- Base line -->
+                <path d="M120 306H300"/>
+              </g>
+            </svg>
+          </div>
         </div>
 
-        <a href="donate.html"
-           class="button button-primary">
+        <!-- RIGHT CARDS -->
+        <div class="who-right">
+          <div class="commitment-card">
+            <div class="card-icon">
+              <span>01</span>
+            </div>
+            <div class="card-content">
+              <h3>Ensuring Access to Basic Education for Indigent Children</h3>
+              <p>
+                OpenFees works to make primary and secondary education
+                accessible to children from low-income households and
+                underserved communities in Sub-Saharan Africa, helping them
+                overcome school-related financial barriers.
+              </p>
+            </div>
+          </div>
 
-          Get Involved &nearr;
+          <div class="commitment-card">
+            <div class="card-icon">
+              <span>02</span>
+            </div>
+            <div class="card-content">
+              <h3>Empowering the Next Generation of Leaders</h3>
+              <p>
+                Through its OpenHub Programme, the foundation provides
+                mentorship, emotional intelligence development, and
+                empathy-focused learning to help young people become
+                responsible and prepared for the future.
+              </p>
+            </div>
+          </div>
 
-        </a>
+          <div class="commitment-card">
+            <div class="card-icon">
+              <span>03</span>
+            </div>
+            <div class="card-content">
+              <h3>Innovation for Sustainable Financing</h3>
+              <p>
+                OpenFees explores technology, partnerships, community
+                collaboration, alternative funding approaches, and retail
+                initiatives to support sustainable access to education.
+              </p>
+            </div>
+          </div>
 
+          <div class="commitment-cta-wrap">
+            <a href="#" class="btn btn-primary">Get Involved</a>
+          </div>
+        </div>
       </div>
 
-    </div>
+      <!-- STATS -->
+      <div class="stats-row">
+        <div class="stat-box">
+          <h4>18,000</h4>
+          <p>Students Supported</p>
+        </div>
 
+        <div class="stat-box">
+          <h4>₦1M</h4>
+          <p>Funds Raised</p>
+        </div>
+
+        <div class="stat-box">
+          <h4>03</h4>
+          <p>Core Commitments</p>
+        </div>
+
+        <div class="stat-box">
+          <h4>1</h4>
+          <p>Shared Mission</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-</main>
-
-<!-- ==================================
-     FOOTER
-================================== -->
-
-<footer class="site-footer">
-
-  <div class="container">
-
-    <div class="footer-top">
-
-      <div class="footer-brand">
-
-        <!-- WHITE FOOTER LOGO -->
-        <a href="index.html">
-
-          <img
-            src="media/Openfees-white.png"
-            alt="OpenFees Logo"
-            width="180">
-
-        </a>
-
-        <p>
-          Removing financial barriers to
-          basic education and opening doors
-          to brighter futures.
-        </p>
-
-      </div>
-
-      <div class="footer-links">
-
-        <h3>Explore</h3>
-
-        <a href="about.html">About Us</a>
-        <a href="our-work.html">Our Work</a>
-        <a href="blog.html">Stories</a>
-
-      </div>
-
-      <div class="footer-links">
-
-        <h3>Get Involved</h3>
-
-        <a href="donate.html">Donate</a>
-        <a href="contact.html">Contact</a>
-
-        <a href="mailto:hello@openfees.org">
-          Email Us
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-
-      <span>
-        &copy;
-        <span data-current-year>2026</span>
-        OpenFees. All rights reserved.
-      </span>
-
-      <span>
-        Education for every child.
-      </span>
-
-    </div>
-
-  </div>
-
-</footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
