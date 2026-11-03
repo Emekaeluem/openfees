@@ -10,15 +10,16 @@
   <title>OpenFees | Education for Every Child</title>
 
   <meta name="description"
-        content="OpenFees works to remove financial barriers to basic education through fundraising, mentorship, advocacy, partnerships and innovation.">
+        content="OpenFees promotes financing for basic education through fundraising, partnerships, advocacy and innovation.">
 
   <link rel="preconnect"
         href="https://fonts.googleapis.com">
   <link rel="preconnect"
         href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
   <script src="main.js" defer></script>
@@ -26,24 +27,26 @@
 
 <body>
 
-<a class="skip-link" href="#main">
+<a href="#main" class="skip-link">
   Skip to content
 </a>
 
-<!-- ====================================
+<!-- ==================================
      HEADER AND NAVIGATION
-==================================== -->
+================================== -->
 
 <header class="site-header">
 
-  <nav class="navbar" aria-label="Main navigation">
+  <nav class="navbar"
+       aria-label="Main navigation">
 
     <a href="index.html"
        class="brand"
-       aria-label="OpenFees homepage">
+       aria-label="OpenFees Homepage">
 
-      <img src="media/Openfees-white.png"
-           alt="OpenFees Logo">
+      <img
+        src="media/Openfees-white.png"
+        alt="OpenFees Logo">
 
     </a>
 
@@ -52,7 +55,8 @@
         data-menu-list>
 
       <li>
-        <a href="index.html" aria-current="page">
+        <a href="index.html"
+           aria-current="page">
           Home
         </a>
       </li>
@@ -88,7 +92,8 @@
       aria-controls="site-menu"
       aria-expanded="false">
 
-      <svg viewBox="0 0 24 24" aria-hidden="true">
+      <svg viewBox="0 0 24 24"
+           aria-hidden="true">
         <path d="M4 7h16M4 12h16M4 17h16"/>
       </svg>
 
@@ -100,9 +105,9 @@
 
 <main id="main">
 
-  <!-- ====================================
+  <!-- ==================================
        SECTION 1 — VIDEO HERO
-  ==================================== -->
+  ================================== -->
 
   <section class="hero"
            aria-labelledby="hero-title">
@@ -120,14 +125,10 @@
         src="media/header_video.mp4"
         type="video/mp4">
 
-      Your browser does not support video.
-
     </video>
 
-    <!-- Video overlay -->
     <div class="hero-shade"></div>
 
-    <!-- Main heading -->
     <div class="hero-inner">
 
       <div class="hero-content">
@@ -168,19 +169,14 @@
 
     </div>
 
-    <!-- Scroll to next section -->
-    <a href="#get-involved"
+    <a href="#welcome"
        class="scroll-indicator">
 
       Discover More
-
-      <span aria-hidden="true">
-        &darr;
-      </span>
+      <span aria-hidden="true">&darr;</span>
 
     </a>
 
-    <!-- Video audio control -->
     <button
       id="soundToggle"
       class="sound-toggle"
@@ -188,7 +184,8 @@
       aria-label="Turn off video sound"
       aria-pressed="true">
 
-      <span id="soundIcon" aria-hidden="true">
+      <span id="soundIcon"
+            aria-hidden="true">
         &#9835;
       </span>
 
@@ -201,10 +198,143 @@
   </section>
 
 
-  <!-- ====================================
-       SECTION 2 — GET INVOLVED
-       (FORMERLY SECTION 4)
-  ==================================== -->
+  <!-- ==================================
+       SECTION 2 — WELCOME TO OPENFEES
+       IMAGE RIGHT / TEXT LEFT
+  ================================== -->
+
+  <section
+    class="welcome-section"
+    id="welcome"
+    aria-labelledby="welcome-title">
+
+    <div class="welcome-layout">
+
+      <!-- LEFT: CONTENT -->
+      <div class="welcome-content">
+
+        <div class="welcome-content-inner"
+             data-reveal>
+
+          <div class="welcome-eyebrow">
+
+            <span class="welcome-eyebrow-line"></span>
+
+            WELCOME TO OPENFEES
+
+          </div>
+
+          <h2 id="welcome-title">
+
+            Basic
+            <span class="welcome-title-accent">
+              Education
+            </span>
+            First!
+
+          </h2>
+
+          <div class="welcome-accent-line">
+            <span></span>
+          </div>
+
+          <p class="welcome-lead">
+            Every child deserves the opportunity
+            to learn, grow and build a brighter future.
+          </p>
+
+          <p class="welcome-description">
+            OpenFees promotes financing for basic
+            education through fundraising, community
+            partnerships, social and behavioural
+            change communication (SBCC), data
+            analysis, policy advocacy, innovation
+            and retail initiatives.
+          </p>
+
+          <div class="welcome-actions">
+
+            <a href="about.html"
+               class="welcome-button">
+
+              Learn More
+
+              <span class="welcome-button-arrow"
+                    aria-hidden="true">
+                &nearr;
+              </span>
+
+            </a>
+
+          </div>
+
+          <div class="welcome-signature">
+            <span class="signature-dot"></span>
+            Education. Opportunity. Impact.
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT: IMAGE -->
+      <div class="welcome-visual">
+
+        <!-- Decorative blue backdrop -->
+        <div class="visual-glow"
+             aria-hidden="true"></div>
+
+        <div class="visual-ring visual-ring-one"
+             aria-hidden="true"></div>
+
+        <div class="visual-ring visual-ring-two"
+             aria-hidden="true"></div>
+
+        <div class="visual-accent"
+             aria-hidden="true"></div>
+
+        <!-- Actual uploaded image -->
+        <div class="welcome-image-wrap">
+
+          <img
+            class="welcome-students"
+            src="media/Students.png"
+            alt="Students representing the future of education"
+            loading="lazy"
+            decoding="async">
+
+        </div>
+
+        <!-- Decorative vertical label -->
+        <div class="visual-side-label"
+             aria-hidden="true">
+
+          OPENING DOORS TO EDUCATION
+
+        </div>
+
+        <div class="visual-bottom-detail"
+             aria-hidden="true">
+
+          <span class="visual-small-line"></span>
+
+          <span>
+            #FundEducation
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================================
+       SECTION 3 — GET INVOLVED
+  ================================== -->
 
   <section
     class="section cta-section"
@@ -217,17 +347,23 @@
         <div>
 
           <span class="cta-kicker">
+
             TOGETHER, WE CAN MAKE A DIFFERENCE
+
           </span>
 
           <h2>
+
             A brighter future begins
             with an opportunity.
+
           </h2>
 
           <p>
+
             Join us in helping children access
             the education they deserve.
+
           </p>
 
         </div>
@@ -249,9 +385,9 @@
 </main>
 
 
-<!-- ====================================
+<!-- ==================================
      FOOTER
-==================================== -->
+================================== -->
 
 <footer class="site-footer">
 
@@ -305,9 +441,11 @@
     <div class="footer-bottom">
 
       <span>
+
         &copy;
         <span data-current-year>2026</span>
         OpenFees. All rights reserved.
+
       </span>
 
       <span>
