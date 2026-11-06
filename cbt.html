@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#032464">
+
+  <title>CBT Examination Centre | OpenFees Academy</title>
+
+  <meta name="description"
+        content="Prepare for JAMB, WAEC and NECO with OpenFees Academy CBT practice, timed examinations and personalised results.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="cbt.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"
+          defer></script>
+
+  <script src="cbt.js" defer></script>
+</head>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- HEADER -->
+
+<header class="cbt-header">
+  <div class="cbt-header-inner">
+
+    <a href="academy.html" class="cbt-brand">
+      <img src="media/Openfees-white.png" alt="OpenFees Logo">
+
+      <span class="cbt-brand-divider"></span>
+
+      <span class="cbt-brand-name">
+        Academy
+        <small>CBT CENTRE</small>
+      </span>
+    </a>
+
+    <nav class="cbt-header-nav">
+      <a href="academy.html">Academy Home</a>
+      <a href="index.html">Main Website</a>
+    </nav>
+
+    <span class="cbt-header-tag">
+      Learn • Practise • Excel
+    </span>
+
+  </div>
+</header>
+
+
+<main id="main" class="cbt-main">
+
+  <!-- INTRO -->
+
+  <section class="cbt-intro" id="cbtIntro">
+    <span class="cbt-eyebrow">
+      OPENFEES ACADEMY / EXAMINATION PREPARATION
+    </span>
+
+    <h1>
+      Prepare with
+      <em>confidence.</em>
+    </h1>
+
+    <p>
+      Practise for JAMB, WAEC and NECO in a friendly
+      computer-based examination environment.
+      Learn from your performance and improve.
+    </p>
+  </section>
+
+
+  <!-- STEP 1: CANDIDATE REGISTRATION -->
+
+  <section id="registrationStage" class="cbt-stage">
+
+    <div class="cbt-stage-heading">
+      <span class="cbt-step-label">
+        STEP 01 / REGISTRATION
+      </span>
+
+      <h2>Let's get you ready.</h2>
+
+      <p>
+        Enter your details and choose the examination
+        and subject you want to practise.
+      </p>
+    </div>
+
+    <form id="registrationForm" class="cbt-form">
+
+      <div class="cbt-field cbt-full">
+        <label for="candidateName">
+          Candidate's Full Name
+        </label>
+
+        <input
+          id="candidateName"
+          type="text"
+          autocomplete="name"
+          maxlength="80"
+          minlength="2"
+          placeholder="Enter your full name"
+          required>
+
+        <small>
+          Your name will appear on your result report.
+        </small>
+      </div>
+
+      <div class="cbt-field">
+        <label for="examType">
+          Choose Examination
+        </label>
+
+        <select id="examType" required>
+          <option value="jamb">JAMB / UTME</option>
+          <option value="waec">WAEC</option>
+          <option value="neco">NECO</option>
+        </select>
+      </div>
+
+      <div class="cbt-field">
+        <label for="examSubject">
+          Choose Subject
+        </label>
+
+        <select id="examSubject" required>
+        </select>
+      </div>
+
+      <div class="cbt-field">
+        <label for="examMode">
+          Examination Mode
+        </label>
+
+        <select id="examMode">
+          <option value="practice">
+            Subject Practice
+          </option>
+
+          <option value="simulation">
+            Timed Mock Simulation
+          </option>
+        </select>
+      </div>
+
+      <div class="cbt-field">
+        <label for="questionCount">
+          Number of Questions
+        </label>
+
+        <select id="questionCount" required>
+        </select>
+      </div>
+
+      <div class="cbt-field cbt-full">
+        <label for="questionSource">
+          Question Source
+        </label>
+
+        <select id="questionSource">
+          <option value="original">
+            OpenFees Original Practice Questions
+          </option>
+
+          <option value="historical">
+            Licensed Historical Questions (API)
+          </option>
+        </select>
+
+        <small>
+          Historical questions require a configured
+          and authorised question provider.
+        </small>
+      </div>
+
+      <div class="cbt-setup-summary cbt-full">
+        <div>
+          <span>YOUR PRACTICE SELECTION</span>
+          <strong id="setupPreview">
+            JAMB — Mathematics
+          </strong>
+          <small id="setupDetails">
+            Select a subject and question count.
+          </small>
+        </div>
+
+        <span class="setup-star" aria-hidden="true">✳</span>
+      </div>
+
+      <div class="cbt-form-actions cbt-full">
+        <button type="submit" class="cbt-btn cbt-btn-primary">
+          Continue to Instructions
+          <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+
+    </form>
+  </section>
+
+
+  <!-- STEP 2: INSTRUCTIONS -->
+
+  <section id="instructionsStage" class="cbt-stage" hidden>
+
+    <div class="cbt-stage-heading">
+      <span class="cbt-step-label">
+        STEP 02 / EXAMINATION INSTRUCTIONS
+      </span>
+
+      <h2>Before you begin.</h2>
+
+      <p id="instructionSummary"></p>
+    </div>
+
+    <div class="cbt-instructions">
+
+      <h3>Read the following carefully</h3>
+
+      <ol>
+        <li>
+          Your examination contains
+          <strong id="instructionQuestionCount">0</strong>
+          questions.
+        </li>
+
+        <li>
+          Questions will be displayed
+          <strong>10 per page</strong>.
+        </li>
+
+        <li>
+          Your examination will last
+          <strong id="instructionDuration">0 minutes</strong>.
+        </li>
+
+        <li>
+          The countdown begins when you select
+          <strong>Start Examination</strong>.
+        </li>
+
+        <li>
+          You can move between pages and change
+          your answers before submitting.
+        </li>
+
+        <li>
+          Use the question navigator to revisit
+          answered or unanswered questions.
+        </li>
+
+        <li>
+          You can flag questions you wish to review.
+        </li>
+
+        <li>
+          Your answers are automatically saved
+          in this browser during the examination.
+        </li>
+
+        <li>
+          When the time expires, your examination
+          will be submitted automatically.
+        </li>
+
+        <li>
+          After submission, you will receive your
+          score, topic analysis and an OpenFees
+          Academy result report.
+        </li>
+      </ol>
+
+      <div class="cbt-notice" id="sourceNotice">
+        This is an independent OpenFees Academy
+        practice examination, not an official
+        JAMB, WAEC or NECO examination.
+      </div>
+
+    </div>
+
+    <label class="cbt-confirm">
+      <input type="checkbox" id="acceptInstructions">
+
+      <span>
+        I have read and understood the
+        examination instructions.
+      </span>
+    </label>
+
+    <div class="cbt-actions">
+      <button type="button"
+              class="cbt-btn cbt-btn-outline"
+              id="backToRegistration">
+        ← Back
+      </button>
+
+      <button type="button"
+              class="cbt-btn cbt-btn-primary"
+              id="startExamination"
+              disabled>
+        Start Examination ↗
+      </button>
+    </div>
+
+  </section>
+
+
+  <!-- STEP 3: EXAMINATION WINDOW -->
+
+  <section id="examinationStage"
+           class="cbt-stage cbt-examination"
+           hidden>
+
+    <div class="cbt-exam-heading">
+
+      <div class="cbt-exam-identity">
+        <span class="cbt-exam-badge" id="activeExamName">
+          JAMB / UTME
+        </span>
+
+        <h2 id="activeSubject">
+          Mathematics
+        </h2>
+
+        <p id="activeCandidate"></p>
+      </div>
+
+      <div class="cbt-timer">
+        <small>TIME REMAINING</small>
+
+        <strong id="examTimer">
+          00:00:00
+        </strong>
+      </div>
+
+    </div>
+
+    <div class="cbt-exam-stats">
+      <span id="currentPageInfo">Page 1 of 6</span>
+      <span id="answeredCount">0 of 60 answered</span>
+      <span id="flaggedCount">0 marked for review</span>
+    </div>
+
+    <div class="cbt-progress">
+      <div id="progressFill"></div>
+    </div>
+
+    <div class="cbt-exam-layout">
+
+      <div class="cbt-question-column">
+        <div id="questionsContainer"></div>
+      </div>
+
+      <aside class="cbt-question-sidebar">
+
+        <div class="cbt-sidebar-inner">
+
+          <h3>Question Navigator</h3>
+
+          <p>Jump to any question.</p>
+
+          <div id="questionNavigator"
+               class="cbt-navigator"></div>
+
+          <div class="cbt-legend">
+            <span><i class="answered"></i> Answered</span>
+            <span><i class="flagged"></i> Flagged</span>
+            <span><i></i> Not answered</span>
+          </div>
+
+          <button type="button"
+                  id="submitExamination"
+                  class="cbt-btn cbt-btn-submit">
+            Submit Examination
+          </button>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+    <div class="cbt-page-navigation">
+
+      <button type="button"
+              id="previousPage"
+              class="cbt-btn cbt-btn-outline">
+        ← Previous 10
+      </button>
+
+      <span id="pageIndicator">
+        Page 1 of 6
+      </span>
+
+      <button type="button"
+              id="nextPage"
+              class="cbt-btn cbt-btn-primary">
+        Next 10 →
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- STEP 4: RESULTS -->
+
+  <section id="resultsStage" class="cbt-stage" hidden>
+
+    <div class="cbt-results-heading">
+
+      <div>
+        <span class="cbt-step-label">
+          EXAMINATION COMPLETED
+        </span>
+
+        <h2>Your Learning Report</h2>
+
+        <p>
+          Every result is a chance to learn
+          and become even better.
+        </p>
+      </div>
+
+      <div class="cbt-score-circle">
+        <strong id="resultPercentage">0%</strong>
+        <small>YOUR SCORE</small>
+      </div>
+
+    </div>
+
+    <div id="resultMetrics"
+         class="cbt-result-metrics"></div>
+
+    <div class="cbt-results-grid">
+
+      <div class="cbt-result-panel">
+        <h3>Performance by Topic</h3>
+        <div id="topicPerformance"></div>
+      </div>
+
+      <div class="cbt-result-panel">
+        <h3>Areas to Strengthen</h3>
+        <div id="improvementRecommendations"></div>
+      </div>
+
+    </div>
+
+    <div class="cbt-result-panel">
+      <h3>Question Review</h3>
+      <div id="answerReview"></div>
+    </div>
+
+    <div class="cbt-result-actions">
+
+      <button type="button"
+              id="downloadPdf"
+              class="cbt-btn cbt-btn-primary">
+        Download PDF Report ↓
+      </button>
+
+      <button type="button"
+              id="printResult"
+              class="cbt-btn cbt-btn-outline">
+        Print Result
+      </button>
+
+      <button type="button"
+              id="takeAnotherExam"
+              class="cbt-btn cbt-btn-outline">
+        Take Another Exam ↗
+      </button>
+
+    </div>
+
+    <p class="cbt-report-disclaimer">
+      This is an OpenFees Academy practice assessment,
+      not an official JAMB, WAEC or NECO result.
+    </p>
+
+  </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="cbt-footer">
+
+  <div class="cbt-footer-inner">
+
+    <div>
+      <img src="media/Openfees-white.png"
+           alt="OpenFees Logo">
+
+      <span>OpenFees Academy</span>
+    </div>
+
+    <p>
+      <a href="https://openfees.org">openfees.org</a>
+      ·
+      <a href="contact.html">Contact OpenFees</a>
+    </p>
+
+  </div>
+
+</footer>
+
+
+<!-- SUBMISSION CONFIRMATION -->
+
+<dialog id="submissionDialog"
+        class="cbt-dialog">
+
+  <div class="cbt-dialog-inner">
+
+    <h2>Submit your examination?</h2>
+
+    <p id="submissionSummary"></p>
+
+    <p>
+      Once submitted, you cannot change
+      your answers.
+    </p>
+
+    <div class="cbt-actions">
+
+      <button type="button"
+              id="cancelSubmission"
+              class="cbt-btn cbt-btn-outline">
+        Continue Writing
+      </button>
+
+      <button type="button"
+              id="confirmSubmission"
+              class="cbt-btn cbt-btn-primary">
+        Submit Now
+      </button>
+
+    </div>
+
+  </div>
+
+</dialog>
+
+</body>
+</html>
