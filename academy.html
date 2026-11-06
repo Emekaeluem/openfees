@@ -2,1063 +2,464 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#032464">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#032464">
 
-  <title>OpenFees Academy | Learn. Practise. Excel.</title>
+<title>OpenFees Academy | Learn. Practise. Excel.</title>
 
-  <meta name="description"
-        content="Explore OpenFees Academy: a friendly digital learning space for primary school, secondary school, and JAMB, WAEC and NECO preparation.">
+<meta name="description" content="Learn, practise and prepare for JAMB, WAEC and NECO with OpenFees Academy.">
 
-  <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-  <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  <link rel="stylesheet" href="academy.css">
-  <script src="academy.js" defer></script>
+<link rel="stylesheet" href="academy.css">
+<script src="academy.js" defer></script>
 </head>
 
 <body>
 
-<a class="skip-link" href="#academy-main">
-  Skip to content
-</a>
-
-<!-- ===================================
-     ACADEMY HEADER
-=================================== -->
+<a href="#main" class="skip-link">Skip to content</a>
 
 <header class="academy-header">
-
   <div class="academy-nav-wrap">
 
-    <a class="academy-brand"
-       href="academy.html"
-       aria-label="OpenFees Academy homepage">
-
+    <a href="academy.html" class="academy-brand">
       <span class="academy-brand-image">
-        <img
-          src="media/Openfees-white.png"
-          alt="OpenFees">
+        <img src="media/Openfees-white.png" alt="OpenFees">
       </span>
-
       <span class="academy-brand-separator"></span>
-
-      <span class="academy-brand-word">
-        Academy
-      </span>
-
+      <span class="academy-brand-word">Academy</span>
     </a>
 
-    <nav class="academy-nav"
-         id="academy-navigation"
-         aria-label="Academy navigation">
-
+    <nav class="academy-nav" id="academy-navigation" aria-label="Academy navigation">
       <a href="#learning-paths">Learning Paths</a>
       <a href="#subjects">Subjects</a>
       <a href="#cbt-centre">CBT Centre</a>
       <a href="#how-it-works">How It Works</a>
-
-      <a href="index.html"
-         class="academy-nav-back">
-        Back to OpenFees
-      </a>
-
+      <a href="index.html" class="academy-nav-back">Back to OpenFees</a>
     </nav>
 
     <div class="academy-nav-actions">
-
-      <a href="#cbt-demo" class="academy-header-cta">
-        Try CBT
-        <span aria-hidden="true">&nearr;</span>
+      <a href="cbt.html" class="academy-header-cta">
+        Start CBT ↗
       </a>
 
       <button
+        type="button"
         class="academy-menu-toggle"
         id="academyMenuToggle"
-        type="button"
-        aria-label="Open Academy menu"
-        aria-controls="academy-navigation"
-        aria-expanded="false">
-
-        <span></span>
-        <span></span>
-        <span></span>
-
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="academy-navigation">
+        <span></span><span></span><span></span>
       </button>
-
     </div>
 
   </div>
-
 </header>
 
-<main id="academy-main">
+<main id="main">
 
-<!-- ===================================
-     1 — HERO
-=================================== -->
+<!-- HERO -->
 
-<section class="academy-hero"
-         aria-labelledby="academy-hero-title">
-
-  <div class="academy-hero-glow" aria-hidden="true"></div>
+<section class="academy-hero">
+  <div class="academy-hero-glow"></div>
 
   <div class="academy-container academy-hero-grid">
 
     <div class="academy-hero-copy">
 
       <div class="academy-eyebrow academy-eyebrow-light">
-
         <span class="academy-eyebrow-dot"></span>
-
         WELCOME TO OPENFEES ACADEMY
-
       </div>
 
-      <h1 id="academy-hero-title">
-
+      <h1>
         A brighter future
-
         <span>starts with</span>
-
         <em>learning.</em>
-
       </h1>
 
       <p class="academy-hero-description">
-        Your friendly digital school for learning
-        new things, practising your skills,
-        and preparing confidently for examinations.
+        Your friendly digital school for learning,
+        growing, and preparing confidently for examinations.
       </p>
 
       <div class="academy-hero-actions">
-
-        <a href="#learning-paths"
-           class="academy-button academy-button-cyan">
-
-          Start Learning
-          <span aria-hidden="true">&nearr;</span>
-
+        <a href="#learning-paths" class="academy-button academy-button-cyan">
+          Start Learning ↗
         </a>
-
-        <a href="#cbt-centre"
-           class="academy-button academy-button-glass">
-
-          Explore CBT
-          <span aria-hidden="true">&rarr;</span>
-
+        <a href="#cbt-centre" class="academy-button academy-button-glass">
+          Explore CBT →
         </a>
-
       </div>
 
       <div class="academy-hero-notes">
-
-        <span>
-          <span class="note-check" aria-hidden="true">✓</span>
-          Learn at your pace
-        </span>
-
-        <span>
-          <span class="note-check" aria-hidden="true">✓</span>
-          Practise with confidence
-        </span>
-
+        <span><span class="note-check">✓</span> Learn at your pace</span>
+        <span><span class="note-check">✓</span> Practise with confidence</span>
       </div>
 
     </div>
 
-
-    <!-- HERO VISUAL -->
-
     <div class="academy-hero-art">
-
-      <div class="academy-art-ring academy-art-ring-one"
-           aria-hidden="true"></div>
-
-      <div class="academy-art-ring academy-art-ring-two"
-           aria-hidden="true"></div>
+      <div class="academy-art-ring academy-art-ring-one"></div>
+      <div class="academy-art-ring academy-art-ring-two"></div>
 
       <div class="academy-hero-photo">
-
-        <img
-          src="media/Students.png"
-          alt="Students representing learning and academic growth">
-
+        <img src="media/Students.png" alt="Students learning">
       </div>
 
-      <div class="academy-floating-chip academy-chip-top"
-           aria-hidden="true">
-
+      <div class="academy-floating-chip academy-chip-top">
         <span class="chip-symbol">✦</span>
-
-        <span>
-          <strong>Learn</strong>
-          Something new
-        </span>
-
+        <span><strong>Learn</strong> Something new</span>
       </div>
 
-      <div class="academy-floating-chip academy-chip-bottom"
-           aria-hidden="true">
-
+      <div class="academy-floating-chip academy-chip-bottom">
         <span class="chip-symbol">✓</span>
-
-        <span>
-          <strong>Grow</strong>
-          Every day
-        </span>
-
+        <span><strong>Grow</strong> Every day</span>
       </div>
-
     </div>
 
   </div>
 
   <div class="academy-hero-bottom">
-
     <span>LEARN • PRACTISE • EXCEL</span>
-
-    <a href="#learning-paths">
-      Explore the Academy
-      <span aria-hidden="true">↓</span>
-    </a>
-
+    <a href="#learning-paths">Explore the Academy ↓</a>
   </div>
-
 </section>
 
 
-<!-- ===================================
-     2 — LEARNING PATHS
-=================================== -->
+<!-- LEARNING PATHS -->
 
-<section class="academy-section academy-paths"
-         id="learning-paths"
-         aria-labelledby="paths-heading">
-
+<section class="academy-section academy-paths" id="learning-paths">
   <div class="academy-container">
 
     <div class="academy-section-heading academy-centered">
-
-      <span class="academy-section-kicker">
-        FIND YOUR STARTING POINT
-      </span>
-
-      <h2 id="paths-heading">
-        Your learning journey,
-        <span>your way.</span>
-      </h2>
-
-      <p>
-        Whether you're discovering the basics,
-        exploring secondary school subjects,
-        or getting ready for examinations,
-        there's a path for you.
-      </p>
-
+      <span class="academy-section-kicker">FIND YOUR STARTING POINT</span>
+      <h2>Your learning journey, <span>your way.</span></h2>
+      <p>Choose a learning path that works for you.</p>
     </div>
 
     <div class="academy-path-grid">
 
-      <!-- PRIMARY -->
-
       <article class="academy-path-card path-primary">
-
         <div class="path-card-top">
-
-          <span class="path-card-tag">
-            PRIMARY SCHOOL
-          </span>
-
-          <span class="path-card-icon"
-                aria-hidden="true">✎</span>
-
+          <span class="path-card-tag">PRIMARY SCHOOL</span>
+          <span class="path-card-icon">✎</span>
         </div>
-
         <div class="path-card-content">
-
           <h3>Little Learners</h3>
-
-          <p>
-            Build strong foundations with
-            reading, numbers, science and
-            fun learning activities.
-          </p>
-
+          <p>Build foundations in reading, numbers, science and discovery.</p>
           <div class="path-card-details">
             <span>Primary 1–6</span>
-            <span>Foundation subjects</span>
+            <span>Foundation Subjects</span>
           </div>
-
-          <a href="#subjects" class="path-card-link">
-            Explore Subjects
-            <span aria-hidden="true">↗</span>
-          </a>
-
+          <a href="#subjects" class="path-card-link">Explore Subjects ↗</a>
         </div>
-
-        <span class="path-card-decoration"
-              aria-hidden="true">01</span>
-
+        <span class="path-card-decoration" aria-hidden="true">01</span>
       </article>
-
-
-      <!-- SECONDARY -->
 
       <article class="academy-path-card path-secondary">
-
         <div class="path-card-top">
-
-          <span class="path-card-tag">
-            SECONDARY SCHOOL
-          </span>
-
-          <span class="path-card-icon"
-                aria-hidden="true">◇</span>
-
+          <span class="path-card-tag">SECONDARY SCHOOL</span>
+          <span class="path-card-icon">◇</span>
         </div>
-
         <div class="path-card-content">
-
           <h3>Future Scholars</h3>
-
-          <p>
-            Strengthen classroom knowledge,
-            explore subject topics and
-            practise what you've learned.
-          </p>
-
+          <p>Strengthen your academic knowledge through guided practice.</p>
           <div class="path-card-details">
             <span>JSS1–SS3</span>
-            <span>Subject learning</span>
+            <span>Subject Learning</span>
           </div>
-
-          <a href="#subjects" class="path-card-link">
-            Explore Subjects
-            <span aria-hidden="true">↗</span>
-          </a>
-
+          <a href="#subjects" class="path-card-link">Explore Subjects ↗</a>
         </div>
-
-        <span class="path-card-decoration"
-              aria-hidden="true">02</span>
-
+        <span class="path-card-decoration" aria-hidden="true">02</span>
       </article>
 
-
-      <!-- EXAM PREP -->
-
       <article class="academy-path-card path-exams">
-
         <div class="path-card-top">
-
-          <span class="path-card-tag">
-            EXAM PREPARATION
-          </span>
-
-          <span class="path-card-icon"
-                aria-hidden="true">★</span>
-
+          <span class="path-card-tag">EXAM PREPARATION</span>
+          <span class="path-card-icon">★</span>
         </div>
-
         <div class="path-card-content">
-
           <h3>Exam Champions</h3>
-
-          <p>
-            Get familiar with computer-based
-            questions, timed practice and
-            useful revision feedback.
-          </p>
-
+          <p>Prepare for JAMB, WAEC and NECO through structured CBT examinations.</p>
           <div class="path-card-details">
             <span>JAMB / UTME</span>
             <span>WAEC & NECO</span>
           </div>
-
-          <a href="#cbt-centre" class="path-card-link">
-            Enter CBT Centre
-            <span aria-hidden="true">↗</span>
-          </a>
-
+          <a href="#cbt-centre" class="path-card-link">Enter CBT Centre ↗</a>
         </div>
-
-        <span class="path-card-decoration"
-              aria-hidden="true">03</span>
-
+        <span class="path-card-decoration" aria-hidden="true">03</span>
       </article>
 
     </div>
-
   </div>
-
 </section>
 
 
-<!-- ===================================
-     3 — SUBJECTS
-=================================== -->
+<!-- SUBJECTS -->
 
-<section class="academy-section academy-subjects"
-         id="subjects"
-         aria-labelledby="subjects-heading">
-
+<section class="academy-section academy-subjects" id="subjects">
   <div class="academy-container">
 
     <div class="academy-heading-row">
-
       <div class="academy-section-heading">
-
-        <span class="academy-section-kicker">
-          EXPLORE WHAT YOU CAN LEARN
-        </span>
-
-        <h2 id="subjects-heading">
-          Something new
-          <span>every day.</span>
-        </h2>
-
-        <p>
-          Explore our planned subject areas.
-          Structured lessons and topic-by-topic
-          learning will be added as the Academy grows.
-        </p>
-
+        <span class="academy-section-kicker">EXPLORE YOUR SUBJECTS</span>
+        <h2>Something new <span>every day.</span></h2>
+        <p>Choose a subject and begin your examination preparation.</p>
       </div>
-
-      <span class="academy-content-status">
-        Learning catalogue preview
-      </span>
-
+      <span class="academy-content-status">CBT Subjects</span>
     </div>
 
     <div class="academy-subject-grid">
 
       <article class="academy-subject-card">
-        <span class="subject-icon subject-blue"
-              aria-hidden="true">∑</span>
+        <span class="subject-icon subject-blue">∑</span>
         <h3>Mathematics</h3>
-        <p>Numbers, calculations, algebra and problem-solving.</p>
-        <span class="subject-tag">Primary & Secondary</span>
+        <p>Algebra, arithmetic, percentages and measurement.</p>
+        <a href="cbt.html?subject=Mathematics" class="subject-tag">
+          Start Mathematics ↗
+        </a>
       </article>
 
       <article class="academy-subject-card">
-        <span class="subject-icon subject-yellow"
-              aria-hidden="true">Aa</span>
+        <span class="subject-icon subject-yellow">Aa</span>
         <h3>English Language</h3>
-        <p>Reading, grammar, vocabulary and communication.</p>
-        <span class="subject-tag">Primary & Secondary</span>
+        <p>Grammar, vocabulary and comprehension skills.</p>
+        <a href="cbt.html?subject=English%20Language" class="subject-tag">
+          Start English ↗
+        </a>
       </article>
 
       <article class="academy-subject-card">
-        <span class="subject-icon subject-green"
-              aria-hidden="true">✿</span>
-        <h3>Basic Science</h3>
-        <p>Discover the world through science and curiosity.</p>
-        <span class="subject-tag">Primary & Junior Secondary</span>
-      </article>
-
-      <article class="academy-subject-card">
-        <span class="subject-icon subject-purple"
-              aria-hidden="true">⚛</span>
-        <h3>Physics & Chemistry</h3>
-        <p>Explore scientific ideas, formulas and experiments.</p>
-        <span class="subject-tag">Senior Secondary</span>
-      </article>
-
-      <article class="academy-subject-card">
-        <span class="subject-icon subject-peach"
-              aria-hidden="true">⌘</span>
+        <span class="subject-icon subject-green">✿</span>
         <h3>Biology</h3>
-        <p>Understand living things, human life and nature.</p>
-        <span class="subject-tag">Senior Secondary</span>
+        <p>Living organisms, cells and human biology.</p>
+        <a href="cbt.html?subject=Biology" class="subject-tag">
+          Start Biology ↗
+        </a>
       </article>
 
       <article class="academy-subject-card">
-        <span class="subject-icon subject-sky"
-              aria-hidden="true">◎</span>
-        <h3>Social Sciences</h3>
-        <p>Learn about society, history, economics and government.</p>
-        <span class="subject-tag">Secondary School</span>
+        <span class="subject-icon subject-purple">⚛</span>
+        <h3>Physics</h3>
+        <p>Motion, electricity, energy and scientific concepts.</p>
+        <a href="cbt.html?subject=Physics" class="subject-tag">
+          Start Physics ↗
+        </a>
+      </article>
+
+      <article class="academy-subject-card">
+        <span class="subject-icon subject-peach">⌘</span>
+        <h3>Economics</h3>
+        <p>Markets, trade, demand, supply and scarcity.</p>
+        <a href="cbt.html?subject=Economics" class="subject-tag">
+          Start Economics ↗
+        </a>
+      </article>
+
+      <article class="academy-subject-card">
+        <span class="subject-icon subject-sky">◎</span>
+        <h3>Government</h3>
+        <p>Democracy, constitutions and institutions.</p>
+        <a href="cbt.html?subject=Government" class="subject-tag">
+          Start Government ↗
+        </a>
       </article>
 
     </div>
-
   </div>
-
 </section>
 
 
-<!-- ===================================
-     4 — CBT CENTRE
-=================================== -->
+<!-- CBT CENTRE -->
 
-<section class="academy-section academy-cbt"
-         id="cbt-centre"
-         aria-labelledby="cbt-heading">
-
+<section class="academy-section academy-cbt" id="cbt-centre">
   <div class="academy-container">
 
     <div class="academy-cbt-intro">
-
       <div>
-
         <span class="academy-section-kicker kicker-light">
-          OPENFEES EXAMINATION PREP
+          OPENFEES CBT EXAMINATION CENTRE
         </span>
-
-        <h2 id="cbt-heading">
-          Practise today.
-          <span>Walk in prepared.</span>
+        <h2>
+          Prepare today.
+          <span>Excel tomorrow.</span>
         </h2>
-
       </div>
 
       <p>
-        Discover our CBT practice environment
-        for JAMB/UTME and O'Level preparation.
-        Start with a sample exam and get
-        familiar with digital questions.
+        Select an examination, register your name,
+        choose a subject, read the instructions,
+        and begin answering timed questions.
       </p>
-
     </div>
 
     <div class="academy-exam-grid">
 
       <article class="academy-exam-card">
-
         <div class="exam-card-header">
           <span class="exam-card-initial">J</span>
-          <span class="exam-card-type">ENTRANCE EXAM</span>
+          <span class="exam-card-type">ENTRANCE EXAMINATION</span>
         </div>
-
         <h3>JAMB / UTME</h3>
-
-        <p>
-          Build confidence with UTME-style
-          practice and clear answer explanations.
-        </p>
-
+        <p>Prepare for UTME with subject-based questions and timed assessments.</p>
         <div class="exam-card-subjects">
-          <span>English</span>
-          <span>Mathematics</span>
-          <span>Sciences</span>
+          <span>English</span><span>Mathematics</span><span>Sciences</span>
         </div>
-
-        <button
-          type="button"
-          class="exam-card-button"
-          data-start-exam="jamb">
-
-          Try JAMB Demo
-          <span aria-hidden="true">↗</span>
-
-        </button>
-
+        <a href="cbt.html?exam=jamb" class="exam-card-button">
+          Register for JAMB ↗
+        </a>
       </article>
 
       <article class="academy-exam-card">
-
         <div class="exam-card-header">
           <span class="exam-card-initial">W</span>
-          <span class="exam-card-type">O'LEVEL EXAM</span>
+          <span class="exam-card-type">O'LEVEL EXAMINATION</span>
         </div>
-
         <h3>WAEC</h3>
-
-        <p>
-          Practise subject knowledge using
-          a friendly objective-question format.
-        </p>
-
+        <p>Practise O'Level subjects and discover where to improve.</p>
         <div class="exam-card-subjects">
-          <span>English</span>
-          <span>Maths</span>
-          <span>Biology</span>
+          <span>Mathematics</span><span>English</span><span>Biology</span>
         </div>
-
-        <button
-          type="button"
-          class="exam-card-button"
-          data-start-exam="waec">
-
-          Try WAEC Demo
-          <span aria-hidden="true">↗</span>
-
-        </button>
-
+        <a href="cbt.html?exam=waec" class="exam-card-button">
+          Register for WAEC ↗
+        </a>
       </article>
 
       <article class="academy-exam-card">
-
         <div class="exam-card-header">
           <span class="exam-card-initial">N</span>
-          <span class="exam-card-type">O'LEVEL EXAM</span>
+          <span class="exam-card-type">O'LEVEL EXAMINATION</span>
         </div>
-
         <h3>NECO</h3>
-
-        <p>
-          Strengthen revision habits through
-          guided questions and useful feedback.
-        </p>
-
+        <p>Practise with a timed CBT interface and receive your result report.</p>
         <div class="exam-card-subjects">
-          <span>English</span>
-          <span>Science</span>
-          <span>General Practice</span>
+          <span>Mathematics</span><span>Science</span><span>English</span>
         </div>
-
-        <button
-          type="button"
-          class="exam-card-button"
-          data-start-exam="neco">
-
-          Try NECO Demo
-          <span aria-hidden="true">↗</span>
-
-        </button>
-
+        <a href="cbt.html?exam=neco" class="exam-card-button">
+          Register for NECO ↗
+        </a>
       </article>
 
     </div>
 
     <div class="academy-cbt-note">
-
-      <span class="cbt-note-icon"
-            aria-hidden="true">i</span>
-
+      <span class="cbt-note-icon">i</span>
       <p>
-        All questions in these short demos are
-        original illustrations, not verified
-        historical examination questions.
-        Exam-year labels will be used only
-        for properly sourced past questions.
+        OpenFees Academy provides independent examination preparation.
+        Original practice questions are not official past papers.
+        Verified historical questions will be introduced through
+        authorised content sources.
       </p>
-
     </div>
-
   </div>
-
 </section>
 
 
-<!-- ===================================
-     5 — INTERACTIVE CBT DEMO
-=================================== -->
+<!-- HOW IT WORKS -->
 
-<section class="academy-section academy-demo"
-         id="cbt-demo"
-         aria-labelledby="demo-heading">
-
+<section class="academy-section academy-how" id="how-it-works">
   <div class="academy-container">
 
     <div class="academy-section-heading academy-centered">
-
-      <span class="academy-section-kicker">
-        EXPLORE THE EXPERIENCE
-      </span>
-
-      <h2 id="demo-heading">
-        Give your brain
-        <span>a little challenge.</span>
-      </h2>
-
-      <p>
-        Test out our sample CBT interface.
-        Answer three original practice questions
-        and see your results instantly.
-      </p>
-
-    </div>
-
-    <div class="academy-demo-shell">
-
-      <div class="academy-demo-topbar">
-
-        <div class="demo-topbar-title">
-
-          <span class="demo-topbar-icon"
-                aria-hidden="true">✓</span>
-
-          <div>
-
-            <strong>OpenFees Practice Room</strong>
-
-            <span id="demoExamLabel">
-              JAMB-style practice demo
-            </span>
-
-          </div>
-
-        </div>
-
-        <span class="demo-mode-pill">
-          DEMO MODE
-        </span>
-
-      </div>
-
-      <div class="academy-demo-body">
-
-        <div class="demo-mode-picker">
-
-          <label for="demoExamSelect">
-            Select practice type
-          </label>
-
-          <select id="demoExamSelect">
-
-            <option value="jamb">
-              JAMB / UTME
-            </option>
-
-            <option value="waec">
-              WAEC
-            </option>
-
-            <option value="neco">
-              NECO
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <!-- QUESTION VIEW -->
-
-        <div id="demoQuestionView">
-
-          <div class="demo-progress-row">
-
-            <span id="demoQuestionCounter">
-              Question 1 of 3
-            </span>
-
-            <span id="demoProgressText">
-              0 answered
-            </span>
-
-          </div>
-
-          <div class="demo-progress-track">
-
-            <div id="demoProgressFill"
-                 class="demo-progress-fill"></div>
-
-          </div>
-
-          <div class="demo-question-meta">
-
-            <span id="demoQuestionSubject">
-              Mathematics
-            </span>
-
-            <span id="demoQuestionSource">
-              Original Practice
-            </span>
-
-          </div>
-
-          <h3 id="demoQuestionText">
-            Loading practice question...
-          </h3>
-
-          <div
-            class="demo-answer-list"
-            id="demoAnswerList"
-            role="group"
-            aria-label="Answer choices">
-          </div>
-
-          <div class="demo-navigation">
-
-            <button
-              id="demoPreviousButton"
-              type="button"
-              class="demo-secondary-button">
-
-              ← Previous
-
-            </button>
-
-            <button
-              id="demoNextButton"
-              type="button"
-              class="demo-primary-button">
-
-              Next Question →
-
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <!-- RESULTS VIEW -->
-
-        <div id="demoResultsView"
-             class="demo-results"
-             hidden>
-
-          <span class="demo-results-icon"
-                aria-hidden="true">★</span>
-
-          <h3>Practice completed!</h3>
-
-          <p>You answered</p>
-
-          <div class="demo-score"
-               id="demoScore">
-            0 / 3
-          </div>
-
-          <p id="demoResultMessage"></p>
-
-          <div class="demo-review-list"
-               id="demoReviewList"></div>
-
-          <button
-            id="demoRestartButton"
-            type="button"
-            class="demo-primary-button">
-
-            Try Again ↻
-
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ===================================
-     6 — HOW LEARNING WORKS
-=================================== -->
-
-<section class="academy-section academy-how"
-         id="how-it-works"
-         aria-labelledby="how-heading">
-
-  <div class="academy-container">
-
-    <div class="academy-section-heading academy-centered">
-
-      <span class="academy-section-kicker">
-        SIMPLE, FRIENDLY LEARNING
-      </span>
-
-      <h2 id="how-heading">
-        Small steps.
-        <span>Big progress.</span>
-      </h2>
-
-      <p>
-        The full Academy will guide students
-        from learning a topic to understanding
-        it and becoming more confident.
-      </p>
-
+      <span class="academy-section-kicker">HOW IT WORKS</span>
+      <h2>Simple steps. <span>Better results.</span></h2>
+      <p>Your examination journey is designed to be clear and friendly.</p>
     </div>
 
     <div class="academy-steps-grid">
 
       <article class="academy-step">
-
         <span class="step-number">01</span>
-
-        <span class="step-icon" aria-hidden="true">✎</span>
-
-        <h3>Choose</h3>
-
-        <p>
-          Select your school level, subject
-          or examination preparation path.
-        </p>
-
+        <span class="step-icon">✎</span>
+        <h3>Register</h3>
+        <p>Enter your name and choose your examination.</p>
       </article>
 
       <article class="academy-step">
-
         <span class="step-number">02</span>
-
-        <span class="step-icon" aria-hidden="true">▣</span>
-
-        <h3>Learn</h3>
-
-        <p>
-          Explore clear lessons, examples
-          and helpful learning materials.
-        </p>
-
+        <span class="step-icon">▣</span>
+        <h3>Prepare</h3>
+        <p>Select a subject and read the examination instructions.</p>
       </article>
 
       <article class="academy-step">
-
         <span class="step-number">03</span>
-
-        <span class="step-icon" aria-hidden="true">✓</span>
-
-        <h3>Practise</h3>
-
-        <p>
-          Try questions and assessments
-          to strengthen your understanding.
-        </p>
-
+        <span class="step-icon">✓</span>
+        <h3>Write</h3>
+        <p>Answer timed questions, ten per page.</p>
       </article>
 
       <article class="academy-step">
-
         <span class="step-number">04</span>
-
-        <span class="step-icon" aria-hidden="true">★</span>
-
+        <span class="step-icon">★</span>
         <h3>Improve</h3>
-
-        <p>
-          Review explanations and discover
-          what to practise next.
-        </p>
-
+        <p>Get your results and download your report.</p>
       </article>
 
     </div>
 
   </div>
-
 </section>
 
 
-<!-- ===================================
-     7 — FINAL CTA
-=================================== -->
+<!-- FINAL SECTION -->
 
 <section class="academy-final-section">
-
   <div class="academy-container">
-
     <div class="academy-final-card">
-
       <div>
-
-        <span class="academy-final-kicker">
-          YOUR JOURNEY MATTERS
-        </span>
-
-        <h2>
-          Your future has
-          <span>so much potential.</span>
-        </h2>
-
-        <p>
-          Explore the Academy, try a practice
-          challenge and take your next step
-          toward becoming a confident learner.
-        </p>
-
+        <span class="academy-final-kicker">READY TO BEGIN?</span>
+        <h2>Your future has <span>so much potential.</span></h2>
+        <p>Build confidence and take your next step with OpenFees Academy.</p>
       </div>
-
-      <a href="#cbt-demo"
-         class="academy-button academy-button-cyan">
-
-        Try Practice CBT
-
-        <span aria-hidden="true">&nearr;</span>
-
+      <a href="cbt.html" class="academy-button academy-button-cyan">
+        Register for CBT ↗
       </a>
-
     </div>
-
   </div>
-
 </section>
 
 </main>
 
-
-<!-- ===================================
-     FOOTER
-=================================== -->
-
 <footer class="academy-footer">
-
   <div class="academy-container">
 
     <div class="academy-footer-top">
 
       <div class="academy-footer-brand">
-
-        <img
-          src="media/Openfees-white.png"
-          alt="OpenFees">
-
+        <img src="media/Openfees-white.png" alt="OpenFees">
         <h2>Academy</h2>
-
-        <p>
-          A welcoming digital learning environment
-          built around opportunity, curiosity
-          and academic growth.
-        </p>
-
+        <p>Education, opportunity and academic growth for every learner.</p>
       </div>
 
       <div class="academy-footer-links">
-
         <h3>Explore</h3>
-
         <a href="#learning-paths">Learning Paths</a>
         <a href="#subjects">Subjects</a>
         <a href="#cbt-centre">CBT Centre</a>
-        <a href="#cbt-demo">Practice Demo</a>
-
       </div>
 
       <div class="academy-footer-links">
-
         <h3>OpenFees</h3>
-
         <a href="index.html">Main Website</a>
         <a href="about.html">About OpenFees</a>
         <a href="donate.html">Support Education</a>
         <a href="contact.html">Contact Us</a>
-
       </div>
 
     </div>
 
     <div class="academy-footer-bottom">
-
-      <span>
-        © <span data-academy-year>2026</span>
-        OpenFees. All rights reserved.
-      </span>
-
-      <span>
-        Learn. Practise. Excel.
-      </span>
-
+      <span>© <span data-academy-year>2026</span> OpenFees. All rights reserved.</span>
+      <span>Learn. Practise. Excel.</span>
     </div>
 
   </div>
-
 </footer>
 
 </body>
