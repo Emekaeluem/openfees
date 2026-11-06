@@ -1,558 +1,2265 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#032464">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#032464">
 
-  <title>CBT Examination Centre | OpenFees Academy</title>
+<title>CBT Examination Centre | OpenFees Academy</title>
 
-  <meta name="description"
-        content="Prepare for JAMB, WAEC and NECO with OpenFees Academy CBT practice, timed examinations and personalised results.">
+<meta name="description" content="Register and prepare for JAMB, WAEC and NECO through the OpenFees Academy CBT Examination Centre.">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" defer></script>
 
-  <link rel="stylesheet" href="cbt.css">
+<style>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"
-          defer></script>
+/* OPENFEES CBT — ALL STYLES */
 
-  <script src="cbt.js" defer></script>
+:root {
+  --navy:#032464;
+  --deep:#021943;
+  --blue:#00AEEE;
+  --ink:#1D3855;
+  --muted:#6A8195;
+  --line:#DDEAF3;
+  --soft:#F3F9FD;
+  --white:#FFFFFF;
+  --green:#187D5B;
+  --red:#B74238;
+}
+
+* { box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  margin:0;
+  background:var(--soft);
+  color:var(--ink);
+  font-family:"DM Sans",Arial,sans-serif;
+  line-height:1.6;
+}
+
+button,input,select { font:inherit; }
+
+button { cursor:pointer; }
+
+a { text-decoration:none; color:inherit; }
+
+img { max-width:100%; display:block; }
+
+[hidden] { display:none !important; }
+
+:focus-visible {
+  outline:3px solid var(--blue);
+  outline-offset:3px;
+}
+
+/* HEADER */
+
+header {
+  background:var(--navy);
+  color:white;
+}
+
+.header-inner {
+  max-width:1250px;
+  min-height:82px;
+  padding:14px 25px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:17px;
+}
+
+.brand img {
+  width:125px;
+  max-height:51px;
+  object-fit:contain;
+}
+
+.brand-text {
+  border-left:1px solid #6383AE;
+  padding-left:17px;
+  color:#8BDFFF;
+  font-family:Manrope,sans-serif;
+  font-size:20px;
+  font-weight:800;
+  line-height:1.1;
+}
+
+.brand-text small {
+  display:block;
+  margin-top:4px;
+  color:#C7E4F7;
+  font-size:9px;
+  letter-spacing:.12em;
+}
+
+.header-links {
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+
+.header-links a {
+  font-size:12px;
+  font-weight:700;
+}
+
+.header-links a:hover { color:#8BDFFF; }
+
+/* PAGE */
+
+.container {
+  width:min(1170px,92%);
+  margin:auto;
+}
+
+main { padding:60px 0 100px; }
+
+.intro { margin-bottom:30px; }
+
+.eyebrow {
+  color:#008FCA;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+
+.intro h1 {
+  margin:12px 0 14px;
+  font-family:Manrope,sans-serif;
+  color:var(--navy);
+  font-size:clamp(34px,5vw,62px);
+  line-height:1.15;
+  letter-spacing:-.06em;
+}
+
+.intro h1 em {
+  color:#00A3DD;
+  font-family:Georgia,serif;
+  font-weight:400;
+}
+
+.intro p {
+  max-width:690px;
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.panel {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:23px;
+  padding:clamp(20px,4vw,45px);
+  box-shadow:0 18px 65px rgba(3,36,100,.055);
+}
+
+.step {
+  color:#008FC7;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.13em;
+}
+
+.panel h2 {
+  margin:10px 0;
+  color:var(--navy);
+  font-family:Manrope,sans-serif;
+  font-size:clamp(25px,3vw,38px);
+  letter-spacing:-.045em;
+}
+
+.panel-lead {
+  margin:0 0 27px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* REGISTRATION */
+
+.form-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:19px;
+}
+
+.full { grid-column:1/-1; }
+
+.field label {
+  display:block;
+  margin-bottom:8px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.field input,
+.field select {
+  width:100%;
+  min-height:50px;
+  border:1px solid #C9DDEA;
+  border-radius:11px;
+  padding:12px 14px;
+  background:white;
+  color:var(--ink);
+}
+
+.field small {
+  display:block;
+  margin-top:7px;
+  font-size:11px;
+  color:var(--muted);
+}
+
+.selection-box {
+  padding:20px;
+  background:#EAF8FE;
+  border-radius:15px;
+}
+
+.selection-box span {
+  display:block;
+  font-size:10px;
+  color:#5785A3;
+  font-weight:800;
+}
+
+.selection-box strong {
+  display:block;
+  margin:5px 0;
+  color:var(--navy);
+  font-size:19px;
+}
+
+.selection-box p {
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.actions {
+  display:flex;
+  justify-content:flex-end;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+
+.btn {
+  min-height:45px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 20px;
+  border-radius:11px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.btn-primary {
+  border:1px solid var(--navy);
+  background:var(--navy);
+  color:white;
+}
+
+.btn-primary:hover { background:#07509B; }
+
+.btn-outline {
+  border:1px solid #CBDDEA;
+  background:white;
+  color:var(--navy);
+}
+
+.btn-outline:hover { background:#EAF8FE; }
+
+.btn-danger {
+  border:1px solid #F2D1CD;
+  background:#FFF0EE;
+  color:#A83B32;
+}
+
+.btn:disabled {
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+/* INSTRUCTIONS */
+
+.instructions {
+  border:1px solid #D8EAF4;
+  border-radius:15px;
+  padding:22px;
+  background:#F5FBFF;
+}
+
+.instructions h3 {
+  color:var(--navy);
+  margin-top:0;
+}
+
+.instructions li {
+  margin-bottom:10px;
+  font-size:13px;
+}
+
+.notice {
+  background:white;
+  border-left:3px solid var(--blue);
+  border-radius:8px;
+  padding:14px;
+  color:#526F85;
+  font-size:12px;
+}
+
+.acknowledge {
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-top:23px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.acknowledge input {
+  width:19px;
+  height:19px;
+  accent-color:var(--navy);
+}
+
+/* EXAM */
+
+.exam-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:16px;
+}
+
+.exam-tag {
+  display:inline-block;
+  background:#E1F6FF;
+  color:#007FAB;
+  padding:7px 13px;
+  border-radius:30px;
+  font-size:10px;
+  font-weight:800;
+}
+
+.exam-header h2 {
+  margin:8px 0 5px;
+}
+
+.exam-header p {
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.timer {
+  background:var(--navy);
+  color:white;
+  padding:12px 20px;
+  border-radius:13px;
+  text-align:center;
+}
+
+.timer small {
+  display:block;
+  font-size:9px;
+  color:#B4E2F8;
+  letter-spacing:.1em;
+}
+
+.timer strong {
+  display:block;
+  font-family:Manrope,sans-serif;
+  font-size:23px;
+  font-variant-numeric:tabular-nums;
+}
+
+.timer.warning { background:#B63D32; }
+
+.exam-meta {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:25px 0 9px;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:700;
+}
+
+.progress {
+  height:7px;
+  border-radius:20px;
+  background:#E5F0F7;
+  overflow:hidden;
+}
+
+.progress div {
+  width:0;
+  height:100%;
+  background:var(--blue);
+  transition:width .2s;
+}
+
+.exam-layout {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 245px;
+  gap:25px;
+  margin-top:25px;
+}
+
+.question {
+  padding:24px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.question:first-child { padding-top:0; }
+
+.question-top {
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-bottom:13px;
+  color:#008FC7;
+  font-size:11px;
+  font-weight:800;
+}
+
+.origin {
+  background:#EEF4F9;
+  color:#647F93;
+  border-radius:20px;
+  padding:5px 10px;
+  font-size:10px;
+}
+
+.question h3 {
+  color:var(--navy);
+  margin:0 0 18px;
+  font-size:17px;
+  line-height:1.55;
+}
+
+.options {
+  display:grid;
+  gap:9px;
+}
+
+.option {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  min-height:48px;
+  border:1px solid #D7E5EF;
+  border-radius:11px;
+  padding:11px 13px;
+  font-size:13px;
+  cursor:pointer;
+}
+
+.option:hover { border-color:var(--blue); }
+
+.option:has(input:checked) {
+  border-color:var(--blue);
+  background:#ECF9FE;
+}
+
+.option input { accent-color:var(--navy); }
+
+.flag {
+  margin-top:12px;
+  padding:6px 0;
+  border:0;
+  background:none;
+  color:#667C90;
+  font-size:11px;
+  font-weight:800;
+}
+
+.flag.active { color:#B67A23; }
+
+/* SIDEBAR */
+
+.sidebar-inner {
+  position:sticky;
+  top:18px;
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:#F7FBFE;
+}
+
+.sidebar-inner h3 {
+  margin:0 0 5px;
+  color:var(--navy);
+  font-size:15px;
+}
+
+.sidebar-inner p {
+  margin:0 0 17px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.question-nav {
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:7px;
+}
+
+.question-nav button {
+  height:34px;
+  padding:0;
+  border:1px solid #C9DBE8;
+  border-radius:7px;
+  background:white;
+  color:#4D6A82;
+  font-size:11px;
+  font-weight:800;
+}
+
+.question-nav button.answered {
+  background:#DDF5FF;
+  border-color:#80D6F5;
+}
+
+.question-nav button.flagged {
+  box-shadow:inset 0 0 0 2px #E6BC63;
+}
+
+.question-nav button.current {
+  outline:2px solid var(--navy);
+}
+
+.sidebar-inner .btn {
+  width:100%;
+  margin-top:20px;
+}
+
+.page-buttons {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:25px;
+}
+
+.page-buttons span {
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* RESULTS */
+
+.result-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:22px;
+}
+
+.score {
+  display:grid;
+  place-content:center;
+  width:130px;
+  height:130px;
+  flex-shrink:0;
+  border:8px solid #C7EEFF;
+  border-radius:50%;
+  background:#EEFAFF;
+  text-align:center;
+}
+
+.score strong {
+  font-size:35px;
+  color:var(--navy);
+}
+
+.score small {
+  font-size:9px;
+  color:var(--muted);
+}
+
+.metrics {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin:28px 0;
+}
+
+.metric,
+.result-box {
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#F8FBFE;
+  padding:19px;
+}
+
+.metric strong {
+  display:block;
+  font-size:26px;
+  color:var(--navy);
+}
+
+.metric small { color:var(--muted); }
+
+.result-columns {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.result-box {
+  margin-bottom:18px;
+}
+
+.result-box h3 {
+  margin:0 0 18px;
+  color:var(--navy);
+}
+
+.topic-row { margin-bottom:17px; }
+
+.topic-top {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:12px;
+}
+
+.topic-bar {
+  height:7px;
+  background:#E4EDF4;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:7px;
+}
+
+.topic-bar span {
+  display:block;
+  height:100%;
+  background:var(--blue);
+}
+
+.topic-bar span.weak { background:#E3A55C; }
+
+.recommendation {
+  margin-bottom:10px;
+  padding:13px;
+  border-radius:9px;
+  background:white;
+  font-size:12px;
+  color:#506B83;
+}
+
+.review {
+  padding:13px 0;
+  border-bottom:1px solid var(--line);
+  font-size:12px;
+}
+
+.review strong {
+  display:block;
+  color:var(--navy);
+}
+
+.review p { margin:5px 0; }
+
+.correct { color:var(--green); }
+.wrong { color:var(--red); }
+
+.result-actions {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.disclaimer {
+  margin-top:20px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+/* FOOTER */
+
+footer {
+  background:var(--deep);
+  padding:35px 0;
+  color:#C8E2F1;
+}
+
+.footer-inner {
+  width:min(1170px,92%);
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:center;
+}
+
+.footer-inner img { width:120px; }
+
+.footer-inner p { font-size:11px; }
+
+/* MODAL */
+
+dialog {
+  border:0;
+  border-radius:18px;
+  width:min(440px,92%);
+  padding:28px;
+}
+
+dialog::backdrop {
+  background:rgba(2,20,48,.68);
+}
+
+dialog h3 {
+  margin-top:0;
+  color:var(--navy);
+}
+
+dialog p {
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* RESPONSIVENESS */
+
+@media(max-width:850px) {
+  .exam-layout { grid-template-columns:1fr; }
+  .sidebar-inner { position:static; }
+  .question-nav { grid-template-columns:repeat(10,1fr); }
+  .result-columns { grid-template-columns:1fr; }
+}
+
+@media(max-width:620px) {
+  .header-inner { min-height:68px; padding:12px 16px; }
+  .brand img { width:90px; }
+  .brand-text { font-size:14px; padding-left:11px; }
+  .header-links a { font-size:10px; }
+  .header-links a:last-child { display:none; }
+
+  main { padding:36px 0 65px; }
+  .panel { padding:20px 15px; border-radius:17px; }
+  .form-grid { grid-template-columns:1fr; }
+  .full { grid-column:auto; }
+  .intro h1 { font-size:38px; }
+  .question h3 { font-size:15px; }
+  .question-nav { grid-template-columns:repeat(5,1fr); }
+  .option { font-size:12px; }
+  .metrics { grid-template-columns:repeat(2,1fr); }
+  .result-header { align-items:flex-start; }
+  .score { width:100px; height:100px; }
+  .score strong { font-size:25px; }
+  .timer strong { font-size:16px; }
+  .timer { padding:10px 12px; }
+  .page-buttons .btn { padding:10px; font-size:10px; }
+  .page-buttons span { font-size:10px; }
+  .result-actions { flex-direction:column; }
+  .result-actions .btn { width:100%; }
+  .footer-inner { flex-wrap:wrap; }
+}
+
+@media print {
+  header,footer,.intro,.result-actions,.disclaimer,
+  #registration,#instructions,#exam,#reviewBox,dialog {
+    display:none !important;
+  }
+  main { padding:0; }
+  .panel { border:0; box-shadow:none; }
+  .result-box { break-inside:avoid; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  * { transition:none !important; }
+}
+
+</style>
 </head>
 
 <body>
 
-<a href="#main" class="skip-link">Skip to content</a>
-
-<!-- HEADER -->
-
-<header class="cbt-header">
-  <div class="cbt-header-inner">
-
-    <a href="academy.html" class="cbt-brand">
+<header>
+  <div class="header-inner">
+    <a href="academy.html" class="brand">
       <img src="media/Openfees-white.png" alt="OpenFees Logo">
-
-      <span class="cbt-brand-divider"></span>
-
-      <span class="cbt-brand-name">
-        Academy
-        <small>CBT CENTRE</small>
-      </span>
+      <span class="brand-text">Academy <small>CBT CENTRE</small></span>
     </a>
 
-    <nav class="cbt-header-nav">
+    <div class="header-links">
       <a href="academy.html">Academy Home</a>
-      <a href="index.html">Main Website</a>
-    </nav>
-
-    <span class="cbt-header-tag">
-      Learn • Practise • Excel
-    </span>
-
+      <a href="index.html">OpenFees Website</a>
+    </div>
   </div>
 </header>
 
+<main class="container">
 
-<main id="main" class="cbt-main">
-
-  <!-- INTRO -->
-
-  <section class="cbt-intro" id="cbtIntro">
-    <span class="cbt-eyebrow">
-      OPENFEES ACADEMY / EXAMINATION PREPARATION
-    </span>
-
-    <h1>
-      Prepare with
-      <em>confidence.</em>
-    </h1>
-
+  <div class="intro" id="intro">
+    <span class="eyebrow">OPENFEES ACADEMY / CBT CENTRE</span>
+    <h1>Prepare with <em>confidence.</em></h1>
     <p>
-      Practise for JAMB, WAEC and NECO in a friendly
-      computer-based examination environment.
-      Learn from your performance and improve.
+      Register, choose your examination and subject,
+      answer timed questions, and receive a personalised performance report.
     </p>
-  </section>
+  </div>
 
+  <!-- REGISTRATION -->
 
-  <!-- STEP 1: CANDIDATE REGISTRATION -->
+  <section id="registration" class="panel">
+    <span class="step">STEP 01 / CANDIDATE REGISTRATION</span>
+    <h2>Let's get you started.</h2>
+    <p class="panel-lead">
+      Complete the form below to begin your examination.
+    </p>
 
-  <section id="registrationStage" class="cbt-stage">
+    <form id="registrationForm" class="form-grid">
 
-    <div class="cbt-stage-heading">
-      <span class="cbt-step-label">
-        STEP 01 / REGISTRATION
-      </span>
-
-      <h2>Let's get you ready.</h2>
-
-      <p>
-        Enter your details and choose the examination
-        and subject you want to practise.
-      </p>
-    </div>
-
-    <form id="registrationForm" class="cbt-form">
-
-      <div class="cbt-field cbt-full">
-        <label for="candidateName">
-          Candidate's Full Name
-        </label>
-
-        <input
-          id="candidateName"
-          type="text"
-          autocomplete="name"
-          maxlength="80"
-          minlength="2"
-          placeholder="Enter your full name"
-          required>
-
-        <small>
-          Your name will appear on your result report.
-        </small>
+      <div class="field full">
+        <label for="studentName">Candidate's Full Name</label>
+        <input type="text" id="studentName"
+               required minlength="2" maxlength="80"
+               autocomplete="name" placeholder="Enter your full name">
+        <small>This name will appear on your result report.</small>
       </div>
 
-      <div class="cbt-field">
-        <label for="examType">
-          Choose Examination
-        </label>
-
-        <select id="examType" required>
+      <div class="field">
+        <label for="examSelect">Choose Examination</label>
+        <select id="examSelect" required>
           <option value="jamb">JAMB / UTME</option>
           <option value="waec">WAEC</option>
           <option value="neco">NECO</option>
         </select>
       </div>
 
-      <div class="cbt-field">
-        <label for="examSubject">
-          Choose Subject
-        </label>
-
-        <select id="examSubject" required>
+      <div class="field">
+        <label for="subjectSelect">Choose Subject</label>
+        <select id="subjectSelect" required>
+          <option value="Mathematics">Mathematics</option>
+          <option value="English Language">English Language</option>
+          <option value="Biology">Biology</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Physics">Physics</option>
+          <option value="Economics">Economics</option>
+          <option value="Government">Government</option>
         </select>
       </div>
 
-      <div class="cbt-field">
-        <label for="examMode">
-          Examination Mode
-        </label>
-
-        <select id="examMode">
-          <option value="practice">
-            Subject Practice
-          </option>
-
-          <option value="simulation">
-            Timed Mock Simulation
-          </option>
+      <div class="field">
+        <label for="countSelect">Number of Questions</label>
+        <select id="countSelect" required>
+          <option value="10">10 Questions</option>
+          <option value="20">20 Questions</option>
+          <option value="40">40 Questions</option>
+          <option value="60">60 Questions</option>
         </select>
       </div>
 
-      <div class="cbt-field">
-        <label for="questionCount">
-          Number of Questions
-        </label>
-
-        <select id="questionCount" required>
+      <div class="field">
+        <label for="modeSelect">Practice Mode</label>
+        <select id="modeSelect">
+          <option value="standard">Standard Timed Practice</option>
+          <option value="intensive">Intensive Timed Practice</option>
         </select>
       </div>
 
-      <div class="cbt-field cbt-full">
-        <label for="questionSource">
-          Question Source
-        </label>
-
-        <select id="questionSource">
-          <option value="original">
-            OpenFees Original Practice Questions
-          </option>
-
-          <option value="historical">
-            Licensed Historical Questions (API)
-          </option>
-        </select>
-
-        <small>
-          Historical questions require a configured
-          and authorised question provider.
-        </small>
+      <div class="selection-box full">
+        <span>YOUR EXAMINATION</span>
+        <strong id="selectionTitle">JAMB / UTME — Mathematics</strong>
+        <p id="selectionDetails"></p>
       </div>
 
-      <div class="cbt-setup-summary cbt-full">
-        <div>
-          <span>YOUR PRACTICE SELECTION</span>
-          <strong id="setupPreview">
-            JAMB — Mathematics
-          </strong>
-          <small id="setupDetails">
-            Select a subject and question count.
-          </small>
-        </div>
-
-        <span class="setup-star" aria-hidden="true">✳</span>
-      </div>
-
-      <div class="cbt-form-actions cbt-full">
-        <button type="submit" class="cbt-btn cbt-btn-primary">
-          Continue to Instructions
-          <span aria-hidden="true">↗</span>
+      <div class="actions full" style="margin-top:0">
+        <button class="btn btn-primary" type="submit">
+          Continue to Instructions ↗
         </button>
       </div>
 
     </form>
   </section>
 
+  <!-- INSTRUCTIONS -->
 
-  <!-- STEP 2: INSTRUCTIONS -->
+  <section id="instructions" class="panel" hidden>
+    <span class="step">STEP 02 / INSTRUCTIONS</span>
+    <h2>Before you begin.</h2>
+    <p id="instructionSummary" class="panel-lead"></p>
 
-  <section id="instructionsStage" class="cbt-stage" hidden>
-
-    <div class="cbt-stage-heading">
-      <span class="cbt-step-label">
-        STEP 02 / EXAMINATION INSTRUCTIONS
-      </span>
-
-      <h2>Before you begin.</h2>
-
-      <p id="instructionSummary"></p>
-    </div>
-
-    <div class="cbt-instructions">
-
-      <h3>Read the following carefully</h3>
+    <div class="instructions">
+      <h3>Examination Instructions</h3>
 
       <ol>
-        <li>
-          Your examination contains
-          <strong id="instructionQuestionCount">0</strong>
-          questions.
-        </li>
-
-        <li>
-          Questions will be displayed
-          <strong>10 per page</strong>.
-        </li>
-
-        <li>
-          Your examination will last
-          <strong id="instructionDuration">0 minutes</strong>.
-        </li>
-
-        <li>
-          The countdown begins when you select
-          <strong>Start Examination</strong>.
-        </li>
-
-        <li>
-          You can move between pages and change
-          your answers before submitting.
-        </li>
-
-        <li>
-          Use the question navigator to revisit
-          answered or unanswered questions.
-        </li>
-
-        <li>
-          You can flag questions you wish to review.
-        </li>
-
-        <li>
-          Your answers are automatically saved
-          in this browser during the examination.
-        </li>
-
-        <li>
-          When the time expires, your examination
-          will be submitted automatically.
-        </li>
-
-        <li>
-          After submission, you will receive your
-          score, topic analysis and an OpenFees
-          Academy result report.
-        </li>
+        <li>Your exam will contain <strong id="instructionCount"></strong> questions.</li>
+        <li>Questions appear <strong>10 per page</strong>.</li>
+        <li>Your time limit is <strong id="instructionTime"></strong> minutes.</li>
+        <li>Once started, the countdown cannot be paused.</li>
+        <li>You can go back to previous questions and change answers.</li>
+        <li>You can mark questions for review.</li>
+        <li>Unanswered questions receive no marks.</li>
+        <li>When your time finishes, the exam submits automatically.</li>
+        <li>You will receive a performance report with revision recommendations.</li>
       </ol>
 
-      <div class="cbt-notice" id="sourceNotice">
-        This is an independent OpenFees Academy
-        practice examination, not an official
-        JAMB, WAEC or NECO examination.
+      <div class="notice">
+        These are original OpenFees practice questions.
+        They are not represented as official historical JAMB,
+        WAEC or NECO past papers. Practice timers are set
+        by OpenFees, not claimed as official examination durations.
       </div>
-
     </div>
 
-    <label class="cbt-confirm">
-      <input type="checkbox" id="acceptInstructions">
-
-      <span>
-        I have read and understood the
-        examination instructions.
-      </span>
+    <label class="acknowledge">
+      <input id="agreement" type="checkbox">
+      I have read and understood the instructions.
     </label>
 
-    <div class="cbt-actions">
-      <button type="button"
-              class="cbt-btn cbt-btn-outline"
-              id="backToRegistration">
+    <div class="actions">
+      <button type="button" class="btn btn-outline" id="backButton">
         ← Back
       </button>
 
-      <button type="button"
-              class="cbt-btn cbt-btn-primary"
-              id="startExamination"
-              disabled>
+      <button type="button" class="btn btn-primary" id="startButton" disabled>
         Start Examination ↗
       </button>
     </div>
-
   </section>
 
+  <!-- EXAMINATION -->
 
-  <!-- STEP 3: EXAMINATION WINDOW -->
+  <section id="exam" class="panel" hidden>
 
-  <section id="examinationStage"
-           class="cbt-stage cbt-examination"
-           hidden>
-
-    <div class="cbt-exam-heading">
-
-      <div class="cbt-exam-identity">
-        <span class="cbt-exam-badge" id="activeExamName">
-          JAMB / UTME
-        </span>
-
-        <h2 id="activeSubject">
-          Mathematics
-        </h2>
-
-        <p id="activeCandidate"></p>
+    <div class="exam-header">
+      <div>
+        <span class="exam-tag" id="examBadge">JAMB / UTME</span>
+        <h2 id="examSubjectTitle">Mathematics</h2>
+        <p id="candidateDisplay"></p>
       </div>
 
-      <div class="cbt-timer">
+      <div class="timer" id="timerBox">
         <small>TIME REMAINING</small>
-
-        <strong id="examTimer">
-          00:00:00
-        </strong>
+        <strong id="timerDisplay">00:00:00</strong>
       </div>
-
     </div>
 
-    <div class="cbt-exam-stats">
-      <span id="currentPageInfo">Page 1 of 6</span>
-      <span id="answeredCount">0 of 60 answered</span>
-      <span id="flaggedCount">0 marked for review</span>
+    <div class="exam-meta">
+      <span id="pageSummary"></span>
+      <span id="answerSummary"></span>
+      <span id="flagSummary"></span>
     </div>
 
-    <div class="cbt-progress">
+    <div class="progress">
       <div id="progressFill"></div>
     </div>
 
-    <div class="cbt-exam-layout">
+    <div class="exam-layout">
 
-      <div class="cbt-question-column">
-        <div id="questionsContainer"></div>
-      </div>
+      <div id="questionArea"></div>
 
-      <aside class="cbt-question-sidebar">
-
-        <div class="cbt-sidebar-inner">
-
+      <aside>
+        <div class="sidebar-inner">
           <h3>Question Navigator</h3>
-
-          <p>Jump to any question.</p>
-
-          <div id="questionNavigator"
-               class="cbt-navigator"></div>
-
-          <div class="cbt-legend">
-            <span><i class="answered"></i> Answered</span>
-            <span><i class="flagged"></i> Flagged</span>
-            <span><i></i> Not answered</span>
-          </div>
-
-          <button type="button"
-                  id="submitExamination"
-                  class="cbt-btn cbt-btn-submit">
+          <p>Select any question to navigate.</p>
+          <div id="questionNavigator" class="question-nav"></div>
+          <button class="btn btn-danger" type="button" id="submitButton">
             Submit Examination
           </button>
-
         </div>
-
       </aside>
 
     </div>
 
-    <div class="cbt-page-navigation">
-
-      <button type="button"
-              id="previousPage"
-              class="cbt-btn cbt-btn-outline">
+    <div class="page-buttons">
+      <button type="button" class="btn btn-outline" id="previousButton">
         ← Previous 10
       </button>
 
-      <span id="pageIndicator">
-        Page 1 of 6
-      </span>
+      <span id="pageIndicator"></span>
 
-      <button type="button"
-              id="nextPage"
-              class="cbt-btn cbt-btn-primary">
+      <button type="button" class="btn btn-primary" id="nextButton">
         Next 10 →
       </button>
-
     </div>
 
   </section>
 
+  <!-- RESULTS -->
 
-  <!-- STEP 4: RESULTS -->
+  <section id="results" class="panel" hidden>
 
-  <section id="resultsStage" class="cbt-stage" hidden>
-
-    <div class="cbt-results-heading">
-
+    <div class="result-header">
       <div>
-        <span class="cbt-step-label">
-          EXAMINATION COMPLETED
-        </span>
-
-        <h2>Your Learning Report</h2>
-
-        <p>
-          Every result is a chance to learn
-          and become even better.
-        </p>
+        <span class="step">EXAMINATION COMPLETED</span>
+        <h2>Your Performance Report</h2>
+        <p class="panel-lead">See how you performed and what to strengthen.</p>
       </div>
 
-      <div class="cbt-score-circle">
-        <strong id="resultPercentage">0%</strong>
+      <div class="score">
+        <strong id="scoreDisplay">0%</strong>
         <small>YOUR SCORE</small>
       </div>
-
     </div>
 
-    <div id="resultMetrics"
-         class="cbt-result-metrics"></div>
+    <div class="metrics" id="metrics"></div>
 
-    <div class="cbt-results-grid">
+    <div class="result-columns">
 
-      <div class="cbt-result-panel">
+      <div class="result-box">
         <h3>Performance by Topic</h3>
-        <div id="topicPerformance"></div>
+        <div id="topicAnalysis"></div>
       </div>
 
-      <div class="cbt-result-panel">
+      <div class="result-box">
         <h3>Areas to Strengthen</h3>
-        <div id="improvementRecommendations"></div>
+        <div id="recommendations"></div>
       </div>
 
     </div>
 
-    <div class="cbt-result-panel">
+    <div class="result-box" id="reviewBox">
       <h3>Question Review</h3>
       <div id="answerReview"></div>
     </div>
 
-    <div class="cbt-result-actions">
-
-      <button type="button"
-              id="downloadPdf"
-              class="cbt-btn cbt-btn-primary">
+    <div class="result-actions">
+      <button class="btn btn-primary" id="downloadPDF">
         Download PDF Report ↓
       </button>
 
-      <button type="button"
-              id="printResult"
-              class="cbt-btn cbt-btn-outline">
+      <button class="btn btn-outline" id="printPDF">
         Print Result
       </button>
 
-      <button type="button"
-              id="takeAnotherExam"
-              class="cbt-btn cbt-btn-outline">
+      <button class="btn btn-outline" id="newExam">
         Take Another Exam ↗
       </button>
-
     </div>
 
-    <p class="cbt-report-disclaimer">
-      This is an OpenFees Academy practice assessment,
-      not an official JAMB, WAEC or NECO result.
+    <p class="disclaimer">
+      OpenFees Academy independent practice examination report.
+      This is not an official JAMB, WAEC or NECO result.
     </p>
 
   </section>
 
 </main>
 
-
-<!-- FOOTER -->
-
-<footer class="cbt-footer">
-
-  <div class="cbt-footer-inner">
-
-    <div>
-      <img src="media/Openfees-white.png"
-           alt="OpenFees Logo">
-
-      <span>OpenFees Academy</span>
-    </div>
-
+<footer>
+  <div class="footer-inner">
+    <img src="media/Openfees-white.png" alt="OpenFees Logo">
     <p>
-      <a href="https://openfees.org">openfees.org</a>
-      ·
-      <a href="contact.html">Contact OpenFees</a>
+      OpenFees Academy •
+      <a href="https://openfees.org">openfees.org</a> •
+      <a href="contact.html">Contact Us</a>
     </p>
-
   </div>
-
 </footer>
 
+<dialog id="confirmDialog">
+  <h3>Submit your examination?</h3>
+  <p id="confirmMessage"></p>
+  <div class="actions">
+    <button class="btn btn-outline" type="button" id="cancelSubmit">
+      Continue Writing
+    </button>
 
-<!-- SUBMISSION CONFIRMATION -->
-
-<dialog id="submissionDialog"
-        class="cbt-dialog">
-
-  <div class="cbt-dialog-inner">
-
-    <h2>Submit your examination?</h2>
-
-    <p id="submissionSummary"></p>
-
-    <p>
-      Once submitted, you cannot change
-      your answers.
-    </p>
-
-    <div class="cbt-actions">
-
-      <button type="button"
-              id="cancelSubmission"
-              class="cbt-btn cbt-btn-outline">
-        Continue Writing
-      </button>
-
-      <button type="button"
-              id="confirmSubmission"
-              class="cbt-btn cbt-btn-primary">
-        Submit Now
-      </button>
-
-    </div>
-
+    <button class="btn btn-primary" type="button" id="confirmSubmit">
+      Submit Now
+    </button>
   </div>
-
 </dialog>
 
+<script>
+"use strict";
+
+/* =====================================
+   OPENFEES ACADEMY — CBT JAVASCRIPT
+===================================== */
+
+const el = id => document.getElementById(id);
+
+const LABELS = {
+  jamb: "JAMB / UTME",
+  waec: "WAEC",
+  neco: "NECO"
+};
+
+const LETTERS = ["A", "B", "C", "D"];
+const STORAGE = "openfees-cbt-current-session";
+const BANK = {};
+
+let examSession = null;
+let interval = null;
+let finalReport = null;
+
+/* QUESTION HELPERS */
+
+function addQuestion(subject, topic, text, options, correct, explanation) {
+  if (!BANK[subject]) BANK[subject] = [];
+
+  BANK[subject].push({
+    id: `${subject}-${BANK[subject].length + 1}`,
+    topic,
+    text,
+    options: options.map(String),
+    correct,
+    explanation,
+    origin: "original"
+  });
+}
+
+function makeOptions(answer, wrong, seed) {
+  const values = [answer, ...wrong].map(String);
+  const shift = seed % 4;
+
+  const options = [
+    ...values.slice(shift),
+    ...values.slice(0, shift)
+  ];
+
+  return {
+    options,
+    correct: options.indexOf(String(answer))
+  };
+}
+
+/* MATHEMATICS — 60 QUESTIONS */
+
+for (let i = 1; i <= 12; i++) {
+  const x = i + 2;
+  const a = (i % 5) + 2;
+  const b = i + 5;
+
+  const total = a * x + b;
+
+  const c = makeOptions(x, [x - 1, x + 1, x + 3], i);
+
+  addQuestion(
+    "Mathematics",
+    "Algebra",
+    `Solve for x: ${a}x + ${b} = ${total}.`,
+    c.options,
+    c.correct,
+    `Subtract ${b}, then divide by ${a}. Therefore x = ${x}.`
+  );
+}
+
+for (let i = 1; i <= 12; i++) {
+  const number = 20 * (i + 4);
+  const percentage = (i % 4 + 1) * 5;
+  const answer = number * percentage / 100;
+
+  const c = makeOptions(
+    answer, [answer + 5, answer + 10, answer + 15], i
+  );
+
+  addQuestion(
+    "Mathematics",
+    "Percentages",
+    `Find ${percentage}% of ${number}.`,
+    c.options,
+    c.correct,
+    `${percentage}/100 × ${number} = ${answer}.`
+  );
+}
+
+for (let i = 1; i <= 12; i++) {
+  const length = i + 4;
+  const width = i % 5 + 3;
+  const area = length * width;
+
+  const c = makeOptions(
+    `${area} cm²`,
+    [
+      `${area + 4} cm²`,
+      `${area + 8} cm²`,
+      `${area + 12} cm²`
+    ],
+    i
+  );
+
+  addQuestion(
+    "Mathematics",
+    "Mensuration",
+    `A rectangle is ${length} cm long and ${width} cm wide. Find its area.`,
+    c.options,
+    c.correct,
+    `Area = length × width = ${area} cm².`
+  );
+}
+
+for (let i = 1; i <= 12; i++) {
+  const start = i + 2;
+  const diff = i % 5 + 2;
+  const answer = start + 5 * diff;
+
+  const c = makeOptions(
+    answer,
+    [answer - diff, answer + diff, answer + diff * 2],
+    i
+  );
+
+  addQuestion(
+    "Mathematics",
+    "Sequences",
+    `The sequence is ${start}, ${start + diff}, ${start + diff * 2}, ... Find the 6th term.`,
+    c.options,
+    c.correct,
+    `Sixth term = ${start} + 5 × ${diff} = ${answer}.`
+  );
+}
+
+for (let i = 1; i <= 12; i++) {
+  const divisor = (i + 2) * 3;
+  const answer = i % 6 + 3;
+  const product = divisor * answer;
+
+  const c = makeOptions(
+    answer, [answer + 1, answer + 2, answer + 3], i
+  );
+
+  addQuestion(
+    "Mathematics",
+    "Arithmetic",
+    `Evaluate ${product} ÷ ${divisor}.`,
+    c.options,
+    c.correct,
+    `${product} divided by ${divisor} equals ${answer}.`
+  );
+}
+
+/* OTHER SUBJECTS */
+
+const QUESTIONS = {
+
+  "English Language": [
+    ["Vocabulary","Which word is closest in meaning to 'diligent'?",["Lazy","Hardworking","Careless","Confused"],1,"Diligent means hardworking and careful."],
+    ["Grammar","Choose the grammatically correct sentence.",["She go to school.","She goes to school.","She going to school.","She gone to school."],1,"The third-person singular subject 'she' takes 'goes'."],
+    ["Vocabulary","What is the opposite of 'generous'?",["Kind","Helpful","Selfish","Giving"],2,"Selfish is an antonym of generous."],
+    ["Grammar","Which word is a noun?",["Quickly","Happiness","Beautiful","Slowly"],1,"Happiness is an abstract noun."],
+    ["Grammar","Choose the plural of 'child'.",["Childs","Children","Childes","Childrens"],1,"The irregular plural of child is children."],
+    ["Vocabulary","Which word means very large?",["Tiny","Massive","Brief","Narrow"],1,"Massive means very large."],
+    ["Grammar","Which is the simple past of 'write'?",["Writed","Written","Wrote","Writing"],2,"Wrote is the simple past tense."],
+    ["Punctuation","Choose the correctly punctuated question.",["Where are you going.","Where are you going?","Where are you going,","Where are you going;"],1,"Direct questions normally end with a question mark."],
+    ["Grammar","Complete: She has ___ umbrella.",["a","an","some","many"],1,"Use 'an' before a vowel sound."],
+    ["Vocabulary","Which word is the opposite of 'ancient'?",["Old","Historic","Modern","Former"],2,"Modern is the opposite of ancient."],
+    ["Grammar","Which word is an adjective in 'The tall boy smiled'?",["The","Tall","Boy","Smiled"],1,"Tall describes the boy."],
+    ["Grammar","Which word is an adverb?",["Slowly","Chair","Happy","Green"],0,"Slowly describes the manner of an action."],
+    ["Vocabulary","Which word means brave?",["Timid","Afraid","Courageous","Nervous"],2,"Courageous means brave."],
+    ["Grammar","Complete: ___ are my books.",["This","That","These","It"],2,"These is used for plural objects nearby."],
+    ["Vocabulary","What is the opposite of 'victory'?",["Success","Defeat","Prize","Reward"],1,"Defeat contrasts with victory."],
+    ["Grammar","Complete: They ___ playing football.",["is","am","are","was"],2,"The plural subject 'they' takes 'are'."],
+    ["Vocabulary","Which word means 'to begin'?",["Finish","Commence","Close","End"],1,"Commence means to begin."],
+    ["Grammar","Which is a complete sentence?",["Under the table.","When it rained.","The teacher spoke.","Running outside."],2,"The teacher spoke is a complete sentence."],
+    ["Vocabulary","Which word is closest in meaning to accurate?",["Correct","Wrong","Vague","Rough"],0,"Accurate means correct or precise."],
+    ["Grammar","Complete: He ___ finished his work.",["have","has","having","being"],1,"He has finished is present perfect."]
+  ],
+
+  Biology: [
+    ["Cell Biology","Which organelle contains chlorophyll?",["Nucleus","Chloroplast","Ribosome","Vacuole"],1,"Chloroplasts contain chlorophyll."],
+    ["Human Biology","Which organ pumps blood?",["Liver","Kidney","Heart","Lung"],2,"The heart pumps blood through the body."],
+    ["Ecology","Which organism is a producer?",["Grass","Lion","Goat","Fungus"],0,"Grass produces food through photosynthesis."],
+    ["Human Biology","Which organ filters blood to form urine?",["Heart","Kidney","Stomach","Lung"],1,"The kidneys filter blood and form urine."],
+    ["Nutrition","Which nutrient builds and repairs tissues?",["Starch","Protein","Water","Fibre"],1,"Protein supports tissue growth and repair."],
+    ["Genetics","What carries hereditary information?",["DNA","Water","Starch","Glucose"],0,"DNA carries hereditary information."],
+    ["Photosynthesis","Which gas is absorbed during photosynthesis?",["Oxygen","Nitrogen","Carbon dioxide","Helium"],2,"Plants use carbon dioxide for photosynthesis."],
+    ["Microorganisms","Which organism is used to make bread rise?",["Moss","Yeast","Fern","Earthworm"],1,"Yeast releases carbon dioxide during fermentation."],
+    ["Respiration","Which gas is needed for aerobic respiration?",["Oxygen","Neon","Helium","Nitrogen"],0,"Aerobic respiration uses oxygen."],
+    ["Classification","Humans belong to which class?",["Reptiles","Mammals","Birds","Amphibians"],1,"Humans are mammals."],
+    ["Cell Biology","What is the basic unit of life?",["Organ","Cell","Tissue","System"],1,"The cell is the basic unit of life."],
+    ["Ecology","Animals that eat plants are called?",["Carnivores","Herbivores","Predators","Decomposers"],1,"Herbivores feed on plant material."],
+    ["Human Biology","Which cells help fight infections?",["Platelets","Red blood cells","White blood cells","Plasma"],2,"White blood cells perform immune functions."],
+    ["Plant Biology","Which flower part produces pollen?",["Anther","Stigma","Ovary","Sepal"],0,"The anther produces pollen."],
+    ["Plant Biology","Which plant organ absorbs water?",["Flower","Leaf","Root","Fruit"],2,"Roots absorb water and mineral ions."],
+    ["Ecology","Water vapour leaving leaves is called?",["Pollination","Transpiration","Fertilisation","Germination"],1,"Transpiration is water vapour loss from plants."],
+    ["Human Biology","Where are most nutrients absorbed?",["Stomach","Small intestine","Oesophagus","Liver"],1,"Most nutrients are absorbed in the small intestine."],
+    ["Cell Biology","Which structure regulates entry into a cell?",["Cell wall","Cell membrane","Nucleolus","Ribosome"],1,"The cell membrane controls movement into and out of a cell."],
+    ["Genetics","Two identical alleles are described as?",["Heterozygous","Homozygous","Recessive","Hybrid"],1,"Homozygous means having two identical alleles."],
+    ["Ecology","Organisms that break down dead matter are?",["Producers","Predators","Decomposers","Herbivores"],2,"Decomposers break down dead organic matter."]
+  ],
+
+  Chemistry: [
+    ["Atomic Structure","Which particle has a negative charge?",["Proton","Neutron","Electron","Nucleus"],2,"Electrons carry negative charge."],
+    ["Acids and Bases","What is the pH of pure water at 25°C?",["3","7","10","14"],1,"Pure water has a pH of about 7 at 25°C."],
+    ["Elements","What is the symbol for sodium?",["So","Na","S","Sn"],1,"Sodium has the symbol Na."],
+    ["Periodic Table","Which element has atomic number 1?",["Helium","Oxygen","Hydrogen","Carbon"],2,"Hydrogen has one proton."],
+    ["Bonding","Which bond involves electron sharing?",["Ionic","Covalent","Metallic","Hydrogen"],1,"Covalent bonds involve shared electron pairs."],
+    ["Matter","Which is a physical change?",["Burning paper","Rusting iron","Melting ice","Cooking an egg"],2,"Melting changes physical state."],
+    ["Measurement","Which is the SI unit of pressure?",["Pascal","Joule","Kelvin","Newton"],0,"Pressure is measured in pascals."],
+    ["Atmosphere","Which gas is most abundant in dry air?",["Oxygen","Nitrogen","Carbon dioxide","Argon"],1,"Nitrogen is about 78% of dry air."],
+    ["Separation","How can an insoluble solid be separated from water?",["Filtration","Evaporation","Freezing","Condensation"],0,"Filtration separates insoluble solids from liquids."],
+    ["Compounds","What is the chemical formula for water?",["H2O","CO2","NaCl","O2"],0,"Water is H2O."]
+  ],
+
+  Physics: [
+    ["Mechanics","What is the SI unit of force?",["Joule","Newton","Watt","Pascal"],1,"Force is measured in newtons."],
+    ["Motion","Average speed equals?",["Distance / Time","Time / Distance","Distance × Time","Mass × Acceleration"],0,"Speed is distance divided by time."],
+    ["Electricity","Which unit measures electric current?",["Volt","Ohm","Ampere","Watt"],2,"Electric current is measured in amperes."],
+    ["Energy","Which device converts electrical energy into light?",["Electric lamp","Windmill","Water tap","Fuel tank"],0,"A lamp converts electrical energy mainly into light and heat."],
+    ["Sound","Sound cannot travel through?",["Air","Water","Steel","Vacuum"],3,"Sound needs a material medium."],
+    ["Light","Which is a flat mirror?",["Plane","Concave","Convex","Parabolic"],0,"A plane mirror has a flat reflecting surface."],
+    ["Measurements","What is measured in kilograms?",["Mass","Speed","Force","Energy"],0,"The kilogram measures mass."],
+    ["Heat","Heat transfer through direct contact is?",["Conduction","Radiation","Reflection","Refraction"],0,"Conduction involves heat transfer through matter."],
+    ["Waves","Frequency is measured in?",["Hertz","Metres","Seconds","Joules"],0,"Frequency is measured in hertz."],
+    ["Electricity","How is a voltmeter connected?",["In parallel","In series","In a closed box","Without contact"],0,"A voltmeter is connected in parallel."]
+  ],
+
+  Economics: [
+    ["Basic Economics","Scarcity means?",["Unlimited goods","Limited resources relative to wants","No human wants","No production"],1,"Resources are limited relative to human wants."],
+    ["Demand","When price rises, quantity demanded generally?",["Falls","Rises always","Stays fixed","Becomes negative"],0,"The law of demand describes an inverse relationship."],
+    ["National Income","GDP stands for?",["Gross Domestic Product","General Domestic Price","Global Development Plan","Government Debt Payment"],0,"GDP means Gross Domestic Product."],
+    ["Production","Which factor of production earns wages?",["Labour","Land","Capital","Entrepreneurship"],0,"Labour earns wages."],
+    ["Money","Which is a function of money?",["Medium of exchange","Unlimited supply","Create land","Remove scarcity"],0,"Money facilitates exchange."],
+    ["Public Finance","Which is a compulsory government levy?",["Tax","Donation","Gift","Tip"],0,"A tax is a compulsory government levy."],
+    ["Markets","A market with one seller is?",["Monopoly","Perfect competition","Duopoly","Monopsony"],0,"Monopoly involves one seller."],
+    ["Trade","Imports are goods?",["Bought from abroad","Sold abroad","Destroyed","Produced locally only"],0,"Imports come from other countries."],
+    ["Inflation","Inflation is a sustained rise in?",["General price level","One product only","Population only","Rainfall"],0,"Inflation is a sustained general price increase."],
+    ["Opportunity Cost","Opportunity cost means?",["Next best alternative forgone","Total profit","Money saved","Total production"],0,"It is the value of the next best alternative given up."]
+  ],
+
+  Government: [
+    ["Democracy","Political authority in a democracy rests with?",["The people","The army only","Foreign powers","Judges only"],0,"Democracy derives legitimacy from the people."],
+    ["Constitution","A constitution sets out?",["Government framework","Daily weather","School timetable","Bank charges"],0,"A constitution defines the basic structure of government."],
+    ["Legislature","Which branch makes laws?",["Legislature","Executive","Police","Judiciary"],0,"The legislature makes laws."],
+    ["Citizenship","Citizenship is legal membership of a?",["State","Market","Sports club","Company"],0,"Citizenship means membership of a state."],
+    ["Rule of Law","The rule of law requires that?",["Everyone is subject to the law","Leaders are above the law","Courts are unnecessary","Laws apply only to voters"],0,"The rule of law applies to all persons."],
+    ["Federalism","Federalism involves?",["Division of powers between levels of government","No constitution","One village government","No elections"],0,"Federalism distributes government authority."],
+    ["Executive","Which branch implements government policy?",["Executive","Judiciary","Electorate","Legislature"],0,"The executive administers government policies."],
+    ["Elections","Universal adult suffrage means?",["Voting rights for eligible adults","Only officials vote","Only property owners vote","Only teachers vote"],0,"Eligible adults have the right to vote."],
+    ["Political Parties","A political party seeks to?",["Gain political power","Set school fees only","Replace all courts","Control the weather"],0,"Parties seek political authority through political participation."],
+    ["Separation of Powers","Which branch interprets laws?",["Executive","Judiciary","Legislature","Civil service"],1,"The judiciary interprets and applies laws."]
+  ]
+};
+
+Object.entries(QUESTIONS).forEach(([subject, rows]) => {
+  rows.forEach(row => addQuestion(subject, ...row));
+});
+
+/* UI STATE */
+
+const STAGES = ["registration", "instructions", "exam", "results"];
+
+function showStage(stage) {
+  STAGES.forEach(id => { el(id).hidden = id !== stage; });
+  el("intro").hidden = stage === "exam" || stage === "results";
+  window.scrollTo(0, 0);
+}
+
+function availableCount() {
+  return BANK[el("subjectSelect").value]?.length || 0;
+}
+
+function duration(count, mode) {
+  return mode === "intensive"
+    ? Math.ceil(count)
+    : Math.ceil(count * 1.5);
+}
+
+function updateSelection() {
+  const countSelect = el("countSelect");
+  const previous = countSelect.value;
+  const max = availableCount();
+
+  countSelect.replaceChildren();
+
+  [10, 20, 40, 60].filter(n => n <= max).forEach(n => {
+    countSelect.add(new Option(`${n} Questions`, String(n)));
+  });
+
+  countSelect.value =
+    [...countSelect.options].some(o => o.value === previous)
+      ? previous
+      : String(Math.min(60, max));
+
+  updateSummary();
+}
+
+function updateSummary() {
+  const exam = LABELS[el("examSelect").value];
+  const subject = el("subjectSelect").value;
+  const count = Number(el("countSelect").value);
+  const minutes = duration(count, el("modeSelect").value);
+
+  el("selectionTitle").textContent = `${exam} — ${subject}`;
+  el("selectionDetails").textContent =
+    `${count} questions • ${Math.ceil(count / 10)} pages • ${minutes} minutes`;
+}
+
+el("subjectSelect").addEventListener("change", updateSelection);
+el("countSelect").addEventListener("change", updateSummary);
+el("examSelect").addEventListener("change", updateSummary);
+el("modeSelect").addEventListener("change", updateSummary);
+
+/* REGISTRATION */
+
+el("registrationForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const name = el("studentName").value.trim();
+  const exam = el("examSelect").value;
+  const subject = el("subjectSelect").value;
+  const count = Number(el("countSelect").value);
+
+  if (name.length < 2) {
+    el("studentName").reportValidity();
+    return;
+  }
+
+  if (!BANK[subject] || count > BANK[subject].length || count < 1) {
+    alert("Please choose a valid subject and question count.");
+    return;
+  }
+
+  examSession = {
+    name, exam, subject, count,
+    minutes: duration(count, el("modeSelect").value),
+    questions: [],
+    answers: Array(count).fill(null),
+    flags: Array(count).fill(false),
+    page: 0,
+    startedAt: null,
+    deadline: null,
+    completed: false
+  };
+
+  el("instructionSummary").textContent =
+    `${LABELS[exam]} • ${subject}`;
+
+  el("instructionCount").textContent = count;
+  el("instructionTime").textContent = examSession.minutes;
+  el("agreement").checked = false;
+  el("startButton").disabled = true;
+
+  showStage("instructions");
+});
+
+el("backButton").addEventListener("click", () => {
+  showStage("registration");
+});
+
+el("agreement").addEventListener("change", e => {
+  el("startButton").disabled = !e.target.checked;
+});
+
+/* SESSION STORAGE */
+
+function saveSession() {
+  try {
+    localStorage.setItem(STORAGE, JSON.stringify(examSession));
+  } catch (_) {}
+}
+
+function clearSession() {
+  try { localStorage.removeItem(STORAGE); } catch (_) {}
+}
+
+function shuffle(array) {
+  const items = [...array];
+
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+
+  return items;
+}
+
+/* START EXAMINATION */
+
+el("startButton").addEventListener("click", () => {
+  if (!examSession || !el("agreement").checked) return;
+
+  examSession.questions = shuffle(BANK[examSession.subject])
+    .slice(0, examSession.count);
+
+  examSession.startedAt = Date.now();
+  examSession.deadline =
+    examSession.startedAt + examSession.minutes * 60000;
+
+  saveSession();
+  showStage("exam");
+  renderExam();
+  runTimer();
+});
+
+/* TIMER */
+
+function secondsLeft() {
+  return Math.max(
+    0,
+    Math.ceil((examSession.deadline - Date.now()) / 1000)
+  );
+}
+
+function formatTime(seconds) {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+
+  return [h, m, s]
+    .map(n => String(n).padStart(2, "0"))
+    .join(":");
+}
+
+function runTimer() {
+  clearInterval(interval);
+
+  function tick() {
+    if (!examSession || examSession.completed) {
+      clearInterval(interval);
+      return;
+    }
+
+    const remaining = secondsLeft();
+
+    el("timerDisplay").textContent = formatTime(remaining);
+    el("timerBox").classList.toggle("warning", remaining <= 300);
+
+    if (remaining <= 0) finishExam();
+  }
+
+  tick();
+  interval = setInterval(tick, 1000);
+}
+
+/* RENDER EXAM */
+
+function renderExam() {
+  if (examSession.completed) return;
+  if (secondsLeft() <= 0) return finishExam();
+
+  const s = examSession;
+  const start = s.page * 10;
+  const end = Math.min(start + 10, s.count);
+  const pages = Math.ceil(s.count / 10);
+
+  el("examBadge").textContent = LABELS[s.exam];
+  el("examSubjectTitle").textContent = s.subject;
+  el("candidateDisplay").textContent = `Candidate: ${s.name}`;
+
+  el("pageSummary").textContent = `Page ${s.page + 1} of ${pages}`;
+  el("pageIndicator").textContent = `Page ${s.page + 1} of ${pages}`;
+
+  el("previousButton").disabled = s.page === 0;
+
+  el("nextButton").textContent =
+    s.page === pages - 1 ? "Review & Submit →" : "Next 10 →";
+
+  const container = el("questionArea");
+  container.replaceChildren();
+
+  for (let i = start; i < end; i++) {
+    const q = s.questions[i];
+
+    const article = document.createElement("article");
+    article.className = "question";
+    article.id = `question-${i}`;
+
+    const top = document.createElement("div");
+    top.className = "question-top";
+
+    const number = document.createElement("span");
+    number.textContent = `QUESTION ${i + 1} OF ${s.count}`;
+
+    const origin = document.createElement("span");
+    origin.className = "origin";
+    origin.textContent = "Original Practice";
+
+    top.append(number, origin);
+
+    const title = document.createElement("h3");
+    title.textContent = q.text;
+
+    const options = document.createElement("div");
+    options.className = "options";
+
+    q.options.forEach((option, index) => {
+      const label = document.createElement("label");
+      label.className = "option";
+
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = `question-${i}`;
+      input.value = index;
+      input.checked = s.answers[i] === index;
+
+      const text = document.createElement("span");
+      text.textContent = `${LETTERS[index]}. ${option}`;
+
+      input.addEventListener("change", () => {
+        s.answers[i] = index;
+        saveSession();
+        updateProgress();
+      });
+
+      label.append(input, text);
+      options.appendChild(label);
+    });
+
+    const flag = document.createElement("button");
+    flag.type = "button";
+    flag.className = "flag" + (s.flags[i] ? " active" : "");
+    flag.textContent = s.flags[i]
+      ? "★ Marked for Review"
+      : "☆ Mark for Review";
+
+    flag.addEventListener("click", () => {
+      s.flags[i] = !s.flags[i];
+      saveSession();
+      renderExam();
+    });
+
+    article.append(top, title, options, flag);
+    container.appendChild(article);
+  }
+
+  updateProgress();
+}
+
+/* QUESTION NAVIGATOR */
+
+function updateProgress() {
+  const s = examSession;
+  const answered = s.answers.filter(a => a !== null).length;
+  const flagged = s.flags.filter(Boolean).length;
+
+  el("answerSummary").textContent =
+    `${answered} of ${s.count} answered`;
+
+  el("flagSummary").textContent = `${flagged} flagged`;
+
+  el("progressFill").style.width =
+    `${answered / s.count * 100}%`;
+
+  const nav = el("questionNavigator");
+  nav.replaceChildren();
+
+  s.questions.forEach((q, i) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = i + 1;
+
+    if (s.answers[i] !== null) button.classList.add("answered");
+    if (s.flags[i]) button.classList.add("flagged");
+    if (Math.floor(i / 10) === s.page) button.classList.add("current");
+
+    button.addEventListener("click", () => {
+      s.page = Math.floor(i / 10);
+      saveSession();
+      renderExam();
+
+      el(`question-${i}`)?.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    });
+
+    nav.appendChild(button);
+  });
+}
+
+/* PAGE NAVIGATION */
+
+el("previousButton").addEventListener("click", () => {
+  if (examSession.page === 0) return;
+
+  examSession.page--;
+  saveSession();
+  renderExam();
+  el("exam").scrollIntoView();
+});
+
+el("nextButton").addEventListener("click", () => {
+  const max = Math.ceil(examSession.count / 10) - 1;
+
+  if (examSession.page >= max) {
+    openSubmitDialog();
+    return;
+  }
+
+  examSession.page++;
+  saveSession();
+  renderExam();
+  el("exam").scrollIntoView();
+});
+
+/* SUBMISSION */
+
+function openSubmitDialog() {
+  const answered = examSession.answers.filter(
+    a => a !== null
+  ).length;
+
+  el("confirmMessage").textContent =
+    `You answered ${answered} of ${examSession.count} questions. ${
+      examSession.count - answered
+    } questions remain unanswered.`;
+
+  el("confirmDialog").showModal();
+}
+
+el("submitButton").addEventListener("click", openSubmitDialog);
+
+el("cancelSubmit").addEventListener("click", () => {
+  el("confirmDialog").close();
+});
+
+el("confirmSubmit").addEventListener("click", () => {
+  el("confirmDialog").close();
+  finishExam();
+});
+
+/* RESULT CALCULATION */
+
+function finishExam() {
+  if (!examSession || examSession.completed) return;
+
+  clearInterval(interval);
+
+  examSession.completed = true;
+  examSession.finishedAt = Date.now();
+
+  if (el("confirmDialog").open) el("confirmDialog").close();
+
+  const topics = {};
+  let correct = 0;
+
+  examSession.questions.forEach((q, i) => {
+    if (!topics[q.topic]) topics[q.topic] = { total: 0, correct: 0 };
+
+    topics[q.topic].total++;
+
+    if (examSession.answers[i] === q.correct) {
+      correct++;
+      topics[q.topic].correct++;
+    }
+  });
+
+  const attempted = examSession.answers.filter(
+    a => a !== null
+  ).length;
+
+  const used = Math.min(
+    examSession.minutes * 60,
+    Math.floor(
+      (examSession.finishedAt - examSession.startedAt) / 1000
+    )
+  );
+
+  finalReport = {
+    name: examSession.name,
+    exam: examSession.exam,
+    subject: examSession.subject,
+    questions: examSession.questions,
+    answers: examSession.answers,
+    total: examSession.count,
+    correct,
+    attempted,
+    percentage: Math.round(correct / examSession.count * 100),
+    used,
+    date: new Date(examSession.finishedAt),
+    topics
+  };
+
+  clearSession();
+  renderResults();
+  showStage("results");
+}
+
+function topicRows() {
+  return Object.entries(finalReport.topics).map(([name, data]) => ({
+    name,
+    correct: data.correct,
+    total: data.total,
+    percent: Math.round(data.correct / data.total * 100)
+  }));
+}
+
+function recommendations() {
+  const weak = topicRows()
+    .filter(t => t.percent < 60)
+    .sort((a, b) => a.percent - b.percent);
+
+  if (!weak.length) {
+    return [
+      "You performed well across the topics covered.",
+      "Review questions you missed to strengthen your understanding.",
+      "Continue practising regularly."
+    ];
+  }
+
+  return [
+    ...weak.slice(0, 3).map(t =>
+      `Revise ${t.name}. Your score in this topic was ${t.percent}%.`
+    ),
+    "Review the explanations and take another practice examination."
+  ];
+}
+
+/* RESULTS INTERFACE */
+
+function renderResults() {
+  const r = finalReport;
+
+  el("scoreDisplay").textContent = `${r.percentage}%`;
+
+  const metrics = [
+    ["Correct Answers", `${r.correct}/${r.total}`],
+    ["Overall Score", `${r.percentage}%`],
+    ["Attempted", `${r.attempted}/${r.total}`],
+    ["Time Used", formatTime(r.used)]
+  ];
+
+  const metricArea = el("metrics");
+  metricArea.replaceChildren();
+
+  metrics.forEach(([label, value]) => {
+    const box = document.createElement("div");
+    box.className = "metric";
+
+    const strong = document.createElement("strong");
+    strong.textContent = value;
+
+    const small = document.createElement("small");
+    small.textContent = label;
+
+    box.append(strong, small);
+    metricArea.appendChild(box);
+  });
+
+  const topicArea = el("topicAnalysis");
+  topicArea.replaceChildren();
+
+  topicRows().forEach(t => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "topic-row";
+
+    const top = document.createElement("div");
+    top.className = "topic-top";
+
+    const name = document.createElement("span");
+    name.textContent = t.name;
+
+    const score = document.createElement("strong");
+    score.textContent = `${t.percent}%`;
+
+    top.append(name, score);
+
+    const track = document.createElement("div");
+    track.className = "topic-bar";
+
+    const fill = document.createElement("span");
+    fill.style.width = `${t.percent}%`;
+    if (t.percent < 60) fill.classList.add("weak");
+
+    track.appendChild(fill);
+    wrapper.append(top, track);
+    topicArea.appendChild(wrapper);
+  });
+
+  const recommendationArea = el("recommendations");
+  recommendationArea.replaceChildren();
+
+  recommendations().forEach(message => {
+    const p = document.createElement("div");
+    p.className = "recommendation";
+    p.textContent = message;
+    recommendationArea.appendChild(p);
+  });
+
+  const reviewArea = el("answerReview");
+  reviewArea.replaceChildren();
+
+  r.questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "review";
+
+    const heading = document.createElement("strong");
+    heading.textContent = `Question ${index + 1} — ${q.topic}`;
+
+    const question = document.createElement("p");
+    question.textContent = q.text;
+
+    const selected = document.createElement("p");
+    selected.textContent =
+      "Your answer: " +
+      (r.answers[index] === null
+        ? "Not answered"
+        : q.options[r.answers[index]]);
+
+    const correct = document.createElement("p");
+    correct.textContent = `Correct answer: ${q.options[q.correct]}`;
+    correct.className = r.answers[index] === q.correct
+      ? "correct"
+      : "wrong";
+
+    const explanation = document.createElement("p");
+    explanation.textContent = `Explanation: ${q.explanation}`;
+
+    div.append(heading, question, selected, correct, explanation);
+    reviewArea.appendChild(div);
+  });
+}
+
+/* PDF HELPERS */
+
+async function loadLogo() {
+  try {
+    const response = await fetch("media/Openfees.png");
+    if (!response.ok) return null;
+
+    const blob = await response.blob();
+
+    return await new Promise(resolve => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => resolve(null);
+      reader.readAsDataURL(blob);
+    });
+  } catch (_) {
+    return null;
+  }
+}
+
+function filename(name) {
+  return String(name).replace(/[^a-z0-9]+/gi, "-").slice(0, 45);
+}
+
+/* DOWNLOAD PDF */
+
+el("downloadPDF").addEventListener("click", async () => {
+  if (!finalReport) return;
+
+  if (!window.jspdf?.jsPDF) {
+    alert("PDF library unavailable. Use Print Result and choose Save as PDF.");
+    return;
+  }
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: "mm", format: "a4" });
+  const r = finalReport;
+
+  let y = 50;
+  let pageNumber = 1;
+  const logo = await loadLogo();
+
+  function header() {
+    doc.setFillColor(3, 36, 100);
+    doc.rect(0, 0, 210, 36, "F");
+
+    if (logo) {
+      try {
+        doc.addImage(
+          logo,
+          logo.startsWith("data:image/png") ? "PNG" : "JPEG",
+          12, 7, 30, 21
+        );
+      } catch (_) {}
+    }
+
+    doc.setTextColor(255, 255, 255);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(17);
+    doc.text("OPENFEES ACADEMY", 48, 16);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    doc.text("STUDENT PERFORMANCE REPORT", 48, 23);
+    y = 46;
+  }
+
+  function footer() {
+    doc.setDrawColor(210, 225, 238);
+    doc.line(14, 275, 196, 275);
+    doc.setFontSize(8);
+    doc.setTextColor(96, 117, 135);
+    doc.text("openfees.org | Contact: openfees.org/contact.html", 14, 282);
+    doc.text(
+      `Independent practice report - Not an official exam result | Page ${pageNumber}`,
+      14, 288
+    );
+  }
+
+  function ensureSpace(height) {
+    if (y + height < 269) return;
+    footer();
+    doc.addPage();
+    pageNumber++;
+    header();
+  }
+
+  function section(title) {
+    ensureSpace(18);
+    y += 5;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(12);
+    doc.setTextColor(3, 36, 100);
+    doc.text(title, 14, y);
+    y += 9;
+  }
+
+  function line(label, value) {
+    const lines = doc.splitTextToSize(String(value), 175);
+    ensureSpace(lines.length * 5 + 8);
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.setTextColor(39, 61, 84);
+    doc.text(`${label}: ${lines[0]}`, 14, y);
+
+    if (lines.length > 1) {
+      doc.text(lines.slice(1), 14, y + 5);
+    }
+
+    y += lines.length * 5 + 5;
+  }
+
+  header();
+
+  section("Candidate Information");
+  line("Name", r.name);
+  line("Examination", LABELS[r.exam]);
+  line("Subject", r.subject);
+  line("Date", r.date.toLocaleDateString("en-NG"));
+
+  section("Examination Summary");
+  line("Total Questions", r.total);
+  line("Correct Answers", r.correct);
+  line("Attempted", r.attempted);
+  line("Overall Score", `${r.percentage}%`);
+  line("Time Used", formatTime(r.used));
+
+  section("Topic Performance");
+
+  topicRows().forEach(t => {
+    line(t.name, `${t.correct}/${t.total} (${t.percent}%)`);
+  });
+
+  section("Areas to Strengthen");
+
+  recommendations().forEach((message, index) => {
+    const lines = doc.splitTextToSize(
+      `${index + 1}. ${message}`, 180
+    );
+
+    ensureSpace(lines.length * 5 + 6);
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    doc.setTextColor(57, 80, 103);
+    doc.text(lines, 14, y);
+    y += lines.length * 5 + 5;
+  });
+
+  section("Assessment Note");
+
+  const note = doc.splitTextToSize(
+    "This document records an independent OpenFees Academy practice examination. It is not an official JAMB, WAEC or NECO certificate or statement of results.",
+    180
+  );
+
+  ensureSpace(note.length * 5 + 5);
+  doc.setFontSize(9);
+  doc.setTextColor(96, 117, 135);
+  doc.text(note, 14, y);
+
+  footer();
+
+  doc.save(
+    `OpenFees-${filename(r.name)}-${r.exam}-Result.pdf`
+  );
+});
+
+/* PRINT RESULT */
+
+el("printPDF").addEventListener("click", () => {
+  if (!finalReport) return;
+
+  const r = finalReport;
+  const printWindow = window.open("", "_blank");
+
+  if (!printWindow) {
+    alert("Please allow pop-ups to print the result.");
+    return;
+  }
+
+  function safe(text) {
+    return String(text).replace(/[&<>"']/g, char => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[char]);
+  }
+
+  const rows = topicRows().map(t => `
+    <tr>
+      <td>${safe(t.name)}</td>
+      <td>${t.correct}/${t.total}</td>
+      <td>${t.percent}%</td>
+    </tr>
+  `).join("");
+
+  const suggestions = recommendations()
+    .map(m => `<li>${safe(m)}</li>`).join("");
+
+  const logoUrl = new URL(
+    "media/Openfees-white.png",
+    location.href
+  ).href;
+
+  printWindow.document.write(`
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <title>OpenFees Academy Result</title>
+  <style>
+    @page { size:A4; margin:16mm; }
+    body { font:13px Arial,sans-serif; color:#233c58; }
+    header { background:#032464; color:white; padding:20px; display:flex; align-items:center; gap:20px; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+    header img { width:110px; }
+    h1 { font-size:21px; margin:0; }
+    h2 { font-size:17px; color:#032464; margin-top:25px; }
+    table { width:100%; border-collapse:collapse; }
+    td,th { border:1px solid #D7E6F0; padding:10px; text-align:left; }
+    .score { font-size:36px; font-weight:bold; color:#008fc7; }
+    footer { margin-top:30px; border-top:1px solid #CCC; padding-top:12px; font-size:10px; }
+  </style>
+  </head>
+  <body>
+    <header>
+      <img src="${logoUrl}" alt="OpenFees">
+      <div><h1>OPENFEES ACADEMY</h1>STUDENT PERFORMANCE REPORT</div>
+    </header>
+
+    <h2>Candidate Information</h2>
+    <p><b>Name:</b> ${safe(r.name)}</p>
+    <p><b>Examination:</b> ${LABELS[r.exam]}</p>
+    <p><b>Subject:</b> ${safe(r.subject)}</p>
+    <p><b>Date:</b> ${r.date.toLocaleDateString("en-NG")}</p>
+
+    <h2>Examination Summary</h2>
+    <p class="score">${r.percentage}%</p>
+    <p>Correct: ${r.correct}/${r.total}</p>
+    <p>Attempted: ${r.attempted}</p>
+    <p>Time Used: ${formatTime(r.used)}</p>
+
+    <h2>Performance by Topic</h2>
+    <table>
+      <tr><th>Topic</th><th>Correct</th><th>Score</th></tr>
+      ${rows}
+    </table>
+
+    <h2>Areas to Strengthen</h2>
+    <ol>${suggestions}</ol>
+
+    <footer>
+      OpenFees Academy | openfees.org | Contact: openfees.org/contact.html
+      <p>Independent practice assessment. Not an official examination result.</p>
+    </footer>
+  </body>
+  </html>`);
+
+  printWindow.document.close();
+
+  printWindow.addEventListener("load", () => {
+    printWindow.focus();
+    printWindow.print();
+  });
+});
+
+/* TAKE ANOTHER EXAM */
+
+el("newExam").addEventListener("click", () => {
+  clearInterval(interval);
+  examSession = null;
+  finalReport = null;
+  clearSession();
+  showStage("registration");
+});
+
+/* RESUME AFTER RELOAD */
+
+function tryResume() {
+  let saved;
+
+  try {
+    saved = JSON.parse(localStorage.getItem(STORAGE));
+  } catch (_) {
+    clearSession();
+    return;
+  }
+
+  if (
+    !saved ||
+    saved.completed ||
+    !saved.startedAt ||
+    !Number.isFinite(saved.deadline) ||
+    !Array.isArray(saved.questions) ||
+    !Array.isArray(saved.answers) ||
+    saved.questions.length !== saved.answers.length ||
+    !Array.isArray(saved.flags) ||
+    saved.flags.length !== saved.questions.length
+  ) {
+    return;
+  }
+
+  if (!confirm("You have an unfinished examination. Resume it?")) {
+    clearSession();
+    return;
+  }
+
+  examSession = saved;
+
+  if (secondsLeft() <= 0) {
+    finishExam();
+  } else {
+    showStage("exam");
+    renderExam();
+    runTimer();
+  }
+}
+
+/* PAGE INITIALISATION */
+
+function initialise() {
+  const params = new URLSearchParams(location.search);
+  const exam = params.get("exam");
+  const subject = params.get("subject");
+
+  if (LABELS[exam]) el("examSelect").value = exam;
+
+  if (subject && BANK[subject]) {
+    el("subjectSelect").value = subject;
+  }
+
+  updateSelection();
+  tryResume();
+}
+
+initialise();
+
+</script>
 </body>
 </html>
