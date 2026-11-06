@@ -4,9 +4,9 @@
 // ==========================================
 
 
-// ------------------------------------------
+// ==========================================
 // 1. WHITE LOGOS ON DARK BACKGROUNDS
-// ------------------------------------------
+// ==========================================
 
 document.querySelectorAll(
   ".brand img, .footer-brand img"
@@ -16,9 +16,9 @@ document.querySelectorAll(
 });
 
 
-// ------------------------------------------
+// ==========================================
 // 2. MOBILE NAVIGATION
-// ------------------------------------------
+// ==========================================
 
 const menuButton = document.querySelector(
   "[data-menu-button]"
@@ -74,6 +74,7 @@ if (menuButton && menuList) {
   });
 
   document.addEventListener("click", event => {
+
     if (
       !menuButton.contains(event.target) &&
       !menuList.contains(event.target)
@@ -84,9 +85,9 @@ if (menuButton && menuList) {
 }
 
 
-// ------------------------------------------
-// 3. HERO VIDEO AND SOUND BUTTON
-// ------------------------------------------
+// ==========================================
+// 3. HERO VIDEO AND SOUND CONTROL
+// ==========================================
 
 const heroVideo = document.getElementById(
   "heroVideo"
@@ -155,7 +156,7 @@ if (heroVideo) {
 
     try {
 
-      // Attempt immediate playback with sound.
+      // Try to play with sound.
       heroVideo.muted = false;
       heroVideo.volume = 1;
 
@@ -163,7 +164,8 @@ if (heroVideo) {
 
     } catch (error) {
 
-      // Browsers may block unmuted autoplay.
+      // Browser autoplay policies may block
+      // sound until the visitor interacts.
       heroVideo.muted = true;
 
       try {
@@ -206,8 +208,9 @@ if (heroVideo) {
     updateSoundButton
   );
 
-  // Scrolling does not intentionally
-  // pause the video.
+  // Do not pause the video on scroll.
+  // Browsers may still limit background
+  // playback for power-saving reasons.
 
   reducedMotion.addEventListener?.(
     "change",
@@ -216,6 +219,7 @@ if (heroVideo) {
       if (event.matches) {
         heroVideo.pause();
       } else if (heroVideo.paused) {
+
         heroVideo.play().catch(() => {
           heroVideo.muted = true;
           heroVideo.play().catch(() => {});
@@ -228,9 +232,9 @@ if (heroVideo) {
 }
 
 
-// ------------------------------------------
+// ==========================================
 // 4. COMMITMENT CARD INTERACTIONS
-// ------------------------------------------
+// ==========================================
 
 const commitmentCards = document.querySelectorAll(
   "[data-commitment-card]"
@@ -262,7 +266,6 @@ function toggleCommitmentCard(card) {
 
 commitmentCards.forEach(card => {
 
-  // Keyboard activation
   card.addEventListener("keydown", event => {
 
     if (event.target !== card) return;
@@ -280,7 +283,6 @@ commitmentCards.forEach(card => {
     }
   });
 
-  // Tap to expand on touchscreens
   card.addEventListener("click", event => {
 
     if (event.target.closest("a")) {
@@ -305,20 +307,284 @@ document.addEventListener("click", event => {
 });
 
 
-// ------------------------------------------
-// 5. COPYRIGHT YEAR
-// ------------------------------------------
+// ==========================================
+// 5. FUND A FUTURE — INTERACTIVE DONATIONS
+// ==========================================
+
+const fundFrequencyInputs = document.querySelectorAll(
+  "[data-fund-frequency]"
+);
+
+const fundAmountInputs = document.querySelectorAll(
+  "[data-fund-amount]"
+);
+
+const fundCustomAmount = document.getElementById(
+  "fundCustomAmount"
+);
+
+const fundSelectedAmount = document.getElementById(
+  "fundSelectedAmount"
+);
+
+const fundSelectedFrequency = document.getElementById(
+  "fundSelectedFrequency"
+);
+
+const fundDonateButton = document.getElementById(
+  "fundDonateButton"
+);
+
+const fundValidation = document.getElementById(
+  "fundValidation"
+);
+
+const minimumDonation = 100;
+
+const nairaFormatter = new Intl.NumberFormat(
+  "en-NG",
+  {
+    style: "currency",
+    currency: "NGN",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }
+);
+
+if (
+  fundAmountInputs.length &&
+  fundCustomAmount &&
+  fundSelectedAmount &&
+  fundSelectedFrequency &&
+  fundDonateButton
+) {
+
+  let selectedAmount = 10000;
+  let selectedFrequency = "once";
+  let usingCustomAmount = false;
+
+  function showFundError(message) {
+
+    if (fundValidation) {
+      fundValidation.textContent = message;
+      fundValidation.hidden = !message;
+    }
+  }
+
+  function getSelectedPresetAmount() {
+
+    const checked = document.querySelector(
+      '[data-fund-amount]:checked'
+    );
+
+    return checked
+      ? Number(checked.value)
+      : 10000;
+  }
+
+  function updateFundSummary() {
+
+    fundSelectedFrequency.textContent =
+      selectedFrequency === "monthly"
+        ? "per month"
+        : "one-time";
+
+    const amountIsValid =
+      Number.isSafeInteger(selectedAmount) &&
+      selectedAmount >= minimumDonation;
+
+    if (!amountIsValid) {
+
+      fundSelectedAmount.textContent = "—";
+
+      fundDonateButton.classList.add(
+        "is-disabled"
+      );
+
+      fundDonateButton.setAttribute(
+        "aria-disabled",
+        "true"
+      );
+
+      fundDonateButton.removeAttribute("href");
+
+      showFundError(
+        "Please enter a valid amount of at least ₦100."
+      );
+
+      return;
+    }
+
+    showFundError("");
+
+    fundSelectedAmount.textContent =
+      nairaFormatter.format(selectedAmount);
+
+    fundDonateButton.classList.remove(
+      "is-disabled"
+    );
+
+    fundDonateButton.removeAttribute(
+      "aria-disabled"
+    );
+
+    // The next page must read these
+    // URL values to use them in checkout.
+
+    const params = new URLSearchParams({
+      amount: String(selectedAmount),
+      frequency: selectedFrequency
+    });
+
+    fundDonateButton.href =
+      "donate.html?" + params.toString();
+  }
+
+  // ONE-TIME OR MONTHLY
+
+  fundFrequencyInputs.forEach(input => {
+
+    input.addEventListener("change", () => {
+
+      if (!input.checked) return;
+
+      selectedFrequency = input.value;
+
+      updateFundSummary();
+    });
+  });
+
+  // PRESET DONATION AMOUNTS
+
+  fundAmountInputs.forEach(input => {
+
+    input.addEventListener("change", () => {
+
+      if (!input.checked) return;
+
+      usingCustomAmount = false;
+
+      selectedAmount = Number(input.value);
+
+      // Remove any previously typed
+      // custom amount when selecting a preset.
+
+      fundCustomAmount.value = "";
+
+      updateFundSummary();
+    });
+  });
+
+  // CUSTOM DONATION AMOUNT
+
+  fundCustomAmount.addEventListener(
+    "input",
+    () => {
+
+      const rawAmount = fundCustomAmount.value.trim();
+
+      if (rawAmount === "") {
+
+        usingCustomAmount = false;
+
+        const checkedPreset =
+          document.querySelector(
+            '[data-fund-amount]:checked'
+          );
+
+        if (!checkedPreset) {
+          const defaultPreset =
+            document.querySelector(
+              '[data-fund-amount][value="10000"]'
+            );
+
+          if (defaultPreset) {
+            defaultPreset.checked = true;
+          }
+        }
+
+        selectedAmount = getSelectedPresetAmount();
+
+        updateFundSummary();
+        return;
+      }
+
+      usingCustomAmount = true;
+
+      // Uncheck the preset choices
+      // because custom amount is active.
+
+      fundAmountInputs.forEach(input => {
+        input.checked = false;
+      });
+
+      const numericAmount = Number(rawAmount);
+
+      selectedAmount = numericAmount;
+
+      updateFundSummary();
+    }
+  );
+
+  // PREVENT INVALID CONTINUATION
+
+  fundDonateButton.addEventListener(
+    "click",
+    event => {
+
+      const valid =
+        Number.isSafeInteger(selectedAmount) &&
+        selectedAmount >= minimumDonation;
+
+      if (!valid) {
+
+        event.preventDefault();
+
+        updateFundSummary();
+
+        fundCustomAmount.focus();
+
+        return;
+      }
+
+      // No payment happens here.
+      // Navigation continues to donate.html.
+    }
+  );
+
+  // INITIAL DEFAULT SELECTION
+
+  const checkedFrequency = document.querySelector(
+    '[data-fund-frequency]:checked'
+  );
+
+  if (checkedFrequency) {
+    selectedFrequency = checkedFrequency.value;
+  }
+
+  selectedAmount = getSelectedPresetAmount();
+
+  updateFundSummary();
+}
+
+
+// ==========================================
+// 6. AUTOMATIC COPYRIGHT YEAR
+// ==========================================
 
 document.querySelectorAll(
   "[data-current-year]"
 ).forEach(element => {
-  element.textContent = new Date().getFullYear();
+
+  element.textContent =
+    new Date().getFullYear();
+
 });
 
 
-// ------------------------------------------
-// 6. SCROLL REVEAL ANIMATIONS
-// ------------------------------------------
+// ==========================================
+// 7. SCROLL REVEAL ANIMATIONS
+// ==========================================
 
 const revealItems = document.querySelectorAll(
   "[data-reveal]"
@@ -340,6 +606,7 @@ if (
       entries.forEach(entry => {
 
         if (entry.isIntersecting) {
+
           entry.target.classList.add(
             "is-visible"
           );
@@ -349,6 +616,7 @@ if (
           );
         }
       });
+
     },
     {
       threshold: 0.08,
@@ -362,9 +630,9 @@ if (
 }
 
 
-// ------------------------------------------
-// 7. REDUCED MOTION ACCESSIBILITY
-// ------------------------------------------
+// ==========================================
+// 8. REDUCED MOTION
+// ==========================================
 
 reducedMotion.addEventListener?.(
   "change",
